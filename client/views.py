@@ -24,3 +24,7 @@ def auth(request):
             return redirect(reverse('client:home'))
 
     return render(request, 'auth.html')
+
+
+def home(request):
+    return render(request, 'home.html')
