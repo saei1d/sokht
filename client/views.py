@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect, reverse
 
 from client.models import CustomUser
+from product.models import Product
 
 
 def auth(request):
@@ -27,4 +28,5 @@ def auth(request):
 
 
 def home(request):
-    return render(request, 'home.html')
+    products = Product.objects.all()  # Fetch all products
+    return render(request, 'home.html', {'products': products})
