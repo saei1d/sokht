@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>پروژه سوخت‌رسانی آنلاین</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-black text-red-500 font-sans">
+
+
+<div class="min-h-screen flex items-center justify-center">
+    <div class="max-w-3xl mx-auto flex">
+        <div class="w-1/2">
+            <h2 class="text-4xl font-extrabold text-center mb-6">
+                دسترسی به سوخت بدون معطلی
+            </h2>
+            <p class="text-sm text-center mb-6">با فرم ورودی به شکل هوشمند، به سادگی به حساب کاربری خود دسترسی پیدا
+                کنید.</p>
+        </div>
+        <div class="w-1/2">
+            <form class="bg-white rounded-xl px-6 py-8 space-y-6" method="post">
+                {% csrf_token %}
+                <h3 class="text-3xl font-extrabold mb-6 text-center">
+                    ورود
+                </h3>
+                <div>
+                    <input name="n_code" type="text" autocomplete="کدملی" required
+                           class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-none block"
+                           placeholder="کد ملی ۱۰ رقمی"/>
+                </div>
+                <div>
+                    <input name="phone" type="password" autocomplete="current-password" required
+                           class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-none block"
+                           placeholder="شماره همراه خودرا وارد کنید"/>
+                </div>
+                <div class="text-sm text-right mb-4">
+                    <a href="#" class="text-blue-600 hover:underline">
+                        رمز عبور خود را فراموش کرده‌اید؟
+                    </a>
+                </div>
+                <div>
+                    <button type="button"
+                            class="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-white bg-red-500 hover:bg-red-600 focus:outline-none">
+                        ورود
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
