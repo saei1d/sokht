@@ -8,32 +8,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-        {% load static %}
-        <img src="{% static 'images/photo_2024-06-10_14-01-23.jpg' %}"  style="height:70px;width: 120px" alt="My image">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">صفحه اصلی</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">درباره ما</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">خدمات ما</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">ارتباط با ما</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+{% include 'header.html' %}
+
 <div class="container">
     <div class="row">
 
@@ -182,7 +158,9 @@
                             </ul>
                         </div>
                         <div class="card-footer border-top border-light text-center">
-                            <button class="btn btn-light text-dark font-weight-bold w-100">خرید</button>
+                            <button class="btn btn-light text-dark font-weight-bold w-100"
+                                    onclick="redirectToPayment('{{ product.name }}', {{ product.price }})">خرید
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -191,6 +169,18 @@
     </div>
 </section>
 
+
+{% include 'footer.html' %}
+
+<script>
+    function redirectToPayment(productName, productPrice) {
+        // ایجاد یک URL که به صفحه پرداخت هدایت می‌کند، همراه با اطلاعات محصول
+        var paymentUrl = "/pay/?product=" + encodeURIComponent(productName) + "&price=" + productPrice;
+        // هدایت کاربر به صفحه پرداخت
+        window.location.href = paymentUrl;
+    }
+    
+</script>
 <!-- jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
