@@ -10,6 +10,7 @@ class GProduct(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
 
+
 class Product(models.Model):
     name = models.CharField(max_length=110)
     price = models.IntegerField()
@@ -17,15 +18,11 @@ class Product(models.Model):
     deleted = models.BooleanField(default=False)
 
 
-
-
-
-
 class Order(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     description = models.TextField()
-    location =models.CharField(max_length=500)
+    location = models.CharField(max_length=500)
     date = models.CharField(max_length=500)
     status = models.CharField(max_length=100)
     cart = models.BooleanField(default=False)
