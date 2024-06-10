@@ -10,7 +10,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
-        <img src="your-logo.png" width="30" height="30" alt="Logo">
+        {% load static %}
+         <img src="{% static 'images/photo_2024-06-10_14-01-23.jpg' %}" style="height:70px;width: 120px" alt="My image">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,50 +34,63 @@
         </ul>
     </div>
 </nav>
-
-
-<section>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
+<div class="container">
+<div class="row">
+    
+        <div class="col-md-8">
+        {% load static %}
+         <img src="{% static 'images/hero.png' %}" alt="My image">
     </div>
-</section>
-<section>
-    <div class="container mt-5">
-    <div class="card mx-auto" style="max-width: 400px;">
-        <div class="card-header bg-primary text-white text-center">
-            بنزین سوپر
+
+    
+    <div class="col-md-4 mt-4">
+        <div class="card border-danger  mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h5 class="card-title">Primary card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+            </div>
         </div>
-        <div class="card-body">
-            <h5 class="card-title text-center">فروشگاه سوخت‌رسانی نمونه</h5>
-            <p class="card-text">ویژگی‌ها:</p>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">کیفیت بالا</li>
-                <li class="list-group-item">کاهش مصرف سوخت</li>
-                <li class="list-group-item">دوستدار محیط زیست</li>
-            </ul>
-            <p class="card-text mt-3">آدرس فروشگاه:</p>
-            <p class="card-text">خیابان آزادی، نرسیده به میدان انقلاب، پلاک ۱۲</p>
-            <p class="card-text">ساعات کار:</p>
-            <p class="card-text">شنبه تا پنجشنبه: 8 صبح تا 10 شب<br>جمعه‌ها: 9 صبح تا 8 شب</p>
-            <p class="card-text">تلفن تماس: 021-12345678</p>
-        </div>
-        <div class="card-footer bg-primary text-white text-center">
-            <span class="h5">15,000 تومان به ازای هر لیتر</span>
+        <div class="card border-warning mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h5 class="card-title">Secondary card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+            </div>
         </div>
     </div>
 </div>
+</div>
+
+<section>
+    <div class="container mt-5">
+        <div class="card mx-auto" style="max-width: 400px;">
+            <div class="card-header bg-primary text-white text-center">
+                بنزین سوپر
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-center">فروشگاه سوخت‌رسانی نمونه</h5>
+                <p class="card-text">ویژگی‌ها:</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">کیفیت بالا</li>
+                    <li class="list-group-item">کاهش مصرف سوخت</li>
+                    <li class="list-group-item">دوستدار محیط زیست</li>
+                </ul>
+                <p class="card-text mt-3">آدرس فروشگاه:</p>
+                <p class="card-text">خیابان آزادی، نرسیده به میدان انقلاب، پلاک ۱۲</p>
+                <p class="card-text">ساعات کار:</p>
+                <p class="card-text">شنبه تا پنجشنبه: 8 صبح تا 10 شب<br>جمعه‌ها: 9 صبح تا 8 شب</p>
+                <p class="card-text">تلفن تماس: 021-12345678</p>
+            </div>
+            <div class="card-footer bg-primary text-white text-center">
+                <span class="h5">15,000 تومان به ازای هر لیتر</span>
+            </div>
+        </div>
+    </div>
 
 </section>
 
