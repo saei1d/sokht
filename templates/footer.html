@@ -1,22 +1,30 @@
-<footer class="footer" style="color: black;">
+<footer class="footer mt-5" style="color: black; background-color: #f8f9fa; padding: 20px 0;">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4">
-                <!-- دو عکس لوگو کوچک -->
-                <img src="logo1.png" alt="لوگو 1" class="logo">
-                <img src="logo2.png" alt="لوگو 2" class="logo">
+            <div class="col-lg-4 text-center">
+                {% load static %}
+
+                <div class="row justify-content-center">
+                    <div class="col-md-3"><img src="{% static 'images/download.png' %}" alt="نماد الکترونیک 1" class="footerr"></div>
+                    <div class="col-md-3"><img src="{% static 'images/download.jpeg' %}" alt="نماد الکترونیک 2" class="footerr"></div>
+                </div>
             </div>
             <div class="col-lg-4">
-                <!-- متن فوتر -->
-                <p class="text-right"><a href="link1">نوشته 1</a></p>
-                <p class="text-right"><a href="link2">نوشته 2</a></p>
-                <!-- ادامه متنهای دیگر -->
+                <h5 style="font-size: 20px;">لینک‌های سریع</h5>
+                <ul class="list-unstyled">
+                    <li><a href="link1" style="color: black; font-size: 16px;">صفحه اصلی</a></li>
+                    <li><a href="link2" style="color: black; font-size: 16px;">محصولات</a></li>
+                    <li><a href="link3" style="color: black; font-size: 16px;">درباره ما</a></li>
+                    <li><a href="link4" style="color: black; font-size: 16px;">خدمات</a></li>
+                </ul>
             </div>
             <div class="col-lg-4">
-                <!-- ستون جدید -->
-                <p class="text-right"><a href="link3">نوشته 3</a></p>
-                <p class="text-right"><a href="link4">نوشته 4</a></p>
-                <!-- ادامه متنهای دیگر -->
+                <h5 style="font-size: 20px;">تماس با ما</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: black; font-size: 16px;">آدرس: خیابان مثال، شهر، کشور</a></li>
+                    <li><a href="#" style="color: black; font-size: 16px;">تلفن: +123456789</a></li>
+                    <li><a href="#" style="color: black; font-size: 16px;">ایمیل: info@example.com</a></li>
+                </ul>
             </div>
         </div>
     </div>
