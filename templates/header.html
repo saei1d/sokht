@@ -1,13 +1,14 @@
-<nav class=" navbar navbar-expand-lg navbar-light container" style="z-index: 99">
+<div class="container">
+<nav class=" navbar navbar-expand-lg navbar-light" style="z-index: 99">
     <a class="navbar-brand" href="#">
         {% load static %}
         <img src="{% static 'images/photo_2024-06-10_14-01-23.png' %}"  style="height:70px;width: 120px;" alt="My image">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"  id="menu-toggle"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarToggleExternalContent">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="#"style="color: white">صفحه اصلی</a>
@@ -24,3 +25,4 @@
         </ul>
     </div>
 </nav>
+</div>

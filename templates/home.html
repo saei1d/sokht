@@ -6,8 +6,6 @@
     <title>Navbar Example</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-
 
     <style>
 
@@ -22,6 +20,7 @@
 
             border: none;
             background: #eee;
+            border-radius: 40px;
 
         }
 
@@ -158,11 +157,14 @@
     <div class="carousel-inner d-none d-md-block ">
         <div class="carousel-item active">
             {% load static %}
-            <img src="{% static 'images/deesktop.png' %}" class="w-100 h-10" style="height: 700px;object-fit: cover"
+            <img src="{% static 'images/deesktop.png' %}" class="w-100 h-10"
+                 style="height: 700px;object-fit: cover;border-bottom-right-radius: 20%;border-bottom-left-radius: 20%"
                  alt="My image">
             <div class="carousel-caption d-none d-md-block">
-                <div class="container mt-4">
-                    <h3>دیگه وقتت و داخل پمپ بنزین تلف نکن</h3>
+                <div class="container">
+                    <h2 class="text-right">دیگه وقتت و داخل پمپ بنزین تلف نکن</h2>
+                    <p class="text-right">شرکت پترونوین در نظر دارد تامشکل بنزین زدن ما را حل کند شما با</p>
+                    <p class="text-right">درخواست در این پلتفرم بنرین را در مکان دلخواه تحویل بگیر</p>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-9">
                             {#                            <div class="card p-4 mt-3"><h3 class="heading mt-5 text-center" style="color: black">#}
@@ -172,56 +174,61 @@
                             {#                                                               name=""> <a href="#" class="search-icon"> <i#}
                             {#                                            class="fa fa-search"></i> </a></div>#}
                             {#                                </div>#}
-                            <div class="row mt-4 g-1 px-4"
-                                 style="background-color: white;height: 100px;margin-bottom: 200px;border-radius: 50px">
-                                <div class="col-md-2 mt-3">
-                                    <div class="card-inner p-3 d-flex flex-column align-items-center"
-                                         style="background-color: blue">
-                                        <img
-                                                src="https://i.imgur.com/Mb8kaPV.png" width="30">
-                                        <div class="text-center mg-text"><span class="mg-text" style="color:white">Account</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 mt-3">
-                                    <div class="card-inner p-3 d-flex flex-column align-items-center"><img
-                                            src="https://i.imgur.com/ueLEPGq.png" width="30">
-                                        <div class="text-center mg-text"><span class="mg-text" style="color: black">Payments</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 mt-3">
-                                    <div class="card-inner p-3 d-flex flex-column align-items-center"><img
-                                            src="https://i.imgur.com/tmqv0Eq.png" width="30">
-                                        <div class="text-center mg-text"><span class="mg-text" style="color: black">Delivery</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 mt-3">
-                                    <div class="card-inner p-3 d-flex flex-column align-items-center"><img
-                                            src="https://i.imgur.com/D0Sm15i.png" width="30">
-                                        <div class="text-center mg-text"><span class="mg-text" style="color: black">Product</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 mt-3">
-                                    <div class="card-inner p-3 d-flex flex-column align-items-center"><img
-                                            src="https://i.imgur.com/Z7BJ8Po.png" width="30">
-                                        <div class="text-center mg-text"><span class="mg-text" style="color: black">Return</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 mt-3">
-                                    <div class="card-inner p-3 d-flex flex-column align-items-center"><img
-                                            src="https://i.imgur.com/YLsQrn3.png" width="30">
-                                        <div class="text-center mg-text"><span class="mg-text" style="color: black">Guarantee</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="button mx-auto mt-3">درخواست انلاین سوخت</div>
+                            <div class="button float-right mt-3" style="margin-bottom: 200px">درخواست انلاین سوخت</div>
 
-                            </div>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container d-none d-md-block">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12" style="margin-top: -130px">
+            <div class="card p-4 mt-3"><h3 class="heading mt-5 text-center">چگونه بنزین یه دست
+                مشتری میرسد</h3>
+                <div class="d-flex justify-content-center px-5">
+                    <div class="search"><input type="text" class="search-input" placeholder="Search..." name=""> <a
+                            href="#" class="search-icon"> <i class="fa fa-search"></i> </a></div>
+                </div>
+                <div class="row mt-4 g-1 px-4 mb-5">
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"><img
+                                src="https://i.imgur.com/Mb8kaPV.png" width="50">
+                            <div class="text-center mg-text"><span class="mg-text">Account</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"><img
+                                src="https://i.imgur.com/ueLEPGq.png" width="50">
+                            <div class="text-center mg-text"><span class="mg-text">Payments</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"><img
+                                src="https://i.imgur.com/tmqv0Eq.png" width="50">
+                            <div class="text-center mg-text"><span class="mg-text">Delivery</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"><img
+                                src="https://i.imgur.com/D0Sm15i.png" width="50">
+                            <div class="text-center mg-text"><span class="mg-text">Product</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"><img
+                                src="https://i.imgur.com/Z7BJ8Po.png" width="50">
+                            <div class="text-center mg-text"><span class="mg-text">Return</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"><img
+                                src="https://i.imgur.com/YLsQrn3.png" width="50">
+                            <div class="text-center mg-text"><span class="mg-text">Guarantee</span></div>
                         </div>
                     </div>
                 </div>
@@ -229,15 +236,305 @@
         </div>
     </div>
 </div>
+<div class="container text-right mt-5 d-none d-md-block">
+    <h1 class="text-right">انواع سوخت ها</h1>
+    <span class="">سوخت های ما شامل بنزین معمولی,بنزین سوپر و بنرین یورو۴ میباشد</span>
+    <button type="button" class="btn btn-outline-primary float-left">خدمات ما</button>
+</div>
+<section class="mt-5 d-none d-md-block">
+    <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="container">
+            <div class="row pt-5 m-auto">
+                <div class="col-md-12 col-lg-4 pb-3">
+
+                    <!-- Copy the content below until next comment -->
+                    <div class="card card-custom bg-white border-white border-0">
+                        <div class="card-custom-img"
+                             style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+                        <div class="card-custom-avatar">
+                            <img class="img-fluid"
+                                 src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg"
+                                 alt="Avatar"/>
+                        </div>
+                        <div class="card-body" style="overflow-y: auto">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Card has minimum height set but will expand if more space is needed for
+                                card body content. You can use Bootstrap <a
+                                        href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
+                                        target="_blank">card-decks</a> to align multiple cards nicely in a row.</p>
+                        </div>
+                        <div class="card-footer" style="background: inherit; border-color: inherit;">
+                            <a href="#" class="btn btn-primary">Option</a>
+                            <a href="#" class="btn btn-outline-primary">Other option</a>
+                        </div>
+                    </div>
+                    <!-- Copy until here -->
+
+
+                </div>
+                <div class="col-md-6 col-lg-4 pb-3">
+
+                    <!-- Add a style="height: XYZpx" to div.card to limit the card height and display scrollbar instead -->
+                    <div class="card card-custom bg-white border-white border-0" style="height: 450px">
+                        <div class="card-custom-img"
+                             style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+                        <div class="card-custom-avatar">
+                            <img class="img-fluid"
+                                 src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg"
+                                 alt="Avatar"/>
+                        </div>
+                        <div class="card-body" style="overflow-y: auto">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">You can also set maximum height on and the card will not expand,
+                                instead a
+                                scrollbar in the card body will appear.</p>
+                            <p class="card-text">Some example text to show the scrollbar.</p>
+                            <p class="card-text">Lorem ipsum dolor sit amet, te vix omittam fastidii, enim paulo omnes
+                                ea
+                                has, illud luptatum no qui. Sed ea qualisque urbanitas, purto elit nec te. Possim
+                                inermis
+                                antiopam ut eum. Eos te zril labore laboramus, quem erant nam in. Ut sed molestie
+                                antiopam. At altera facilisis mel.</p>
+                        </div>
+                        <div class="card-footer" style="background: inherit; border-color: inherit;">
+                            <a href="#" class="btn btn-primary">Option</a>
+                            <a href="#" class="btn btn-outline-primary">Other option</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-lg-4 pb-3">
+
+                    <div class="card card-custom bg-white border-white border-0">
+                        <div class="card-custom-img"
+                             style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+                        <div class="card-custom-avatar">
+                            <img class="img-fluid"
+                                 src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg"
+                                 alt="Avatar"/>
+                        </div>
+                        <div class="card-body" style="overflow-y: auto">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Card has minimum height set but will expand if more space is needed for
+                                card body content. You can use Bootstrap <a
+                                        href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
+                                        target="_blank">card-decks</a> to align multiple cards nicely in a row.</p>
+                        </div>
+                        <div class="card-footer" style="background: inherit; border-color: inherit;">
+                            <a href="#" class="btn btn-primary">Option</a>
+                            <a href="#" class="btn btn-outline-primary">Other option</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .context {
+        width: 100%;
+        position: absolute;
+
+    }
+
+    .context h1 {
+        text-align: center;
+        color: #fff;
+        font-size: 50px;
+    }
+
+
+    .area {
+        background: #4e54c8;
+        background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+        width: 100%;
+
+
+    }
+
+    .circles {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .circles li {
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        animation: animate 15s linear infinite;
+        bottom: -150px;
+
+    }
+
+    .circles li:nth-child(1) {
+        left: 25%;
+        width: 80px;
+        height: 80px;
+        animation-delay: 0s;
+    }
+
+
+    .circles li:nth-child(2) {
+        left: 10%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 2s;
+        animation-duration: 5s;
+    }
+
+    .circles li:nth-child(3) {
+        left: 70%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 5s;
+    }
+
+    .circles li:nth-child(4) {
+        left: 40%;
+        width: 60px;
+        height: 60px;
+        animation-delay: 0s;
+        animation-duration: 5s;
+    }
+
+    .circles li:nth-child(5) {
+        left: 65%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 0s;
+    }
+
+    .circles li:nth-child(6) {
+        left: 75%;
+        width: 110px;
+        height: 110px;
+        animation-delay: 0s;
+    }
+
+    .circles li:nth-child(7) {
+        left: 35%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 0s;
+    }
+
+    .circles li:nth-child(8) {
+        left: 50%;
+        width: 25px;
+        height: 25px;
+        animation-delay: 25s;
+        animation-duration: 5s;
+    }
+
+    .circles li:nth-child(9) {
+        left: 20%;
+        width: 15px;
+        height: 15px;
+        animation-delay: 0s;
+        animation-duration: 5s;
+    }
+
+    .circles li:nth-child(10) {
+        left: 85%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 0s;
+        animation-duration: 5s;
+    }
+
+
+    @keyframes animate {
+
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+            border-radius: 0;
+        }
+
+        100% {
+            transform: translateY(-1000px) rotate(720deg);
+            opacity: 0;
+            border-radius: 50%;
+        }
+
+    }
+
+    .card-custom {
+        overflow: hidden;
+        min-height: 450px;
+        box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+    }
+
+    .card-custom-img {
+        height: 200px;
+        min-height: 200px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-color: inherit;
+    }
+
+    /* First border-left-width setting is a fallback */
+    .card-custom-img::after {
+        position: absolute;
+        content: '';
+        top: 161px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-top-width: 40px;
+        border-right-width: 0;
+        border-bottom-width: 0;
+        border-left-width: 545px;
+        border-left-width: calc(575px - 5vw);
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: inherit;
+    }
+
+    .card-custom-avatar img {
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+        position: absolute;
+        top: 100px;
+        left: 1.25rem;
+        width: 100px;
+        height: 100px;
+    }
+
+</style>
+
 <div id="carouselExampleCaptions" class="carousel slide d-md-none" style="margin-top: -130px">
     <div class="carousel-inner">
         <div class="carousel-item active">
             {% load static %}
-            <img src="{% static 'images/jaigah' %}" class="w-100" style="height: 500px;object-fit: cover"
+            <img src="{% static 'images/mobile.png' %}" class="w-100" style="height: 500px;object-fit: cover"
                  alt="My image">
             <div class="carousel-caption">
-                <h2>بگو کجایی تا بنزین بهت برسونیم</h2>
-                <p>درخواستت رو بده تا دیگه برای بنزین سختی نکشی</p>
+                <h2 class="text-right">بگو کجایی تا بنزین بهت برسونیم</h2>
+                <p class="text-right">درخواستت رو بده تا دیگه برای بنزین سختی نکشی</p>
                 <div class="button mx-auto mt-3">درخواست انلاین سوخت</div>
 
             </div>
@@ -290,208 +587,185 @@
         </div>
     </div>
 </div>
-<section>
-    <div class="container mt-5 mx-auto">
-        <div class="row">
-            <div class="col-md-3 mt-4">
-                <div class="card mx-auto" style="width: 18rem;border-radius: 50px;border: 4px solid black">
-                    <div class="mx-auto" style="font-size: 40px"><i class="fas fa-gas-pump"></i></div>
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the
-                            card's content.</p>
+<div class="container text-right mt-5  d-md-none">
+    <h1 class="text-right">انواع سوخت ها</h1>
+    <p class="">سوخت های ما شامل بنزین معمولی,بنزین سوپر و بنرین یورو۴ میباشد</p>
+    <button type="button" class="btn btn-outline-primary">خدمات ما</button>
+</div>
+
+<section class="mt-5 d-md-none"
+         style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%); ">
+    <div class="container">
+        <div class="row pt-5 m-auto">
+            <div class="col-md-12 col-lg-4 pb-3">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="card card-custom bg-white border-white border-0">
+                                <div class="card-custom-img"
+                                     style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+                                <div class="card-custom-avatar">
+                                    <img class="img-fluid"
+                                         src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg"
+                                         alt="Avatar"/>
+                                </div>
+                                <div class="card-body" style="overflow-y: auto">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text">Card has minimum height set but will expand if more space is
+                                        needed for
+                                        card body content. You can use Bootstrap <a
+                                                href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
+                                                target="_blank">card-decks</a> to align multiple cards nicely in a row.
+                                    </p>
+                                </div>
+                                <div class="card-footer" style="background: inherit; border-color: inherit;">
+                                    <a href="#" class="btn btn-primary">Option</a>
+                                    <a href="#" class="btn btn-outline-primary">Other option</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card card-custom bg-white border-white border-0">
+                                <div class="card-custom-img"
+                                     style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+                                <div class="card-custom-avatar">
+                                    <img class="img-fluid"
+                                         src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg"
+                                         alt="Avatar"/>
+                                </div>
+                                <div class="card-body" style="overflow-y: auto">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text">Card has minimum height set but will expand if more space is
+                                        needed for
+                                        card body content. You can use Bootstrap <a
+                                                href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
+                                                target="_blank">card-decks</a> to align multiple cards nicely in a row.
+                                    </p>
+                                </div>
+                                <div class="card-footer" style="background: inherit; border-color: inherit;">
+                                    <a href="#" class="btn btn-primary">Option</a>
+                                    <a href="#" class="btn btn-outline-primary">Other option</a>
+                                </div>
+                            </div>
+                            <!-- Copy until here -->
+                        </div>
+
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card card-custom bg-white border-white border-0">
+                            <div class="card-custom-img"
+                                 style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+                            <div class="card-custom-avatar">
+                                <img class="img-fluid"
+                                     src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg"
+                                     alt="Avatar"/>
+                            </div>
+                            <div class="card-body" style="overflow-y: auto">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text">Card has minimum height set but will expand if more space is needed
+                                    for
+                                    card body content. You can use Bootstrap <a
+                                            href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
+                                            target="_blank">card-decks</a> to align multiple cards nicely in a row.</p>
+                            </div>
+                            <div class="card-footer" style="background: inherit; border-color: inherit;">
+                                <a href="#" class="btn btn-primary">Option</a>
+                                <a href="#" class="btn btn-outline-primary">Other option</a>
+                            </div>
+                        </div>
+                        <!-- Copy until here -->
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div style="width: 18rem;">
-                    <div class="mx-auto" style="font-size: 40px"></div>
-                    <div class="card-body">
-                        {#                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of#}
-                        {#                            the#}
-                        {#                            card's content.</p>#}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3  mt-4">
-                <div class="card mx-auto" style="width: 18rem;border-radius: 50px;border: 4px solid black">
-                    <div class="mx-auto" style="font-size: 40px"><i class="fas fa-shield-alt"></i></div>
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the
-                            card's content.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container mx-auto">
-        <div class="row">
-            <div class="col-md-3 mt-4">
-                <div style="width: 18rem;">
-                    <div class="mx-auto" style="font-size: 40px"></div>
-                    <div class="card-body">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3  mt-4">
-                <div class="card mx-auto" style="width: 18rem;border-radius: 50px;border: 4px solid black">
-                    <div class="mx-auto" style="font-size: 40px"><i class="fas fa-truck-pickup"></i></div>
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the
-                            card's content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mt-4">
-                <div style="width: 18rem;">
-                    <div class="mx-auto" style="font-size: 40px"></div>
-                    <div class="card-body">
-                        {#                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of#}
-                        {#                            the#}
-                        {#                            card's content.</p>#}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mt-4">
-                <div class="card mx-auto" style="width: 18rem;border-radius: 50px;border: 4px solid black">
-                    <div class="mx-auto" style="font-size: 40px"><i class="fas fa-money-bill-wave"></i></div>
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the
-                            card's content.</p>
-                    </div>
-                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" style="background-color: black" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" style="background-color: black;" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </div>
 </section>
+{#with mobil card#}
+<style>
+    @font-face {
+        font-family: 'IRANSansX';
+        src: url('/fonts/IRANSansX-UltraLight.woff2') format('woff2'),
+        url('/fonts/IRANSansX-UltraLight.woff') format('woff');
+        font-weight: 200;
+        font-style: normal;
+        font-display: swap;
+    }
 
+    @font-face {
+        font-family: 'IRANSansX';
+        src: url('/fonts/IRANSansX-Medium.woff2') format('woff2'),
+        url('/fonts/IRANSansX-Medium.woff') format('woff');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
 
-<section class="hide-on-mobile">
-    <div class="container mt-5">
-        <div class="row">
-            {% for product in products %}
-                <div class="col-md-4 mt-4">
-                    <div class="card text-white bg-dark shadow-lg"
-                         {% if product.price == 10000 %}style="max-width: 20rem; background: linear-gradient(to top right, #0c0502, #2243b0);"
-                         {% else %}style="max-width: 20rem; background: linear-gradient(to top right, #2d2d2d, #1a1a1a);"{% endif %}>
-                        <div class="card-header text-center border-bottom border-light">
-                            <p class="text-uppercase mb-0">{{ product.name }}</p>
-                            <h1 class="d-flex justify-content-center align-items-center mt-3">
-                                <span class="mt-2" style="font-size: 1.5rem;">تومان</span>
-                                <span style="font-size: 3rem;">{{ product.price }}</span>
-                                <span class="mt-2" style="font-size: 1.5rem;">/هر لیتر</span>
-                            </h1>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-unstyled">
-                                <li class="d-flex align-items-center mb-3">
-                                    <span class="badge badge-pill badge-light text-dark p-2 mr-3"><i
-                                            class="fas fa-check"></i></span>
-                                    <p class="mb-0">کیفیت بالا</p>
-                                </li>
-                                <li class="d-flex align-items-center mb-3">
-                                    <span class="badge badge-pill badge-light text-dark p-2 mr-3"><i
-                                            class="fas fa-check"></i></span>
-                                    <p class="mb-0">کاهش مصرف سوخت</p>
-                                </li>
-                                <li class="d-flex align-items-center mb-3">
-                                    <span class="badge badge-pill badge-light text-dark p-2 mr-3"><i
-                                            class="fas fa-check"></i></span>
-                                    <p class="mb-0">{{ product.description }}</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-footer border-top border-light text-center">
-                            <a href="http://localhost:8000/pay/{{ product.id }}"
-                               class="btn btn-light text-dark font-weight-bold w-100">خرید</a>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
+    @font-face {
+        font-family: 'IRANSansX';
+        src: url('/fonts/IRANSansX-Thin.woff2') format('woff2'),
+        url('/fonts/IRANSansX-Thin.woff') format('woff');
+        font-weight: 100;
+        font-style: normal;
+        font-display: swap;
+    }
 
+    @font-face {
+        font-family: 'IRANSansX';
+        src: url('/fonts/IRANSansX-Light.woff2') format('woff2'),
+        url('/fonts/IRANSansX-Light.woff') format('woff');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
 
-<section class="d-md-none mt-5">
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        {#        <ol class="carousel-indicators mt-5">#}
-        {#            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>#}
-        {#            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>#}
-        {#            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>#}
-        {#        </ol>#}
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="card mx-auto" style="width: 18rem;">
-                    {% load static %}
-                    <img src="{% static 'images/hero.png' %}" alt="My image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="carousel-caption d-none d-md-block">
-                    {#                    <h5>First slide label</h5>#}
-                    {#                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>#}
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card mx-auto" style="width: 18rem;">
-                    {% load static %}
-                    <img src="{% static 'images/hero.png' %}" alt="My image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title2</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="carousel-caption d-none d-md-block">
-                    {#                    <h5>Second slide label</h5>#}
-                    {#                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>#}
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card mx-auto" style="width: 18rem;">
-                    {% load static %}
-                    <img src="{% static 'images/hero.png' %}" alt="My image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="carousel-caption d-none d-md-block">
-                    {#                    <h5>Third slide label</h5>#}
-                    {#                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>#}
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: black"></span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true" style="background-color:black"></span>
-        </a>
-    </div>
-</section>
+    @font-face {
+        font-family: 'IRANSansX';
+        src: url('/fonts/IRANSansX-ExtraBold.woff2') format('woff2'),
+        url('/fonts/IRANSansX-ExtraBold.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
 
+    @font-face {
+        font-family: 'IRANSansX';
+        src: url('/fonts/IRAN Sans Regular.woff') format('woff2'),
+        url('/fonts/IRANSansX-DemiBold.woff') format('woff');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'IRANSansX';
+        src: url('/fonts/IRANSansX-Bold.woff2') format('woff2'),
+        url('/fonts/IRANSansX-Bold.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'IRANSansX';
+        src: url('/fonts/IRANSansX-Black.woff2') format('woff2'),
+        url('/fonts/IRANSansX-Black.woff') format('woff');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    * {
+        font-family: 'IRANSansX', Serif;
+    }
+
+</style>
 
 {% include 'footer.html' %}
 
@@ -500,8 +774,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-<script src="assets/js/all.js"></script>
-<script src="assets/js/owl.carousel.js"></script>
+<script src="/fonts/all.js"></script>
 
 
 </body>
