@@ -18,6 +18,9 @@ class Product(models.Model):
     deleted = models.BooleanField(default=False)
 
 
+from django.contrib.auth import get_user_model
+
+
 class Order(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -27,3 +30,6 @@ class Order(models.Model):
     status = models.CharField(max_length=100)
     cart = models.BooleanField(default=False)
     amount = models.IntegerField()
+    lat = models.FloatField()
+    lon = models.FloatField()
+

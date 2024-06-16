@@ -8,7 +8,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script src="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.js"></script>
+    <link rel="stylesheet" href="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.css"/>
+
     <style>
         #map {
             height: 300px;
@@ -19,32 +21,30 @@
 <body>
 <div class="form-group mx-auto">
     {% load static %}
-    <img src="{% static 'images/jaigah' %}" class="w-100" style="height: 700px;object-fit: cover"
+    <img src="{% static 'images/pay.png' %}" class="w-100" style="height: 700px;object-fit: cover"
          alt="My image">
 </div>
 <div class="container">
     <h1 class="mt-5">صفحه پرداخت</h1>
-    <form method="POST">
+    <form method="POST" id="order-form">
+        {% csrf_token %}
         <div class="row">
             <div class="form-group col-md-10">
                 <label for="product">انتخاب محصولات:</label>
                 <select class="form-control" id="product" name="product" onchange="updatePrice()">
-
                     {% if pk != 0 %}
                         {% for product in products %}
                             {% if product.id == pk %}
-                                <option value="{{ product }}" selected>{{ product.name }}</option>
+                                <option value="{{ product.id }}" selected>{{ product.name }}</option>
                             {% else %}
-                                <option value="{{ product }}">{{ product.name }}</option>
+                                <option value="{{ product.id }}">{{ product.name }}</option>
                             {% endif %}
-
                         {% endfor %}
                     {% else %}
-
                         <option value="" selected disabled>لطفا محصول خود و لیتر مورد نیاز خودتون رو انتخاب کنید
                         </option>
                         {% for product in products %}
-                            <option value="{{ product }}">{{ product.name }}</option>
+                            <option value="{{ product.id }}">{{ product.name }}</option>
                         {% endfor %}
                     {% endif %}
                 </select>
@@ -61,41 +61,56 @@
                    value=" محصول خود و لیتر مورد نیاز را انتخاب کنید"
                    readonly>
         </div>
-        
         <div class="form-group">
             <label for="full_name">نام و نام خانوادگی تحویل گیرنده:</label>
             <input type="text" class="form-control" id="full_name" name="full_name" required>
         </div>
         <div class="form-group">
             <label for="map">موقعیت جغرافیایی:</label>
-            <div id="map">
-                <img src="https://api.neshan.org/v4/static?key=service.a739152eab9a4ddb99c39b3d6cee57b2&type=neshan&width=500&height=500&zoom=12&center=32.657307%2C51.677579&markerToken=101139.nRmybq5"
-                     alt="Neshan Map">
-            </div>
+            <div id="map"></div>
         </div>
+        <input type="hidden" id="lat" name="lat">
+        <input type="hidden" id="lon" name="lon">
         <div class="form-group">
             <label for="description">توضیحات:</label>
             <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="delivery_time">زمان ارسال محصول:</label>
-            {#            <select class="form-control" id="delivery_time" name="delivery_time">#}
-            {#                {% for day in ["شنبه", "یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنجشنبه", "جمعه"] %}#}
-            {#                    {% for hour in range(0, 24, 2) %}#}
-            {#                        <option value="{{ day }} {{ hour }}:00-{{ hour+2 }}:00">{{ day }} {{ hour }}:00-{{ hour+2 }}:00</option>#}
-            {#                    {% endfor %}#}
-            {#                {% endfor %}#}
-            {#            </select>#}
         </div>
         <button type="submit" class="btn btn-primary">ارسال</button>
     </form>
 </div>
 <script>
+    var map;
+    var marker;
+    var selectedLat, selectedLon;
+
+    function initMap() {
+        map = new L.Map('map', {
+            key: 'web.640eeefb0692499b8bc6b6d73c4d86ef',  // کلید API خود را جایگزین کنید
+            maptype: 'neshan',
+            poi: true,
+            traffic: false,
+            center: [34.6416, 50.8759], // مرکز نقشه به شهر قم
+            zoom: 12
+        });
+
+        map.on('dblclick', function(e) {
+            var latlng = e.latlng;
+            selectedLat = latlng.lat;
+            selectedLon = latlng.lng;
+            document.getElementById('lat').value = selectedLat;
+            document.getElementById('lon').value = selectedLon;
+            if (marker) {
+                marker.setLatLng(latlng);
+            } else {
+                marker = L.marker(latlng).addTo(map);
+            }
+        });
+    }
 
     // محصولات و قیمت‌هایشان
     const productPrices = {
         {% for product in products %}
-            '{{ product }}': {{ product.price }},
+            '{{ product.id }}': {{ product.price }},
         {% endfor %}
     };
 
@@ -114,7 +129,7 @@
         }
     }
 
-
+    window.onload = initMap;
 </script>
 </body>
 </html>
