@@ -1,14 +1,92 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+import requests
+from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from client.models import CustomUser
 from product.models import Product
 from product.models import Order
+import pytz
+from datetime import datetime
+
+from sokht import settings
 
 
+@login_required
 @csrf_exempt
 def pay(request, pk=None):
+    if request.method == 'POST':
+        # تنظیم منطقه زمانی به تهران
+        current_time = datetime.now()
+
+        # تنظیم منطقه زمانی به تهران
+        tehran_timezone = pytz.timezone('Asia/Tehran')
+        tehran_time = current_time.astimezone(tehran_timezone)
+
+        # گرفتن ساعت محلی تهران
+        hour = tehran_time.hour
+
+        selected_time = int(request.POST.get('time'))
+
+        if selected_time <= hour:
+            msg = "زمانیکه در نظر گرفتید برای دریافت سوخت از تایم های گذشته است لطفا تایم های پیش رو را انتخاب کنید\n سفارش های هرروز از ساعت ۰۰:۰۰ بازمیشوند  "
+            return render(request, 'pay.html', {'msg': msg})
+        full_name = request.POST.get('full_name')
+
+        product_id = request.POST.get('product')
+
+        quantity = request.POST.get('quantity')
+
+        product_price = Product.objects.get(id=product_id)
+
+        # Ensure price and quantity are numeric
+        price = float(product_price.price)
+        quantity = int(quantity)
+
+        # Calculate the amount
+        amount = price * quantity
+
+        # Print the calculated amount
+
+        description = request.POST.get('description')
+        lat = request.POST.get('lat')
+        lon = request.POST.get('lon')
+
+        api_url = f"https://api.neshan.org/v5/reverse?lat={lat}&lng={lon}"
+        headers = {
+            'Api-Key': settings.NESHAN_API_KEY
+        }
+        response = requests.get(api_url, headers=headers)
+
+        if response.status_code == 200:
+            print(1)
+            location_data = response.json()
+            formatted_address = location_data.get('formatted_address', 'آدرسی یافت نشد')
+        else:
+            error_message = "خطا در دریافت اطلاعات از سرور نشن"
+            return render(request, 'pay.html', {'error_message': error_message})
+
+        if full_name and product_id and quantity and lat and lon and selected_time:
+            print('mmjmdmjdm')
+            product = Product.objects.get(id=product_id)
+            order = Order.objects.create(
+                user=request.user,
+                product=product,
+                description=description,
+                location=formatted_address,
+                date=selected_time,
+                status='pending',
+                cart=False,
+                quantity=quantity,
+                amount=amount,
+                lat=lat,
+                lon=lon
+            )
+            return redirect('order')
+        msg = "مقادیر را با دقت پر کنید لطفا"
+        return render(request, 'pay.html', {'msg': msg})
+
     products = Product.objects.all()
     if pk:
         if products.filter(id=pk).exists():
@@ -17,33 +95,10 @@ def pay(request, pk=None):
             pk = 0
     else:
         pk = 0
-
-    if request.method == 'POST':
-        user = CustomUser.objects.get(id = 1)
-        product_id = request.POST.get('product')
-        quantity = int(request.POST.get('quantity'))
-        description = request.POST.get('description')
-        full_name = request.POST.get('full_name')
-        lat = request.POST.get('lat')
-        lon = request.POST.get('lon')
-
-        if product_id and quantity and lat and lon:
-            product = Product.objects.get(id=product_id)
-            total_price = product.price * quantity
-
-            order = Order(
-                user=user,
-                product=product,
-                description=description,
-                location=full_name,
-                date='',
-                status='Pending',
-                cart=False,
-                amount=total_price,
-                lat=float(lat),
-                lon=float(lon)
-            )
-            order.save()
-            return redirect('order_success')  # این نام URL برای صفحه موفقیت آمیز سفارش است
-
     return render(request, 'pay.html', {'products': products, 'pk': pk})
+
+
+@login_required
+def order(request):
+    orders = Order.objects.filter(user_id=request.user)
+    return render(request, 'order.html', {'orders': orders})

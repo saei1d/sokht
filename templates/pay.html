@@ -19,13 +19,16 @@
     </style>
 </head>
 <body>
-<div class="form-group mx-auto">
+
+<div class="form-group col-md-6 container">
     {% load static %}
-    <img src="{% static 'images/pay.png' %}" class="w-100" style="height: 700px;object-fit: cover"
+    <img src="{% static 'images/Make it rain.gif' %}"  style="height: 700px;object-fit: cover"
          alt="My image">
 </div>
-<div class="container">
-    <h1 class="mt-5">صفحه پرداخت</h1>
+<div class="container col-md-6">
+   {% if msg %}
+        <p>{{ msg }}</p>
+    {% endif %}
     <form method="POST" id="order-form">
         {% csrf_token %}
         <div class="row">
@@ -65,12 +68,34 @@
             <label for="full_name">نام و نام خانوادگی تحویل گیرنده:</label>
             <input type="text" class="form-control" id="full_name" name="full_name" required>
         </div>
+    
         <div class="form-group">
             <label for="map">موقعیت جغرافیایی:</label>
             <div id="map"></div>
         </div>
         <input type="hidden" id="lat" name="lat">
         <input type="hidden" id="lon" name="lon">
+
+
+        <div class="form-group">
+            <div class="col-md-6 col-6">
+                <label>
+                    <select name="time">
+                        <option  disabled>انتخاب ساعت دریافت بنزین</option>
+                        <option value="7">۷-۹ صیح </option>
+                        <option value="9">۹ تا ۱۱</option>
+                        <option value="11">۱۱ تا ۱۳</option>
+                        <option value="13">۱۳ تا ۱۵</option>
+                        <option value="15">۱۵ تا ۱۷</option>
+                        <option value="17">۱۷ تا ۱۹</option>
+                        <option value="19">۱۹ تا ۲۱</option>
+                        <option value="21">۲۱ تا ۲۳</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+
+
         <div class="form-group">
             <label for="description">توضیحات:</label>
             <textarea class="form-control" id="description" name="description" rows="3"></textarea>
@@ -93,7 +118,7 @@
             zoom: 12
         });
 
-        map.on('dblclick', function(e) {
+        map.on('dblclick', function (e) {
             var latlng = e.latlng;
             selectedLat = latlng.lat;
             selectedLon = latlng.lng;

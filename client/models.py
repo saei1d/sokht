@@ -7,3 +7,4 @@ from django.db import models
 
 class CustomUser(AbstractUser):
     n_code = models.IntegerField()
+    phone = models.CharField(max_length=50)

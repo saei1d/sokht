@@ -18,7 +18,6 @@ class Product(models.Model):
     deleted = models.BooleanField(default=False)
 
 
-from django.contrib.auth import get_user_model
 
 
 class Order(models.Model):
@@ -32,4 +31,5 @@ class Order(models.Model):
     amount = models.IntegerField()
     lat = models.FloatField()
     lon = models.FloatField()
+    quantity = models.IntegerField()
 
