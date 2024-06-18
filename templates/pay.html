@@ -11,58 +11,78 @@
     <script src="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.js"></script>
     <link rel="stylesheet" href="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.css"/>
 
-    <style>
-        #map {
-            height: 300px;
-            width: 100%;
-        }
-    </style>
 </head>
 <body class="bg-primary">
 <style>
     * {
         font-family: Serif;
     }
-    
-.button {
-  display: inline-block;
-  background: #4285f4;
-  color: #fff;
-  text-transform: uppercase;
-  padding: 20px 30px;
-  border-radius: 5px;
-  box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
-}
-.button:hover {
-  box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
-  -webkit-transform: translate(0px, -10px) scale(1.2);
-          transform: translate(0px, -10px) scale(1.2);
-}
-</style>
-<div class="form-group">
-    <div id="map"></div>
-</div>
-<input type="hidden" id="lat" name="lat">
-<input type="hidden" id="lon" name="lon">
+            #map {
+            height: 300px;
+            width: 100%;
+        }
 
-{#<div class="form-group col-10 col-md-6 container">#}
-{#    {% load static %}#}
-{#    <img src="{% static 'images/Make it rain.gif' %}"  style="height: 700px;object-fit: cover"#}
-{#         alt="My image">#}
-{#</div>#}
+
+    .button {
+        display: inline-block;
+        background: #4285f4;
+        color: #fff;
+        text-transform: uppercase;
+        padding: 20px 30px;
+        border-radius: 5px;
+        box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        -webkit-transition: all ease-in-out 300ms;
+        transition: all ease-in-out 300ms;
+    }
+
+    .button:hover {
+        box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
+        -webkit-transform: translate(0px, -10px) scale(1.2);
+        transform: translate(0px, -10px) scale(1.2);
+    }
+</style>
+<div id="carouselExampleCaptions" class="carousel slide" style="margin-top: -130px">
+    <div class="carousel-inner d-none d-md-block ">
+        <div class="carousel-item active">
+            {% load static %}
+            <img src="{% static 'images/descktop&mobile.png' %}" class="w-100 h-10"
+                 style="height: 700px;object-fit: cover;border-bottom-right-radius: 20%;border-bottom-left-radius: 20%"
+                 alt="My image">
+            <div class="carousel-caption d-none d-md-block">
+                <div class="container">
+                    <h2 class="text-left">دیگه وقتت و داخل پمپ بنزین تلف نکن</h2>
+                    <p class="text-left">شرکت پترونوین در نظر دارد تامشکل بنزین زدن ما را حل کند شما با</p>
+                    <p class="text-left">درخواست در این پلتفرم بنرین را در مکان دلخواه تحویل بگیر</p>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-9">
+                            {#                            <div class="card p-4 mt-3"><h3 class="heading mt-5 text-center" style="color: black">#}
+                            {#                            </h3>#}
+                            {#                                <div class="d-flex justify-content-center px-5">#}
+                            {#                                    <div class="search"><input type="text" class="search-input" placeholder="Search..."#}
+                            {#                                                               name=""> <a href="#" class="search-icon"> <i#}
+                            {#                                            class="fa fa-search"></i> </a></div>#}
+                            {#                                </div>#}
+                            <div class="button float-left mt-3" style="margin-bottom: 200px">درخواست انلاین سوخت</div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container col-md-6 bg-light" style="border-radius: 40px">
     {% if msg %}
         <p>{{ msg }}</p>
     {% endif %}
-    <form method="POST" id="order-form" style="height: 510px;">
+    <form method="POST" id="order-form"style="padding: 40px">
         {% csrf_token %}
         <div class="row">
             <div class="form-group col-6 col-md-6 mt-2">
                 <label for="product">انتخاب محصولات:</label>
-                <select class="form-control" id="product" name="product" onchange="updatePrice()">
+                <select class="form-control" id="product" name="product"style="border: 2px solid blue" onchange="updatePrice()">
                     {% if pk != 0 %}
                         {% for product in products %}
                             {% if product.id == pk %}
@@ -82,42 +102,49 @@
             </div>
             <div class="form-group col-6 col-md-6 mt-2">
                 <label for="quantity">تعداد محصولات (لیتر):</label>
-                <input type="number" class="form-control" id="quantity" name="quantity" min="10" max="60" value="0"
+                <input type="number" style="border: 2px solid blue" class="form-control" id="quantity" name="quantity" min="10" max="60" value="0"
                        oninput="updatePrice()">
             </div>
             <div class="form-group col-6 col-md-6 mt-2">
                 <label for="price">قیمت:</label>
-                <input type="text" class="form-control bg-light" id="price" name="price"
+                <input type="text" class="form-control bg-light" id="price" name="price" style="border: 2px solid blue"
                        value=" محصول خود و لیتر مورد نیاز را انتخاب کنید"
                        readonly>
             </div>
             <div class="form-group col-6 col-md-6 mt-2">
                 <label for="full_name">تحویل گیرنده:</label>
-                <input type="text" class="form-control" id="full_name" name="full_name" required>
+                <input type="text" style="border: 2px solid blue" class="form-control" id="full_name" name="full_name" required>
             </div>
             <div class="form-group col-md-4 mt-2">
-                    <label class="bg-light">
-                        <select name="time">
-                            <option disabled>انتخاب ساعت دریافت بنزین</option>
-                            <option value="7">۷-۹ صبح</option>
-                            <option value="9">۹ تا ۱۱</option>
-                            <option value="11">۱۱ تا ۱۳</option>
-                            <option value="13">۱۳ تا ۱۵</option>
-                            <option value="15">۱۵ تا ۱۷</option>
-                            <option value="17">۱۷ تا ۱۹</option>
-                            <option value="19">۱۹ تا ۲۱</option>
-                            <option value="21">۲۱ تا ۲۳</option>
-                        </select>
-                    </label>
-                </div>
-                    <div class="form-group  col-md-12">
-                        <label for="description"></label>
-                        <textarea class="form-control" placeholder="توضیحات" id="description" name="description" rows="3"></textarea>
-                    </div>
-        <div class="col-md-12 text-center mt-2">
-            <div type="submit" class="button">ثبت سفارش</div>
-        </div>
-            
+                <label class="bg-light" style="border: 2px solid blue">
+                    <select name="time">
+                        <option disabled>انتخاب ساعت دریافت بنزین</option>
+                        <option value="7">۷-۹ صبح</option>
+                        <option value="9">۹ تا ۱۱</option>
+                        <option value="11">۱۱ تا ۱۳</option>
+                        <option value="13">۱۳ تا ۱۵</option>
+                        <option value="15">۱۵ تا ۱۷</option>
+                        <option value="17">۱۷ تا ۱۹</option>
+                        <option value="19">۱۹ تا ۲۱</option>
+                        <option value="21">۲۱ تا ۲۳</option>
+                    </select>
+                </label>
+            </div>
+            <div class="form-group col-md-12">
+                <div id="map" style="border-radius: 50px;border: 2px solid blue"></div>
+            </div>
+            <input type="hidden" id="lat" name="lat">
+            <input type="hidden" id="lon" name="lon">
+
+            <div class="form-group  col-md-12">
+                <label for="description"></label>
+                <textarea class="form-control"style="border: 2px solid blue" placeholder="توضیحات" id="description" name="description"
+                          rows="3"></textarea>
+            </div>
+            <div class="col-md-12 text-center mt-2">
+                <div type="submit" class="button">ثبت سفارش</div>
+            </div>
+
         </div>
     </form>
 </div>
