@@ -18,21 +18,49 @@
         }
     </style>
 </head>
-<body>
-
-<div class="form-group col-md-6 container">
-    {% load static %}
-    <img src="{% static 'images/Make it rain.gif' %}"  style="height: 700px;object-fit: cover"
-         alt="My image">
+<body class="bg-primary">
+<style>
+    * {
+        font-family: Serif;
+    }
+    
+.button {
+  display: inline-block;
+  background: #4285f4;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 20px 30px;
+  border-radius: 5px;
+  box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+.button:hover {
+  box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translate(0px, -10px) scale(1.2);
+          transform: translate(0px, -10px) scale(1.2);
+}
+</style>
+<div class="form-group">
+    <div id="map"></div>
 </div>
-<div class="container col-md-6">
-   {% if msg %}
+<input type="hidden" id="lat" name="lat">
+<input type="hidden" id="lon" name="lon">
+
+{#<div class="form-group col-10 col-md-6 container">#}
+{#    {% load static %}#}
+{#    <img src="{% static 'images/Make it rain.gif' %}"  style="height: 700px;object-fit: cover"#}
+{#         alt="My image">#}
+{#</div>#}
+<div class="container col-md-6 bg-light" style="border-radius: 40px">
+    {% if msg %}
         <p>{{ msg }}</p>
     {% endif %}
-    <form method="POST" id="order-form">
+    <form method="POST" id="order-form" style="height: 510px;">
         {% csrf_token %}
         <div class="row">
-            <div class="form-group col-md-10">
+            <div class="form-group col-6 col-md-6 mt-2">
                 <label for="product">انتخاب محصولات:</label>
                 <select class="form-control" id="product" name="product" onchange="updatePrice()">
                     {% if pk != 0 %}
@@ -52,55 +80,45 @@
                     {% endif %}
                 </select>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-6 col-md-6 mt-2">
                 <label for="quantity">تعداد محصولات (لیتر):</label>
                 <input type="number" class="form-control" id="quantity" name="quantity" min="10" max="60" value="0"
                        oninput="updatePrice()">
             </div>
-        </div>
-        <div class="form-group">
-            <label for="price">قیمت:</label>
-            <input type="text" class="form-control" id="price" name="price"
-                   value=" محصول خود و لیتر مورد نیاز را انتخاب کنید"
-                   readonly>
-        </div>
-        <div class="form-group">
-            <label for="full_name">نام و نام خانوادگی تحویل گیرنده:</label>
-            <input type="text" class="form-control" id="full_name" name="full_name" required>
-        </div>
-    
-        <div class="form-group">
-            <label for="map">موقعیت جغرافیایی:</label>
-            <div id="map"></div>
-        </div>
-        <input type="hidden" id="lat" name="lat">
-        <input type="hidden" id="lon" name="lon">
-
-
-        <div class="form-group">
-            <div class="col-md-6 col-6">
-                <label>
-                    <select name="time">
-                        <option  disabled>انتخاب ساعت دریافت بنزین</option>
-                        <option value="7">۷-۹ صیح </option>
-                        <option value="9">۹ تا ۱۱</option>
-                        <option value="11">۱۱ تا ۱۳</option>
-                        <option value="13">۱۳ تا ۱۵</option>
-                        <option value="15">۱۵ تا ۱۷</option>
-                        <option value="17">۱۷ تا ۱۹</option>
-                        <option value="19">۱۹ تا ۲۱</option>
-                        <option value="21">۲۱ تا ۲۳</option>
-                    </select>
-                </label>
+            <div class="form-group col-6 col-md-6 mt-2">
+                <label for="price">قیمت:</label>
+                <input type="text" class="form-control bg-light" id="price" name="price"
+                       value=" محصول خود و لیتر مورد نیاز را انتخاب کنید"
+                       readonly>
             </div>
+            <div class="form-group col-6 col-md-6 mt-2">
+                <label for="full_name">تحویل گیرنده:</label>
+                <input type="text" class="form-control" id="full_name" name="full_name" required>
+            </div>
+            <div class="form-group col-md-4 mt-2">
+                    <label class="bg-light">
+                        <select name="time">
+                            <option disabled>انتخاب ساعت دریافت بنزین</option>
+                            <option value="7">۷-۹ صبح</option>
+                            <option value="9">۹ تا ۱۱</option>
+                            <option value="11">۱۱ تا ۱۳</option>
+                            <option value="13">۱۳ تا ۱۵</option>
+                            <option value="15">۱۵ تا ۱۷</option>
+                            <option value="17">۱۷ تا ۱۹</option>
+                            <option value="19">۱۹ تا ۲۱</option>
+                            <option value="21">۲۱ تا ۲۳</option>
+                        </select>
+                    </label>
+                </div>
+                    <div class="form-group  col-md-12">
+                        <label for="description"></label>
+                        <textarea class="form-control" placeholder="توضیحات" id="description" name="description" rows="3"></textarea>
+                    </div>
+        <div class="col-md-12 text-center mt-2">
+            <div type="submit" class="button">ثبت سفارش</div>
         </div>
-
-
-        <div class="form-group">
-            <label for="description">توضیحات:</label>
-            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            
         </div>
-        <button type="submit" class="btn btn-primary">ارسال</button>
     </form>
 </div>
 <script>
