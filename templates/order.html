@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
     table.greenTable {
@@ -64,7 +65,7 @@
 </style>
 <body>
 
-<h1>سفارش‌های شما</h1>
+{#<h1>سفارش‌های شما</h1>#}
 
 {% if orders %}
 
@@ -98,9 +99,37 @@
     </tbody>
 
 {% else %}
-    <p>سفارش فعالی ندارید</p>
+{#    <p>سفارش فعالی ندارید</p>#}
 {% endif %}
 </table>
+            {% load static %}
+            <img src="{% static 'images/descktop&mobile.png' %}" class="w-100 h-10"
+                 style="height: 500px;object-fit: cover;"
+                 alt="My image">
+            {% load static %}
+            <img src="{% static 'images/descktop&mobile.png' %}" class="w-100 h-10"
+                 style="height: 500px;object-fit: cover;"
+                 alt="My image">
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-md-6">
+            {% load static %}
+            <img src="{% static 'images/descktop&mobile.png' %}" style="border-radius: 50%;height: 400px;width: 400px"
+
+                 alt="My image">
+
+        </div>
+        <div class="col-6 col-md-6">
+            {% load static %}
+            <img src="{% static 'images/jaigah6.jpg' %}" style="border-radius: 50%;height: 400px;width: 400px"
+
+                 alt="My image">
+
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
 
