@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'client',
     'product',
+    'blog',
 
 ]
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'

@@ -17,6 +17,7 @@ from sokht import settings
 @csrf_exempt
 def pay(request, pk=None):
     if request.method == 'POST':
+        print("444444444444444444444444444444444")
         # تنظیم منطقه زمانی به تهران
         current_time = datetime.now()
 

@@ -6,6 +6,191 @@
     <title>Navbar Example</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .banner{
+            width: 1835px;
+            height: 250px;
+        }
+        .context {
+            width: 100%;
+            position: absolute;
+
+        }
+
+        .context h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 50px;
+        }
+
+
+        .area {
+            background: #053483;
+            background: -webkit-linear-gradient(to left, #8feefb, #00577a);
+            width: 100%;
+
+
+        }
+
+        .circles {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: animate 15s linear infinite;
+            bottom: -150px;
+
+        }
+
+        .circles li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+
+        .circles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 5s;
+        }
+
+        .circles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 5s;
+        }
+
+        .circles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 5s;
+        }
+
+        .circles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .circles li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 0s;
+        }
+
+        .circles li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+        }
+
+        .circles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 25s;
+            animation-duration: 5s;
+        }
+
+        .circles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 0s;
+            animation-duration: 5s;
+        }
+
+        .circles li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 5s;
+        }
+
+
+        @keyframes animate {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+
+        }
+
+        .card-custom {
+            overflow: hidden;
+            min-height: 450px;
+            box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+        }
+
+        .card-custom-img {
+            height: 200px;
+            min-height: 200px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border-color: inherit;
+        }
+
+        /* First border-left-width setting is a fallback */
+        .card-custom-img::after {
+            position: absolute;
+            content: '';
+            top: 161px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-top-width: 40px;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            border-left-width: 545px;
+            border-left-width: calc(575px - 5vw);
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: inherit;
+        }
+
+        .card-custom-avatar img {
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+            position: absolute;
+            top: 100px;
+            left: 1.25rem;
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
 
     <style>
 
@@ -257,92 +442,46 @@
         </ul>
         <div class="container">
             <div class="row pt-5 m-auto">
-                <div class="col-md-12 col-lg-4 pb-3">
+                {% for product in products %}
+                    <div class="col-md-12 col-lg-4 pb-3">
+                        <div class="card card-custom bg-white border-white border-0">
+                            <div class="card-custom-img"
+                                 style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+                            <div class="card-custom-avatar">
+                                {% if product.name == "بنزین معمولی" %}
+                                    <img src="{% static 'images/photo_2024-06-10_14-01-23.png' %}"
+                                         alt="mamoli" style="object-fit: cover">
+                                {% elif product.name == "بنزین سوپر" %}
+                                    <img src="{% static 'images/super.jpg' %}"
+                                         alt="mamoli" style="object-fit: cover">
+                                {% elif product.name == "بنزین یورو4" %}
+                                    <img src="{% static 'images/euro4.jpg' %}"
+                                         alt="mamoli" style="object-fit: cover">
+                                {% endif %}
 
-                    <!-- Copy the content below until next comment -->
-                    <div class="card card-custom bg-white border-white border-0">
-                        <div class="card-custom-img"
-                             style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
-                        <div class="card-custom-avatar">
-                            <img src="{% static 'images/euro4.jpg' %}"
-                                 alt="My image" style="object-fit: cover">
+                            </div>
+                            <div class="card-body" style="overflow-y: auto">
+                                <h4 class="card-title">{{ product.name }}</h4>
+                                <p class="card-text">{{ product.description }}</p>
+                                <p class="card-text">سفارش برای همین ساعت</p>
+                                <p class="card-text">پشتیبانی تلفنی</p>
+                            </div>
+                            <div class="card-footer" style="background: inherit; border-color: inherit;">
+                                <a href="http://localhost:8000/pay/{{ product.id }}/" class="btn btn-primary">ثبت
+                                    سفارش</a>
+                            </div>
                         </div>
-                        <div class="card-body" style="overflow-y: auto">
-                            <h4 class="card-title">بنزین یورو۴</h4>
-                            <p class="card-text">Card has minimum height set but will expand if more space is needed for
-                                card body content. You can use Bootstrap <a
-                                        href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
-                                        target="_blank">card-decks</a> to align multiple cards nicely in a row.</p>
-                        </div>
-                        <div class="card-footer" style="background: inherit; border-color: inherit;">
-                            <a href="#" class="btn btn-primary">درخواست آنلاین</a>
-                            <a href="#" class="btn btn-outline-primary">هر لیتر۵۰۰۰تومان</a>
-                        </div>
+                        <!-- Copy until here -->
                     </div>
-                    <!-- Copy until here -->
-
-
-                </div>
-                <div class="col-md-6 col-lg-4 pb-3">
-
-                    <!-- Add a style="height: XYZpx" to div.card to limit the card height and display scrollbar instead -->
-                    <div class="card card-custom bg-white border-white border-0" style="height: 450px">
-                        <div class="card-custom-img"
-                             style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
-                        <div class="card-custom-avatar">
-                            <img src="{% static 'images/jaigah6.jpg' %}"
-                                 alt="My image" style="object-fit: cover">
-                        </div>
-                        <div class="card-body" style="overflow-y: auto">
-                            <h4 class="card-title">بنزین سوپر</h4>
-                            <p class="card-text">You can also set maximum height on and the card will not expand,
-                                instead a
-                                scrollbar in the card body will appear.</p>
-                            <p class="card-text">Some example text to show the scrollbar.</p>
-                            <p class="card-text">Lorem ipsum dolor sit amet, te vix omittam fastidii, enim paulo omnes
-                                ea
-                                has, illud luptatum no qui. Sed ea qualisque urbanitas, purto elit nec te. Possim
-                                inermis
-                                antiopam ut eum. Eos te zril labore laboramus, quem erant nam in. Ut sed molestie
-                                antiopam. At altera facilisis mel.</p>
-                        </div>
-                        <div class="card-footer" style="background: inherit; border-color: inherit;">
-                            <a href="#" class="btn btn-primary">درخواست آنلاین</a>
-                            <a href="#" class="btn btn-outline-primary">هر لیتر۶۰۰۰تومان</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-6 col-lg-4 pb-3">
-
-                    <div class="card card-custom bg-white border-white border-0">
-                        <div class="card-custom-img"
-                             style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
-                        <div class="card-custom-avatar">
-                            <img src="{% static 'images/benzin mamoli.avif' %}"
-                                 alt="My image" style="object-fit: cover">
-                        </div>
-                        <div class="card-body" style="overflow-y: auto">
-                            <h4 class="card-title">بنزین معمولی</h4>
-                            <p class="card-text">Card has minimum height set but will expand if more space is needed for
-                                card body content. You can use Bootstrap <a
-                                        href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
-                                        target="_blank">card-decks</a> to align multiple cards nicely in a row.</p>
-                        </div>
-                        <div class="card-footer" style="background: inherit; border-color: inherit;">
-                            <a href="#" class="btn btn-primary">درخواست آنلاین</a>
-                            <a href="#" class="btn btn-outline-primary">هر لیتر۴۰۰۰تومان</a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 </section>
 <section>
-    <div class="container  text-center mt-5 d-none d-md-block">
-        <img src="{% static 'images/jaigah6.jpg' %}"
-             alt="My image" style="object-fit: cover;height: 150px;border-radius: 100px" class="w-100 col-md-6">
+    <div class=" mt-5 d-none d-md-block">
+        <img src="{% static 'images/sahm.jpg' %}"
+             alt="My image" class=" banner ">
         <div class="col-md-6">
             <h2>چگونه در دقت خود صرفه جویی کنیم</h2>
             <P>با درخواست انلاین بنزین بنزینو دم خونت تحویل بگیر</P>
@@ -351,187 +490,6 @@
     </div>
 </section>
 
-<style>
-    .context {
-        width: 100%;
-        position: absolute;
-
-    }
-
-    .context h1 {
-        text-align: center;
-        color: #fff;
-        font-size: 50px;
-    }
-
-
-    .area {
-        background: #4e54c8;
-        background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
-        width: 100%;
-
-
-    }
-
-    .circles {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-
-    .circles li {
-        position: absolute;
-        display: block;
-        list-style: none;
-        width: 20px;
-        height: 20px;
-        background: rgba(255, 255, 255, 0.2);
-        animation: animate 15s linear infinite;
-        bottom: -150px;
-
-    }
-
-    .circles li:nth-child(1) {
-        left: 25%;
-        width: 80px;
-        height: 80px;
-        animation-delay: 0s;
-    }
-
-
-    .circles li:nth-child(2) {
-        left: 10%;
-        width: 20px;
-        height: 20px;
-        animation-delay: 2s;
-        animation-duration: 5s;
-    }
-
-    .circles li:nth-child(3) {
-        left: 70%;
-        width: 20px;
-        height: 20px;
-        animation-delay: 5s;
-    }
-
-    .circles li:nth-child(4) {
-        left: 40%;
-        width: 60px;
-        height: 60px;
-        animation-delay: 0s;
-        animation-duration: 5s;
-    }
-
-    .circles li:nth-child(5) {
-        left: 65%;
-        width: 20px;
-        height: 20px;
-        animation-delay: 0s;
-    }
-
-    .circles li:nth-child(6) {
-        left: 75%;
-        width: 110px;
-        height: 110px;
-        animation-delay: 0s;
-    }
-
-    .circles li:nth-child(7) {
-        left: 35%;
-        width: 150px;
-        height: 150px;
-        animation-delay: 0s;
-    }
-
-    .circles li:nth-child(8) {
-        left: 50%;
-        width: 25px;
-        height: 25px;
-        animation-delay: 25s;
-        animation-duration: 5s;
-    }
-
-    .circles li:nth-child(9) {
-        left: 20%;
-        width: 15px;
-        height: 15px;
-        animation-delay: 0s;
-        animation-duration: 5s;
-    }
-
-    .circles li:nth-child(10) {
-        left: 85%;
-        width: 150px;
-        height: 150px;
-        animation-delay: 0s;
-        animation-duration: 5s;
-    }
-
-
-    @keyframes animate {
-
-        0% {
-            transform: translateY(0) rotate(0deg);
-            opacity: 1;
-            border-radius: 0;
-        }
-
-        100% {
-            transform: translateY(-1000px) rotate(720deg);
-            opacity: 0;
-            border-radius: 50%;
-        }
-
-    }
-
-    .card-custom {
-        overflow: hidden;
-        min-height: 450px;
-        box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
-    }
-
-    .card-custom-img {
-        height: 200px;
-        min-height: 200px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        border-color: inherit;
-    }
-
-    /* First border-left-width setting is a fallback */
-    .card-custom-img::after {
-        position: absolute;
-        content: '';
-        top: 161px;
-        left: 0;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-top-width: 40px;
-        border-right-width: 0;
-        border-bottom-width: 0;
-        border-left-width: 545px;
-        border-left-width: calc(575px - 5vw);
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: inherit;
-    }
-
-    .card-custom-avatar img {
-        border-radius: 50%;
-        box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
-        position: absolute;
-        top: 100px;
-        left: 1.25rem;
-        width: 100px;
-        height: 100px;
-    }
-
-</style>
 
 <div id="carouselExampleCaptions" class="carousel slide d-md-none" style="margin-top: -130px">
     <div class="carousel-inner">
@@ -608,180 +566,66 @@
             <div class="col-md-12 col-lg-4 pb-3">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="card card-custom bg-white border-white border-0">
-                                <div class="card-custom-img"
-                                     style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
-                                <div class="card-custom-avatar">
-                                    <img src="{% static 'images/euro4.jpg' %}"
-                                         alt="My image" style="object-fit: cover">
-                                </div>
-                                <div class="card-body" style="overflow-y: auto">
-                                    <h4 class="card-title">بنزین یورو۴</h4>
-                                    <p class="card-text">Card has minimum height set but will expand if more space is
-                                        needed for
-                                        card body content. You can use Bootstrap <a
-                                                href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
-                                                target="_blank">card-decks</a> to align multiple cards nicely in a row.
-                                    </p>
-                                </div>
-                                <div class="card-footer" style="background: inherit; border-color: inherit;">
-                                    <a href="#" class="btn btn-primary">درخواست آنلاین</a>
-                                    <a href="#" class="btn btn-outline-primary">هر لیتر ۵۰۰۰تومان</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="card card-custom bg-white border-white border-0">
-                                <div class="card-custom-img"
-                                     style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
-                                <div class="card-custom-avatar">
-                                    <img src="{% static 'images/benzin mamoli.avif' %}"
-                                         alt="My image" style="object-fit: cover">
-                                </div>
-                                <div class="card-body" style="overflow-y: auto">
-                                    <h4 class="card-title">بنزین معمولی</h4>
-                                    <p class="card-text">Card has minimum height set but will expand if more space is
-                                        needed for
-                                        card body content. You can use Bootstrap <a
-                                                href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
-                                                target="_blank">card-decks</a> to align multiple cards nicely in a row.
-                                    </p>
-                                </div>
-                                <div class="card-footer" style="background: inherit; border-color: inherit;">
-                                    <a href="#" class="btn btn-primary">درخواست آنلاین</a>
-                                    <a href="#" class="btn btn-outline-primary">هر لیتر ۴۰۰۰ تومان</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="card card-custom bg-white border-white border-0">
-                                <div class="card-custom-img"
-                                     style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
-                                <div class="card-custom-avatar">
-                                    <img src="{% static 'images/super.jpg' %}"
-                                         alt="My image" style="object-fit: cover">
-                                </div>
-                                <div class="card-body" style="overflow-y: auto">
-                                    <h4 class="card-title">بنزین سوپر</h4>
-                                    <p class="card-text">Card has minimum height set but will expand if more space is
-                                        needed
-                                        for
-                                        card body content. You can use Bootstrap <a
-                                                href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
-                                                target="_blank">card-decks</a> to align multiple cards nicely in a row.
-                                    </p>
-                                </div>
-                                <div class="card-footer" style="background: inherit; border-color: inherit;">
-                                    <a href="#" class="btn btn-primary">درخواست آنلاین</a>
-                                    <a href="#" class="btn btn-outline-primary">هر لیتر۶۰۰۰تومان</a>
-                                </div>
-                            </div>
-                            <!-- Copy until here -->
-                        </div>
-                    </div>
+                        {% for product in products %}
+                            <div class="carousel-item {% if product.id == 1 %} active {% else %} {% endif %} ">
+                                <div class="card card-custom bg-white border-white border-0">
+                                    <div class="card-custom-img"
+                                         style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+                                    <div class="card-custom-avatar">
+                                        {% if product.name == "بنزین معمولی" %}
+                                            <img src="{% static 'images/photo_2024-06-10_14-01-23.png' %}"
+                                                 alt="mamoli" style="object-fit: cover">
+                                        {% elif product.name == "بنزین سوپر" %}
+                                            <img src="{% static 'images/super.jpg' %}"
+                                                 alt="mamoli" style="object-fit: cover">
+                                        {% elif product.name == "بنزین یورو4" %}
+                                            <img src="{% static 'images/euro4.jpg' %}"
+                                                 alt="mamoli" style="object-fit: cover">
+                                        {% endif %}
 
+                                    </div>
+                                    <div class="card-body" style="overflow-y: auto">
+                                        <h4 class="card-title"> {{ product.name }}</h4>
+                                        <p class="card-text">Card has minimum height set but will expand if more space
+                                            is
+                                            needed for
+                                            card body content. You can use Bootstrap <a
+                                                    href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
+                                                    target="_blank">card-decks</a> to align multiple cards nicely in a
+                                            row.
+                                        </p>
+                                    </div>
+                                    <div class="card-footer" style="background: inherit; border-color: inherit;">
+                                        <a href="#" class="btn btn-primary">درخواست آنلاین</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" style="background-color: black" aria-hidden="true"></span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" style="background-color: black;" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" style="background-color: black" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" style="background-color: black;" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
+    </div>
     </div>
 </section>
-    <div class="container  text-center mt-5 d-md-none">
-        <img src="{% static 'images/jaigah6.jpg' %}"
-             alt="My image" style="object-fit: cover;height: 150px;" class="col-12">
-        <div class="col-12">
-            <h2>چگونه در دقت خود صرفه جویی کنیم</h2>
-            <P>با درخواست انلاین بنزین بنزینو دم خونت تحویل بگیر</P>
-        </div>
-
+<div class="container  text-center mt-5 d-md-none">
+    <img src="{% static 'images/jaigah6.jpg' %}"
+         alt="My image" style="object-fit: cover;height: 150px;" class="col-12">
+    <div class="col-12">
+        <h2>چگونه در دقت خود صرفه جویی کنیم</h2>
+        <P>با درخواست انلاین بنزین بنزینو دم خونت تحویل بگیر</P>
     </div>
 
-{#with mobil card#}
-<style>
-    @font-face {
-        font-family: 'IRANSansX';
-        src: url('/fonts/IRANSansX-UltraLight.woff2') format('woff2'),
-        url('/fonts/IRANSansX-UltraLight.woff') format('woff');
-        font-weight: 200;
-        font-style: normal;
-        font-display: swap;
-    }
+</div>
 
-    @font-face {
-        font-family: 'IRANSansX';
-        src: url('/fonts/IRANSansX-Medium.woff2') format('woff2'),
-        url('/fonts/IRANSansX-Medium.woff') format('woff');
-        font-weight: 500;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'IRANSansX';
-        src: url('/fonts/IRANSansX-Thin.woff2') format('woff2'),
-        url('/fonts/IRANSansX-Thin.woff') format('woff');
-        font-weight: 100;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'IRANSansX';
-        src: url('/fonts/IRANSansX-Light.woff2') format('woff2'),
-        url('/fonts/IRANSansX-Light.woff') format('woff');
-        font-weight: 300;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'IRANSansX';
-        src: url('/fonts/IRANSansX-ExtraBold.woff2') format('woff2'),
-        url('/fonts/IRANSansX-ExtraBold.woff') format('woff');
-        font-weight: bold;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'IRANSansX';
-        src: url('/fonts/IRAN Sans Regular.woff') format('woff2'),
-        url('/fonts/IRANSansX-DemiBold.woff') format('woff');
-        font-weight: 600;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'IRANSansX';
-        src: url('/fonts/IRANSansX-Bold.woff2') format('woff2'),
-        url('/fonts/IRANSansX-Bold.woff') format('woff');
-        font-weight: bold;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'IRANSansX';
-        src: url('/fonts/IRANSansX-Black.woff2') format('woff2'),
-        url('/fonts/IRANSansX-Black.woff') format('woff');
-        font-weight: 900;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    * {
-        font-family: 'IRANSansX', Serif;
-    }
-
-</style>
 
 {% include 'footer.html' %}
 

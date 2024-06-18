@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
+    
+    body{
+        background-color: #7d9098;
+    }
     table.greenTable {
         font-family: Georgia, serif;
         border: 0px solid #002094;
@@ -64,65 +68,64 @@
     }
 </style>
 <body>
-
-{#<h1>سفارش‌های شما</h1>#}
-
-{% if orders %}
-
-
-    <table class="greenTable">
-    <thead>
-    <tr>
-        <th>لوکیشن مپ</th>
-        <th>ساعت انتخابی</th>
-        <th>وضعیت</th>
-        <th>head4</th>
-        <th>head5</th>
-        <th>head6</th>
-        <th>head7</th>
-        <th>توضیحات تکمیلی</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for order in orders %}
-        <tr>
-            <td>{{ order.location }}</td>
-            <td>{{ order.date }}</td>
-            <td>{{ order.status }}</td>
-            <td>cell4_1</td>
-            <td>cell5_1</td>
-            <td>cell6_1</td>
-            <td>cell7_1</td>
-            <td>{{ order.description }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-
-{% else %}
-{#    <p>سفارش فعالی ندارید</p>#}
-{% endif %}
-</table>
-            {% load static %}
-            <img src="{% static 'images/descktop&mobile.png' %}" class="w-100 h-10"
-                 style="height: 500px;object-fit: cover;"
-                 alt="My image">
-            {% load static %}
-            <img src="{% static 'images/descktop&mobile.png' %}" class="w-100 h-10"
-                 style="height: 500px;object-fit: cover;"
-                 alt="My image">
+{% include 'header.html' %}
 
 <div class="container">
     <div class="row">
-        <div class="col-6 col-md-6">
+        <div class="col-6 col-md-3">
             {% load static %}
-            <img src="{% static 'images/descktop&mobile.png' %}" style="border-radius: 50%;height: 400px;width: 400px"
+            <img src="{% static 'images/road.jpeg' %}" style="border-radius: 50%;height: 400px;width: 400px"
 
                  alt="My image">
 
         </div>
+        <div class="col-6 col-md-9">
+            {% if orders %}
+                <table class="greenTable">
+                <thead>
+                <tr>
+                    <th>لوکیشن مپ</th>
+                    <th>ساعت انتخابی</th>
+                    <th>وضعیت</th>
+                    <th>head4</th>
+                    <th>head5</th>
+                    <th>head6</th>
+                    <th>head7</th>
+                    <th>توضیحات تکمیلی</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.location }}</td>
+                        <td>{{ order.date }}</td>
+                        <td>{{ order.status }}</td>
+                        <td>cell4_1</td>
+                        <td>cell5_1</td>
+                        <td>cell6_1</td>
+                        <td>cell7_1</td>
+                        <td>{{ order.description }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            {% else %}
+                <p>سفارش فعالی ندارید</p>
+            {% endif %}
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-md-6">
+            <h2>slaaaaaaaaaaam</h2>
+        </div>
         <div class="col-6 col-md-6">
             {% load static %}
-            <img src="{% static 'images/jaigah6.jpg' %}" style="border-radius: 50%;height: 400px;width: 400px"
+            <img src="{% static 'images/fac.jpeg' %}" style="border-radius: 50%;height: 400px;width: 400px"
 
                  alt="My image">
 
