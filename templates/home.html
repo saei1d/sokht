@@ -28,7 +28,7 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-9">
                         </div>
-                        <div  class="button float-right mt-3" style="margin-bottom: 200px">درخواست انلاین سوخت</div>
+                        <div class="button float-right mt-3" style="margin-bottom: 200px">درخواست انلاین سوخت</div>
                     </div>
                 </div>
             </div>
@@ -39,31 +39,29 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-12" style="margin-top: -130px">
             <div class="card p-4 mt-3"><h3 class="heading mt-5 text-center">?چگونه بنزین یه دست مشتری میرسد</h3>
-                <div class="d-flex justify-content-center px-5">
-                    <div class="search"><input type="text" class="search-input" placeholder="Search..." name=""> <a
-                            href="#" class="search-icon"> <i class="fa fa-search"></i> </a></div>
-                </div>
                 <div class="row mt-4 g-1 px-4 mb-5">
                     <div class="col-md-2 mx-auto">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center bg-primary">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"
+                             style="background-color: blue">
                             <i class="fa fa-home" aria-hidden="true" style="color: white;font-size: 50px"></i>
                             <div class="text-center mg-text"><span class="mg-text text-light">خونه</span></div>
                         </div>
                     </div>
                     <div class="col-md-2 mx-auto">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center"><img
-                                src="https://i.imgur.com/ueLEPGq.png" width="50">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center">
+                            <i class="fas fa-wallet" style="color: blue;font-size: 50px"></i>
                             <div class="text-center mg-text"><span class="mg-text">کیف پول</span></div>
                         </div>
                     </div>
                     <div class="col-md-2 mx-auto">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center"><img
-                                src="https://i.imgur.com/D0Sm15i.png" width="50">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center">
+                            <i class="fab fa-product-hunt" style="color: blue;font-size: 50px"></i>
                             <div class="text-center mg-text"><span class="mg-text">محصولات</span></div>
                         </div>
                     </div>
                     <div class="col-md-2 mx-auto">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center"><img src="https://i.imgur.com/Z7BJ8Po.png" width="50" alt="">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center">
+                            <i class="fas fa-ticket-alt" style="color: blue;font-size: 50px"></i>
                             <div class="text-center mg-text"><span class="mg-text">ثبت تیکت ۲۴ساعته</span></div>
                         </div>
                     </div>
@@ -72,8 +70,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 <div class=" mt-5 p-5 container  text-center">
@@ -135,11 +131,11 @@
         </div>
     </div>
 </section>
-<div class="container text-right mt-5 d-none d-md-block">
-    <h1 class="text-right">خدمات ما</h1>
-    <span class="">با بنزین‌یار، می‌توانید به راحتی نوع بنزین مورد نظر خود را انتخاب کرده و در کوتاه‌ترین زمان ممکن درب منزل یا محل کار تحویل بگیرید. خدمات ما شامل ارائه بنزین معمولی، بنزین سوپر و بنزین یورو ۶ با تضمین کیفیت و قیمت مناسب می‌باشد</span>
-    <button type="button" class="btn btn-outline-primary float-left">خدمات ما</button>
-</div>
+{#<div class="container text-right mt-5 d-none d-md-block">#}
+{#    <h1 class="text-right">خدمات ما</h1>#}
+{#    <span class="">با بنزین‌یار، می‌توانید به راحتی نوع بنزین مورد نظر خود را انتخاب کرده و در کوتاه‌ترین زمان ممکن درب منزل یا محل کار تحویل بگیرید. خدمات ما شامل ارائه بنزین معمولی، بنزین سوپر و بنزین یورو ۶ با تضمین کیفیت و قیمت مناسب می‌باشد</span>#}
+{#    <button type="button" class="btn btn-outline-primary float-left">خدمات ما</button>#}
+{#</div>#}
 <section>
     <div class=" mt-5 d-none d-md-block">
         <img src="{% static 'images/sahm.jpg' %}"
@@ -163,6 +159,26 @@
 
             </div>
         </div>
+    </div>
+</div>
+<div class="container text-center mt-5  d-md-none">
+    <div class="row">
+        <div class="col-4">
+            <i class="fas fa-wallet" style="color: blue;font-size: 30px"></i>
+            <p>کیف پول</p>
+
+        </div>
+        <div class="col-4">
+            <i class="fab fa-product-hunt" style="color: blue;font-size: 30px"></i>
+            <p>محصولات</p>
+
+        </div>
+        <div class="col-4">
+            <i class="fas fa-ticket-alt" style="color: blue;font-size: 30px"></i>
+            <p>ثبت تیکت ۲۴</p>
+
+        </div>
+
     </div>
 </div>
 <div class="container mt-4 d-md-none">
@@ -211,11 +227,15 @@
         </div>
     </div>
 </div>
-<div class="container text-right mt-5  d-md-none">
-    <h1 class="text-right">انواع سوخت ها</h1>
-    <p class="">سوخت های ما شامل بنزین معمولی,بنزین سوپر و بنرین یورو۴ میباشد</p>
-    <button type="button" class="btn btn-outline-primary">خدمات ما</button>
+{#<div class="container text-right mt-5  d-md-none">#}
+{#    <h1 class="text-right">انواع سوخت ها</h1>#}
+{#    <p class="">سوخت های ما شامل بنزین معمولی,بنزین سوپر و بنرین یورو۴ میباشد</p>#}
+{#    <button type="button" class="btn btn-outline-primary">خدمات ما</button>#}
+{#</div>#}
+<div class=" d-md-none mt-5 p-5 container  text-center">
+    <h1>محصولات ما</h1>
 </div>
+
 {#jdsjfjfd#}
 
 <section class="mt-5 d-md-none"
@@ -244,14 +264,13 @@
 
                                     </div>
                                     <div class="card-body" style="overflow-y: auto">
-                                        <h4 class="card-title"> {{ product.name }}</h4>
-                                        <p class="card-text">Card has minimum height set but will expand if more space
-                                            is
-                                            needed for
-                                            card body content. You can use Bootstrap <a
+                                        <h4 class="card-title text-right"> {{ product.name }}</h4>
+                                        <p class="card-text">"بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور و
+                                            بهبود عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در
+                                            محفظه احتراق و طولانی‌تر شدن عمر موتور می‌گردد." <a
                                                     href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
-                                                    target="_blank">card-decks</a> to align multiple cards nicely in a
-                                            row.
+                                                    target="_blank"></a>
+
                                         </p>
                                     </div>
                                     <div class="card-footer" style="background: inherit; border-color: inherit;">
