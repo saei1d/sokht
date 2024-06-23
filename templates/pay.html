@@ -10,76 +10,47 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.js"></script>
     <link rel="stylesheet" href="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.css"/>
-
-
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/pay.css' %}">
 
 
 </head>
 <body>
-<div id="carouselExampleCaptions" class="carousel slide" style="margin-top: -130px">
-    {#    #desktop#}
-    <div class="carousel-inner d-none d-md-block ">
-        <div class="carousel-item active">
-            {% load static %}
-            <img src="{% static 'images/pay-desktop.jpg' %}" class="w-100 h-10"
-                 style="height: 700px;object-fit: cover;border-bottom-right-radius: 20%;border-bottom-left-radius: 20%"
-                 alt="My image">
-            <div class="carousel-caption d-none d-md-block">
-                <div class="container">
-                    <h2 class="text-left">دیگه وقتت و داخل پمپ بنزین تلف نکن</h2>
-                    <p class="text-left">شرکت پترونوین در نظر دارد تامشکل بنزین زدن ما را حل کند شما با</p>
-                    <p class="text-left">درخواست در این پلتفرم بنرین را در مکان دلخواه تحویل بگیر</p>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-9">
-                            {#                            <div class="card p-4 mt-3"><h3 class="heading mt-5 text-center" style="color: black">#}
-                            {#                            </h3>#}
-                            {#                                <div class="d-flex justify-content-center px-5">#}
-                            {#                                    <div class="search"><input type="text" class="search-input" placeholder="Search..."#}
-                            {#                                                               name=""> <a href="#" class="search-icon"> <i#}
-                            {#                                            class="fa fa-search"></i> </a></div>#}
-                            {#                                </div>#}
-                            <div class="button float-left mt-3" style="margin-bottom: 200px">درخواست انلاین سوخت</div>
-
-                        </div>
-
-                    </div>
-                </div>
+{% include 'header.html' %}
+{#    #desktop#}
+<div class="container d-none d-md-block">
+    <div class="row">
+        <div class="col-md-6 ">
+            <div class="mx-auto" style="margin-top: 250px">
+                <h2 class="text-left" style="color: white">دیگه وقتت و داخل پمپ بنزین تلف نکن</h2>
+                <p class="text-left" style="color: white">شرکت پترونوین در نظر دارد تامشکل بنزین زدن ما را حل کند شما
+                    با</p>
             </div>
         </div>
-    </div>
-    {#    mobile#}
-    <div class="carousel-inner  d-md-none ">
-        <div class="carousel-item active">
+        <div class="col-md-6">
             {% load static %}
-            <img src="{% static 'images/pay-mobile.jpg' %}" class="w-100 h-10"
-                 style="height: 700px;object-fit: cover;border-bottom-right-radius: 20%;border-bottom-left-radius: 20%"
+            <img src="{% static 'images/p2.jpg' %}" class=" w-100 h-10"
+                 style="object-fit: cover"
                  alt="My image">
-            <div class="carousel-caption d-md-none">
-                <div class="container">
-                    <h2 class="text-left">دیگه وقتت و داخل پمپ بنزین تلف نکن</h2>
-                    <p class="text-left">شرکت پترونوین در نظر دارد تامشکل بنزین زدن ما را حل کند شما با</p>
-                    <p class="text-left">درخواست در این پلتفرم بنرین را در مکان دلخواه تحویل بگیر</p>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-9">
-                            {#                            <div class="card p-4 mt-3"><h3 class="heading mt-5 text-center" style="color: black">#}
-                            {#                            </h3>#}
-                            {#                                <div class="d-flex justify-content-center px-5">#}
-                            {#                                    <div class="search"><input type="text" class="search-input" placeholder="Search..."#}
-                            {#                                                               name=""> <a href="#" class="search-icon"> <i#}
-                            {#                                            class="fa fa-search"></i> </a></div>#}
-                            {#                                </div>#}
-                            <div class="button float-left mt-3" style="margin-bottom: 200px">درخواست انلاین سوخت</div>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
+{#    mobile#}
+<div class="d-md-none">
+    <div class="col-12 aks_pay_mob">
+        {% load static %}
+        <img class="aks_pay_mob" src="{% static 'images/p3.jpg' %}"
+             style="height: 700px;object-fit: cover;border-bottom-right-radius: 20%;border-bottom-left-radius: 20%"
+             alt="My image">
+    </div>
+    <div class="col-12">
+        <h2 class="text-left" style="color: white">دیگه وقتت و داخل پمپ بنزین تلف نکن</h2>
+        <p class="text-left" style="color: white">شرکت پترونوین در نظر دارد تامشکل بنزین زدن ما را حل کند شما
+            با</p>
+    </div>
+</div>
+
+
 <div class="container col-md-6 bg-light mb-5" style="border-radius: 40px ">
     {% if msg %}
         <p style="background-color: crimson">{{ msg }}</p>
@@ -87,8 +58,17 @@
     <form method="POST" id="order-form" style="padding: 40px">
         {% csrf_token %}
         <div class="row">
-            <div class="form-group col-6 col-md-6 mt-2">
-                <label for="product">انتخاب محصولات:</label>
+
+            <div class="form-group col-6 col-md-6 mt-2 text-right">
+                <label for="quantity"> :حجم (لیتر)</label>
+                <input type="number" style="border: 2px solid #000000" class="form-control" id="quantity"
+                       name="quantity" min="10" max="60" value="0"
+                       oninput="updatePrice()">
+            </div>
+
+
+            <div class="form-group col-6 col-md-6 mt-2 text-right">
+                <label for="product text-right"> : محصولات</label>
                 <select class="form-control" id="product" name="product" style="border: 2px solid #000000"
                         onchange="updatePrice()">
                     {% if pk != 0 %}
@@ -100,7 +80,7 @@
                             {% endif %}
                         {% endfor %}
                     {% else %}
-                        <option value="" selected disabled>لطفا محصول خود و لیتر مورد نیاز خودتون رو انتخاب کنید
+                        <option value="" selected disabled>انتخاب کنید
                         </option>
                         {% for product in products %}
                             <option value="{{ product.id }}">{{ product.name }}</option>
@@ -108,38 +88,39 @@
                     {% endif %}
                 </select>
             </div>
-            <div class="form-group col-6 col-md-6 mt-2">
-                <label for="quantity">تعداد محصولات (لیتر):</label>
-                <input type="number" style="border: 2px solid #000000" class="form-control" id="quantity"
-                       name="quantity" min="10" max="60" value="0"
-                       oninput="updatePrice()">
-            </div>
-            <div class="form-group col-6 col-md-6 mt-2">
-                <label for="price">قیمت:</label>
-                <input type="text" class="form-control bg-light" id="price" name="price"
-                       style="border: 2px solid #000000"
-                       value=" محصول خود و لیتر مورد نیاز را انتخاب کنید"
-                       readonly>
-            </div>
-            <div class="form-group col-6 col-md-6 mt-2">
-                <label for="full_name">تحویل گیرنده:</label>
+
+            <div class="form-group col-6 col-md-6 mt-2 text-right">
+                <label for="full_name">:تحویل گیرنده</label>
                 <input type="text" style="border: 2px solid #000000" class="form-control" id="full_name"
                        name="full_name" required>
             </div>
-            <div class="form-group col-md-4 mt-2">
+
+
+            <div class="form-group col-6 col-md-6 mt-2 text-right">
+                <label for="price">:قیمت</label>
+                <input type="text" class="form-control bg-light" id="price" name="price"
+                       style="border: 2px solid #000000"
+                       value="ابتدا محصول  و لیتر را انتخاب کنید"
+                       readonly>
+            </div>
+            <div class="form-group col-md-6 mt-2">
                 <label class="bg-light" style="border: 2px solid #000000">
                     <select name="time">
-                        <option disabled selected>انتخاب ساعت دریافت بنزین</option>
-                        <option value="7"><p></p></option>
-                        <option value="9">۹ تا ۱۱</option>
-                        <option value="11">۱۱ تا ۱۳</option>
-                        <option value="13">۱۳ تا ۱۵</option>
-                        <option value="15">۱۵ تا ۱۷</option>
-                        <option value="17">۱۷ تا ۱۹</option>
-                        <option value="19">۱۹ تا ۲۱</option>
-                        <option value="21">۲۱ تا ۲۳</option>
+                        <option disabled selected> ساعت دریافت بنزین</option>
+                        <option value="11">هفت تا نه صبح</option>
+                        <option value="7"><p>نه الی یازده صبح</p></option>
+                        <hr>
+                        <option value="9">یازده الی یک ظهر</option>
+                        <option value="13">یک الی سه ظهر</option>
+                        <hr>
+                        <option value="15">سه الی پنج عصر</option>
+                        <option value="17">پنج الی هفت عصر</option>
+                        <hr>
+                        <option value="19">هفت الی نه شب</option>
+                        <option value="21">نه الی یازده شب</option>
                     </select>
                 </label>
+                <p>سفارشات هر روز همان روز ثبت و انجام میشود</p>
             </div>
             <div class="form-group col-md-12">
                 <div id="map" style="border-radius: 50px;border: 2px solid #000000"></div>
@@ -153,7 +134,7 @@
                           name="description" rows="3"></textarea>
             </div>
             <div class="col-md-12 text-center mt-2">
-                <button type="submit">jhddn</button>
+                <button class="button" type="submit">jhddn</button>
             </div>
 
         </div>

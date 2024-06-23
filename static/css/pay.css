@@ -10,6 +10,12 @@ body {
 }
 
 
+
+.aks_pay_mob{
+    height: 300px;
+    width: 100%;
+}
+
 #map {
     height: 300px;
     width: 100%;
