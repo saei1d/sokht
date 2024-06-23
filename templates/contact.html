@@ -68,8 +68,8 @@
 }
 </style>
 {% include 'header.html' %}
-<div id="carouselExampleCaptions" class="carousel slide" style="margin-top: -130px">
-    <div class="carousel-inner d-none d-md-block ">
+<div id="carouselExampleCaptions" class="carousel slide d-none d-md-block" style="margin-top: -130px">
+    <div class="carousel-inner ">
         <div class="carousel-item active">
             {% load static %}
             <img src="{% static 'images/descktop&mobile.png' %}" class="w-100 h-10"
@@ -95,7 +95,25 @@
             </div>
         </div>
     </div>
+</div><div id="carouselExampleCaptions" class="carousel slide d-md-none" style="margin-top: -300px">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            {% load static %}
+            <img src="{% static 'images/descktop&mobile.png' %}" class="w-100" style="height: 500px;object-fit: cover"
+                 alt="My image">
+            <div class="carousel-caption">
+                <h2 class="text-right">بگو کجایی تا بنزین بهت برسونیم</h2>
+                <p class="text-right">درخواستت رو بده تا دیگه برای بنزین سختی نکشی</p>
+                <div class="button mx-auto mt-3">درخواست انلاین سوخت</div>
+
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+
 <div class="container mt-5">
 <div class="text">
     <h5 class="text-right" style="color: blue">درباره ما</h5>
