@@ -33,6 +33,7 @@ body {
     cursor: pointer;
     -webkit-transition: all ease-in-out 300ms;
     transition: all ease-in-out 300ms;
+    border: none;
 }
 
 .button:hover {
