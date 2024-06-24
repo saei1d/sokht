@@ -2,31 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>صفحه سفارش</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 
 <STYLE>
     body{
-        background-color: #eaf0f0;
+        background-color: #01356e;
+        font-family: 'MyFont', sans-serif;
+
     }
+        @font-face {
+    font-family: 'MyFont';
+    src: url('/static/font/Shabnam-Medium.woff') format('woff');
+}
+
 </STYLE>
 <body>
-{#{% include 'header.html' %}#}
-
-<div class=" d-none d-md-block">
+{% include 'header.html' %}
+<div class="container">
     <div class="row">
-        <div class="col-md-8 mx-auto">
+<div class="col-12 col-md-6 mt-5">
+        <div class="mx-auto">
             {% load static %}
-            <img src="{% static 'images/order4.jpeg' %}" class="col-md-12"
+            <img src="{% static 'images/order2.png' %}" class="col-12"
                  style="object-fit: cover;"
                  alt="My image">
         </div>
-    </div>
+</div>
+                <div class="col-md-6 mt-5">
+            <h1 class="mt-5"style="color: white;">سفارش شما ثبت شد</h1>
+            <p class="mt-5" style="color:white;">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت رد.</p>
+        </div>
+
+</div>
 </div>
 {% if orders %}
-    <div class="table-responsive  rounded col-md-12">
+    <div class="table-responsive col-md-12 text-right mt-5">
         <table class="table table-striped table-bordered text-center">
             <thead class="bg-primary text-white">
             <tr>
@@ -57,8 +72,10 @@
 
 {% else %}
     <p>سفارش فعالی ندارید</p>
-{% endif %}
 
+{% endif %}
+    </div>
+{% include 'footer.html' %}
 
 
 {#<div class="container">#}
