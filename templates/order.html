@@ -5,133 +5,76 @@
     <title>Title</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<style>
-    
+
+
+<STYLE>
     body{
-        background-color: #7d9098;
+        background-color: #eaf0f0;
     }
-    table.greenTable {
-        font-family: Georgia, serif;
-        border: 0 solid #002094;
-        background-color: #EEEEEE;
-        width: 100%;
-        text-align: center;
-    }
-
-    table.greenTable td, table.greenTable th {
-        border: 2px solid #0E0E0E;
-        padding: 3px 2px;
-    }
-
-    table.greenTable tbody td {
-        font-size: 15px;
-        color: #141414;
-    }
-
-    table.greenTable tr:nth-child(even) {
-        background: #557294;
-    }
-
-    table.greenTable thead {
-        background: #435F94;
-
-        background: linear-gradient(to bottom, #7287af 0%, #556f9e 66%, #435F94 100%);
-        border-bottom: 0px solid #444444;
-    }
-
-    table.greenTable thead th {
-        font-size: 19px;
-        font-weight: bold;
-        color: #111111;
-        text-align: center;
-        border-left: 2px solid #24943A;
-    }
-
-    table.greenTable thead th:first-child {
-        border-left: none;
-    }
-
-    table.greenTable tfoot td {
-        font-size: 13px;
-    }
-
-    table.greenTable tfoot .links {
-        text-align: right;
-    }
-
-    table.greenTable tfoot .links a {
-        display: inline-block;
-        background: #FFFFFF;
-        color: #24943A;
-        padding: 2px 8px;
-        border-radius: 5px;
-    }
-</style>
+</STYLE>
 <body>
-{% include 'header.html' %}
+{#{% include 'header.html' %}#}
 
-<div class="container">
+<div class=" d-none d-md-block">
     <div class="row">
-        <div class="col-6 col-md-3">
+        <div class="col-md-8 mx-auto">
             {% load static %}
-            <img src="{% static 'images/road.jpeg' %}" style="border-radius: 50%;height: 400px;width: 400px"
-
+            <img src="{% static 'images/order4.jpeg' %}" class="col-md-12"
+                 style="object-fit: cover;"
                  alt="My image">
-
-        </div>
-        <div class="col-6 col-md-9">
-            {% if orders %}
-                <table class="greenTable">
-                <thead>
-                <tr>
-                    <th>لوکیشن مپ</th>
-                    <th>ساعت انتخابی</th>
-                    <th>وضعیت</th>
-                    <th>head4</th>
-                    <th>head5</th>
-                    <th>head6</th>
-                    <th>head7</th>
-                    <th>توضیحات تکمیلی</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for order in orders %}
-                    <tr>
-                        <td>{{ order.location }}</td>
-                        <td>{{ order.date }}</td>
-                        <td>{{ order.status }}</td>
-                        <td>cell4_1</td>
-                        <td>cell5_1</td>
-                        <td>cell6_1</td>
-                        <td>cell7_1</td>
-                        <td>{{ order.description }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-
-            {% else %}
-                <p>سفارش فعالی ندارید</p>
-            {% endif %}
-            </table>
         </div>
     </div>
 </div>
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-6 col-md-6">
-            <h2>slaaaaaaaaaaam</h2>
-        </div>
-        <div class="col-6 col-md-6">
-            {% load static %}
-            <img src="{% static 'images/fac.jpeg' %}" style="border-radius: 50%;height: 400px;width: 400px"
-
-                 alt="My image">
-
-        </div>
+{% if orders %}
+    <div class="table-responsive  rounded col-md-12">
+        <table class="table table-striped table-bordered text-center">
+            <thead class="bg-primary text-white">
+            <tr>
+                <th class="font-weight-bold p-3" contenteditable="false">Product-ID</th>
+                <th class="font-weight-bold p-3" contenteditable="false">Description</th>
+                <th class="font-weight-bold p-3" contenteditable="false">Price</th>
+                <th class="font-weight-bold p-3" contenteditable="false"></th>
+                <th class="font-weight-bold p-3" contenteditable="false"></th>
+                <th class="font-weight-bold p-3" contenteditable="false"></th>
+                <th class="font-weight-bold p-3" contenteditable="false"></th>
+                <th class="font-weight-bold p-3" contenteditable="false"></th>
+            </tr>
+            </thead>
+            <tbody class="text-dark" style="background-color: white">
+            <tr>
+                <td class="p-3" contenteditable="false">YY-853581</td>
+                <td class="p-3" contenteditable="false">Notebook Basic</td>
+                <td class="p-3" contenteditable="false">$ 299</td>
+                <td class="p-3" contenteditable="false">YY-853599</td>
+                <td class="p-3" contenteditable="false">Notebook Pro</td>
+                <td class="p-3" contenteditable="false">$ 849</td>
+                <td class="p-3" contenteditable="false"></td>
+                <td class="p-3" contenteditable="false"></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-</div>
+
+{% else %}
+    <p>سفارش فعالی ندارید</p>
+{% endif %}
+
+
+
+{#<div class="container">#}
+{#    <div class="row">#}
+{#        <div class="col-6 col-md-6">#}
+{#            <h2>slaaaaaaaaaaam</h2>#}
+{#        </div>#}
+{#        <div class="col-6 col-md-6">#}
+{#            {% load static %}#}
+{#            <img src="{% static 'images/fac.jpeg' %}" style="border-radius: 50%;height: 400px;width: 400px"#}
+{##}
+{#                 alt="My image">#}
+{##}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
 
 </body>
 </html>
