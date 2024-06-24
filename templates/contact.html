@@ -2,182 +2,158 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>درباره ما</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 <style>
-     .mt-100{
+    .mt-100 {
 
-     margin-top:100px;
- }
+        margin-top: 100px;
+    }
 
-.card {
-     position: relative;
-     display: flex;
-     width: 350px;
-     flex-direction: column;
-     min-width: 0;
-     word-wrap: break-word;
-     background-color: #fff;
-     background-clip: border-box;
-     border: 1px solid #d2d2dc;
-     border-radius: 11px;
-     -webkit-box-shadow: 0px 0px 5px 0px rgb(249, 249, 250);
-     -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
-     box-shadow: 0px 0px 5px 0px rgb(161, 163, 164)
- }
+    .card {
+        position: relative;
+        display: flex;
+        width: 350px;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid #d2d2dc;
+        border-radius: 11px;
+        -webkit-box-shadow: 0px 0px 5px 0px rgb(249, 249, 250);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
+        box-shadow: 0px 0px 5px 0px rgb(161, 163, 164)
+    }
 
- .card .card-body {
-     padding: 1rem 1rem
- }
+    .card .card-body {
+        padding: 1rem 1rem
+    }
 
- .card-body {
-     flex: 1 1 auto;
-     padding: 1.25rem
- }
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1.25rem
+    }
 
- p{
-     font-size: 14px;
- }
+    p {
+        font-size: 14px;
+    }
 
- h4{
-         margin-top: 18px;
- }
-
-
- .btn:focus {
-     outline: none
- }
-
- .btn {
-     border-radius: 22px;
-     text-transform: capitalize;
-     font-size: 13px;
-     padding: 8px 19px;
-     cursor: pointer;
-     color: #fff;
-     background-color: blue;
-     
- }
+    h4 {
+        margin-top: 18px;
+    }
 
 
-.btn:hover{
+    .btn:focus {
+        outline: none
+    }
 
-     background-color: #D32F2F !important;
-}
+    .btn {
+        border-radius: 22px;
+        text-transform: capitalize;
+        font-size: 13px;
+        padding: 8px 19px;
+        cursor: pointer;
+        color: #fff;
+        background-color: blue;
+
+    }
+
+
+    .btn:hover {
+
+        background-color: #D32F2F !important;
+    }
 </style>
 {% include 'header.html' %}
 <div id="carouselExampleCaptions" class="carousel slide d-none d-md-block" style="margin-top: -130px">
     <div class="carousel-inner ">
         <div class="carousel-item active">
             {% load static %}
-            <img src="{% static 'images/descktop&mobile.png' %}" class="w-100 h-10"
+            <img src="{% static 'images/connnnnn.jpg' %}" class="w-100 h-10"
                  style="height: 700px;object-fit: cover;border-bottom-right-radius: 20%;border-bottom-left-radius: 20%"
                  alt="My image">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption ">
                 <div class="container">
                     <h2 class="text-right">contact us</h2>
                     <div class="row d-flex justify-content-center">
-                        <div class="col-md-9">
-                            {#                            <div class="card p-4 mt-3"><h3 class="heading mt-5 text-center" style="color: black">#}
-                            {#                            </h3>#}
-                            {#                                <div class="d-flex justify-content-center px-5">#}
-                            {#                                    <div class="search"><input type="text" class="search-input" placeholder="Search..."#}
-                            {#                                                               name=""> <a href="#" class="search-icon"> <i#}
-                            {#                                            class="fa fa-search"></i> </a></div>#}
-                            {#                                </div>#}
-
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div><div id="carouselExampleCaptions" class="carousel slide d-md-none" style="margin-top: -300px">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            {% load static %}
-            <img src="{% static 'images/descktop&mobile.png' %}" class="w-100" style="height: 500px;object-fit: cover"
-                 alt="My image">
-            <div class="carousel-caption">
-                <h2 class="text-right">بگو کجایی تا بنزین بهت برسونیم</h2>
-                <p class="text-right">درخواستت رو بده تا دیگه برای بنزین سختی نکشی</p>
-                <div class="button mx-auto mt-3">درخواست انلاین سوخت</div>
-
-            </div>
-        </div>
-    </div>
 </div>
-
-
 
 
 <div class="container mt-5">
-<div class="text">
-    <h5 class="text-right" style="color: blue">درباره ما</h5>
-    <h3 class="text-right">میتونیم کمکتون کنیم</h3>
-    <p class="text-right">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای </p>
+    <div class="text">
+        <h3 class="text-right">میتونیم کمکتون کنیم</h3>
+        <p class="text-right">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+            است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+            و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده
+            شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای </p>
+    </div>
 </div>
-</div>
 
-        <div class="container d-flex justify-content-center mt-100">
-         <div class="row">
-             <div class="col-md-4 col-12 mx-auto">
-                <div class="card">
-                    <div class="card-body text-center">
+<div class="container d-flex justify-content-center mt-100">
+    <div class="row">
+        <div class="col-md-4 col-12 mx-auto">
+            <div class="card">
+                <div class="card-body text-center">
 
 
-                      <img src="https://img.icons8.com/bubbles/100/000000/laptop.png" >
+                    <div style="font-size:55px"><i class="fas fa-envelope"></i></div>
+                    <h4>ایمیل</h4>
+                    <p>شما میتوانید با ارسال ایمیل نظرات انتقادات یا پیشنهادات خودتون رو بهمون بگید</p>
+                    <p>benzin_online@gmail.com</p>
 
-                      <h4>Contact us</h4>
-                      <p>Drop us a mail or use our online online chat feature and we will try to answer your query as soon as possible</p>
 
-                      <button class="btn btn-out btn-square"> CONTACT NOW</button>
-                        
-                           
+                    <button class="btn btn-out btn-square"> ایمیل کنید</button>
 
-                    </div>
+
                 </div>
-             </div>
-                          <div class="col-md-4 col-12 mx-auto">
-                <div class="card">
-                    <div class="card-body text-center">
-
-
-                      <img src="https://img.icons8.com/bubbles/100/000000/laptop.png">
-
-                      <h4>Contact us</h4>
-                      <p>Drop us a mail or use our online online chat feature and we will try to answer your query as soon as possible</p>
-
-                      <button class="btn btn-out btn-square"> CONTACT NOW</button>
-                        
-                           
-
-                    </div>
-                </div>
-             </div>
-             <div class="col-md-4 col-12 mx-auto">
-                <div class="card">
-                    <div class="card-body text-center">
-
-
-                      <img src="https://img.icons8.com/bubbles/100/000000/laptop.png">
-
-                      <h4>Contact us</h4>
-                      <p>Drop us a mail or use our online online chat feature and we will try to answer your query as soon as possible</p>
-
-                      <button class="btn btn-out btn-square"> CONTACT NOW</button>
-                        
-                           
-
-                    </div>
-                </div>
-             </div>
-
-         </div>
+            </div>
         </div>
+        <div class="col-md-4 col-12 mx-auto">
+            <div class="card">
+                <div class="card-body text-center">
+
+
+                    <div style="font-size:55px"><i class="fas fa-phone-volume"></i></div>
+                    <h4>تماس تلفنی</h4>
+                    <p>شما با برقرار کردن تماس تلفنی با ما میتوانید هر مشکل یا سوالی دارید رو با ما در میون بزارید </p>
+                    <p>+989036080000</p>
+
+                    <button class="btn btn-out btn-square"> برقراری تماس</button>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-12 mx-auto">
+            <div class="card">
+                <div class="card-body text-center">
+
+
+                    <div style="font-size:55px"><i class="fas fa-map-marker-alt"></i></div>
+                    <h4>موقعیت مکانی</h4>
+                    <p>شما میتوتنید با بازدید از محل سوختگیری به تمام اتفاقات واقف باشد </p>
+                    <p>ادرس:قم پمپ بنزین شهدای ناجا</p>
+
+                    <button class="btn btn-out btn-square"> CONTACT NOW</button>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 {% include 'footer.html' %}
 </body>
