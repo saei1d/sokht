@@ -62,37 +62,26 @@
             <div class="form-group col-6 col-md-6 mt-2 text-right">
                 <label for="quantity"> :حجم (لیتر)</label>
                 <input type="number" style="border: 2px solid #000000" class="form-control" id="quantity"
-                       name="quantity" min="10" max="60" value="0"
+                       name="quantity" min="10" max="60" value="{{ order.quantity }}"
                        oninput="updatePrice()">
             </div>
 
-
             <div class="form-group col-6 col-md-6 mt-2 text-right">
-                <label for="product text-right"> : محصولات</label>
+                <label for="product" class="text-right">محصول:</label>
                 <select class="form-control" id="product" name="product" style="border: 2px solid #000000"
                         onchange="updatePrice()">
-                    {% if pk != 0 %}
-                        {% for product in products %}
-                            {% if product.id == pk %}
-                                <option value="{{ product.id }}" selected>{{ product.name }}</option>
-                            {% else %}
-                                <option value="{{ product.id }}">{{ product.name }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    {% else %}
-                        <option value="" selected disabled>انتخاب کنید
-                        </option>
-                        {% for product in products %}
-                            <option value="{{ product.id }}">{{ product.name }}</option>
-                        {% endfor %}
-                    {% endif %}
+                    <option value="{{ order.product.id }}" selected>{{ order.product.name }}</option>
+                    {% for product in products %}
+                        <option value="{{ product.id }}">{{ product.name }}</option>
+                    {% endfor %}
                 </select>
             </div>
+
 
             <div class="form-group col-6 col-md-6 mt-2 text-right">
                 <label for="full_name">:تحویل گیرنده</label>
                 <input type="text" style="border: 2px solid #000000" class="form-control" id="full_name"
-                       name="full_name" required>
+                       name="full_name" value="{{ order.user.get_full_name }}">
             </div>
 
 
@@ -120,34 +109,35 @@
                         <option value="21">نه الی یازده شب</option>
                     </select>
                 </label>
-                <p>سفارشات هر روز همان روز ثبت و انجام میشود</p>
             </div>
             <div class="form-group col-md-12">
+                <p>فقط درصورت تغییر, لوکیشن را مجددا انتخاب کنید</p>
                 <div id="map" style="border-radius: 50px;border: 2px solid #000000"></div>
             </div>
             <input type="hidden" id="lat" name="lat">
             <input type="hidden" id="lon" name="lon">
-
             <div class="form-group  col-md-12">
                 <label for="description"></label>
                 <textarea class="form-control" style="border: 2px solid #000000" placeholder="توضیحات" id="description"
                           name="description" rows="3"></textarea>
             </div>
             <div class="col-md-12 text-center mt-2">
-                <button class="col-md-5 d-md-block d-none button float-right" style="background-color: #BF0A30" type="submit">
+                <button class="col-md-5 d-md-block d-none button float-right" style="background-color: #BF0A30"
+                        type="submit">
                     ذخیره اطلاعات
                 </button>
-                <button class="col-md-5 d-md-block d-none button float-left" style="background-color: #BF0A30" type="submit">حذف
+                <button class="col-md-5 d-md-block d-none button float-left" style="background-color: #BF0A30"
+                        type="submit">حذف
                     سفارش
                 </button>
                 <div class="row">
-                <button class="col-6 button d-md-none" style="background-color: #BF0A30" type="submit">
-                    ذخیره اطلاعات
-                </button>
-                <button class="col-6 button d-md-none" style="background-color: #BF0A30" type="submit">حذف
-                    سفارش
-                </button>
-            </div>
+                    <button class="col-6 button d-md-none" style="background-color: #BF0A30" type="submit">
+                        ذخیره اطلاعات
+                    </button>
+                    <button class="col-6 button d-md-none" style="background-color: #BF0A30" type="submit">حذف
+                        سفارش
+                    </button>
+                </div>
 
 
             </div>

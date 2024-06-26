@@ -4,5 +4,5 @@ from product.Editorder import views
 
 
 urlpatterns = [
-    path('editorder/', views.editorder, name='edit'),
+    path('editorder/<int:pk>/', views.edit_order, name='edit'),
     ]

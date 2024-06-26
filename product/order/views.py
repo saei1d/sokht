@@ -17,7 +17,6 @@ from sokht import settings
 @csrf_exempt
 def pay(request, pk=None):
     if request.method == 'POST':
-        print("444444444444444444444444444444444")
         # تنظیم منطقه زمانی به تهران
         current_time = datetime.now()
 
@@ -61,15 +60,16 @@ def pay(request, pk=None):
         response = requests.get(api_url, headers=headers)
 
         if response.status_code == 200:
-            print(1)
             location_data = response.json()
             formatted_address = location_data.get('formatted_address', 'آدرسی یافت نشد')
         else:
             error_message = "خطا در دریافت اطلاعات از سرور نشن"
             return render(request, 'pay.html', {'error_message': error_message})
 
+        history = Order.objects.get(user_id=request.user)
+        if history:
+            return redirect('order')
         if full_name and product_id and quantity and lat and lon and selected_time:
-            print('mmjmdmjdm')
             product = Product.objects.get(id=product_id)
             order = Order.objects.create(
                 user=request.user,
