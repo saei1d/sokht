@@ -9,7 +9,7 @@
 </head>
 
 
-<STYLE>
+<style>
     body {
         background-color: #01356e;
         font-family: 'MyFont', sans-serif;
@@ -20,8 +20,7 @@
         font-family: 'MyFont';
         src: url('/static/font/Shabnam-Medium.woff') format('woff');
     }
-
-</STYLE>
+</style>
 <body>
 {% include 'header.html' %}
 {% if orders %}
@@ -61,14 +60,17 @@
 
                 <tbody class="text-dark" style="background-color: white">
                 <tr>
-                    <td class="p-3" contenteditable="false">{% if order.status == 'pending' %}در انتظار تایید{% endif %}</td>
+                    <td class="p-3" contenteditable="false">{% if order.status == 'pending' %}در انتظار
+                        تایید{% endif %}</td>
                     <td class="p-3" contenteditable="false">{{ order.location }}</td>
                     <td class="p-3" contenteditable="false">{{ order.date }}</td>
                     <td class="p-3" contenteditable="false">{{ order.amount }}</td>
-                    <td class="p-3" contenteditable="false">{% if order.product_id == 1 %}معمولی {% elif order.product_id == 2 %} سوپر{% else %}یورو۶ {% endif %}  </td>
+                    <td class="p-3" contenteditable="false">{% if order.product_id == 1 %}
+                        معمولی {% elif order.product_id == 2 %} سوپر{% else %}یورو۶ {% endif %}  </td>
                     <td class="p-3" contenteditable="false">{{ order.quantity }}</td>
                     <td class="p-3" contenteditable="false">{{ order.description }}</td>
-                    <td class="p-3" contenteditable="false"><a href="http://localhost:8000/editorder/{{ order.id }}">تغییر دهید</a></td>
+                    <td class="p-3" contenteditable="false"><a href="http://localhost:8000/editorder/{{ order.id }}">تغییر
+                        دهید</a></td>
                 </tr>
                 </tbody>
             {% endfor %}

@@ -32,7 +32,7 @@ def pay(request, pk=None):
         if selected_time <= hour:
             msg = "زمانیکه در نظر گرفتید برای دریافت سوخت از تایم های گذشته است لطفا تایم های پیش رو را انتخاب کنید\n سفارش های هرروز از ساعت ۰۰:۰۰ بازمیشوند  "
             return render(request, 'pay.html', {'msg': msg})
-        full_name = request.POST.get('full_name')
+        fullname = request.POST.get('fullname')
 
         product_id = request.POST.get('product')
 
@@ -66,10 +66,10 @@ def pay(request, pk=None):
             error_message = "خطا در دریافت اطلاعات از سرور نشن"
             return render(request, 'pay.html', {'error_message': error_message})
 
-        history = Order.objects.get(user_id=request.user)
-        if history:
+        if Order.objects.filter(user_id=request.user).exists():
             return redirect('order')
-        if full_name and product_id and quantity and lat and lon and selected_time:
+
+        if  product_id and quantity and lat and lon and selected_time:
             product = Product.objects.get(id=product_id)
             order = Order.objects.create(
                 user=request.user,

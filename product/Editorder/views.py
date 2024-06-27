@@ -7,6 +7,7 @@ import requests
 from product.models import Order, Product
 from django.conf import settings
 
+
 @login_required
 @csrf_exempt
 def edit_order(request, pk):
@@ -22,16 +23,18 @@ def edit_order(request, pk):
         selected_time = request.POST.get('time', order.date)
         selected_time = int(selected_time)
 
-        if selected_time <= hour:
+        if selected_time == '0':
+            selected_time = request.POST.get(order.date)
+
+        elif selected_time <= hour:
             msg = "زمانیکه در نظر گرفتید برای دریافت سوخت از تایم های گذشته است لطفا تایم های پیش رو را انتخاب کنید\n سفارش های هرروز از ساعت ۰۰:۰۰ بازمیشوند  "
             return render(request, 'editorder.html', {'msg': msg, 'order': order})
-
-        full_name = request.POST.get('full_name', order.user.get_full_name())
         product_id = request.POST.get('product', order.product.id)
         quantity = request.POST.get('quantity', order.quantity)
-        description = request.POST.get('description', order.description)
-        lat = request.POST.get('lat', order.lat)
-        lon = request.POST.get('lon', order.lon)
+
+        lat = request.POST.get('lat') if request.POST.get('lat') else order.lat
+        lon = request.POST.get('lon') if request.POST.get('lon') else order.lon
+        description = request.POST.get('description') if request.POST.get('description') else order.description
 
         product = Product.objects.get(id=product_id)
         price = float(product.price)
@@ -43,15 +46,13 @@ def edit_order(request, pk):
             'Api-Key': settings.NESHAN_API_KEY
         }
         response = requests.get(api_url, headers=headers)
-
         if response.status_code == 200:
             location_data = response.json()
             formatted_address = location_data.get('formatted_address', 'آدرسی یافت نشد')
         else:
-            error_message = "خطا در دریافت اطلاعات از سرور نشن"
-            return render(request, 'editorder.html', {'error_message': error_message, 'order': order})
-
-        if full_name and product_id and quantity and lat and lon and selected_time:
+            msg = "خطا در دریافت اطلاعات از سرور "
+            return render(request, 'editorder.html', {'msg': msg, 'order': order})
+        if product_id and quantity and lat and lon and selected_time:
             order.product = product
             order.description = description
             order.location = formatted_address
@@ -70,3 +71,13 @@ def edit_order(request, pk):
 
     products = Product.objects.all()
     return render(request, 'editorder.html', {'order': order, 'products': products})
+
+
+from django.shortcuts import get_object_or_404, redirect
+from product.models import Order
+
+def delete_order(request, pk):
+    order = get_object_or_404(Order, pk=pk)
+    order.delete()
+    return redirect('pay')
+
