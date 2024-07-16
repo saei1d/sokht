@@ -27,7 +27,9 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-9">
                         </div>
-                        <a href="http://127.0.0.1:8000/pay/"><div class="button float-right mt-3" style="margin-bottom: 200px">درخواست انلاین سوخت</div></a>
+                        <a href="http://127.0.0.1:8000/pay/">
+                            <div class="button float-right mt-3" style="margin-bottom: 200px">درخواست انلاین سوخت</div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -37,16 +39,22 @@
 <div class="container d-none d-md-block">
     <div class="row d-flex justify-content-center">
         <div class="col-md-12" style="margin-top: -130px">
-            <div class="card p-2 mt-2"><h3 class="heading mt-5 text-center">بنزین یار</h3>
+            <div class="card p-2 mt-2">
+                <h3 class="heading mt-5 text-center">بنزین یار</h3>
+                <p class="text-center">تنها مرجع سوخت رسانی انلاین شهر قم</p>
                 <div class="row mt-4 g-1 px-4 mb-5">
                     <div class="col-md-2 mx-auto">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center"
-                             style="background-color: blue;border-radius: 25px">
-                            <i class="fas fa-gas-pump" aria-hidden="true" style="color: #ffffff;font-size: 30px;"></i>
-                            <div class="text-center mg-text mt-3"><span class="mg-text text-light">خانه</span></div>
-                        </div>
+                        <a href="http://localhost:8000/">
+                            <div class="card-inner p-3 d-flex flex-column align-items-center"
+                                 style="background-color: blue;border-radius: 25px">
+                                <i class="fas fa-gas-pump" aria-hidden="true"
+                                   style="color: #ffffff;font-size: 30px;"></i>
+                                <div class="text-center mg-text mt-3"><span class="mg-text text-light">خانه</span></div>
+                            </div>
+                        </a>
                     </div>
-
+                        
+                    
                     <div class="col-md-2 mx-auto">
                         <div id="productButton" class="card-inner p-3 d-flex flex-column align-items-center"
                              style="border-radius: 25px">
@@ -54,41 +62,60 @@
                             <div class="text-center mg-text mt-3"><span class="mg-text">محصولات</span></div>
                         </div>
                     </div>
+
+
                     <div class="col-md-2 mx-auto">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center" style="border-radius: 25px">
-                            <i class="fas fa-concierge-bell" style="color: blue;font-size: 30px"></i>
-                            <a href="#">
-                                <div class="text-center text-dark mg-text mt-3"><span class="mg-text">خدمات ما</span></div>
-                            </a>
-                        </div>
+                        <a href="http://localhost:8000/pay/">
+                            <div class="card-inner p-3 d-flex flex-column align-items-center"
+                                 style="border-radius: 25px">
+                                <i class="fas fa-store" style="color: blue;font-size: 30px"></i>
+                                <div class="text-center text-dark mg-text mt-3"><span class="mg-text">فروشگاه</span>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                                        <div class="col-md-2 mx-auto">
+                        <a href="http://localhost:8000/order/">
+                            <div class="card-inner p-3 d-flex flex-column align-items-center"
+                                 style="border-radius: 25px">
+                                <i class="fas fa-receipt" style="color: blue;font-size: 30px"></i>
+                                <div class="text-center text-dark mg-text mt-3"><span class="mg-text">تاریخچه سفارشات</span>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     <div class="col-md-2 mx-auto">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center" style="border-radius: 25px">
-                            <i class="fas fa-receipt" style="color: blue;font-size: 30px"></i>
-                            <a href="#">
-                                <div class="text-center text-dark mg-text mt-3"><span class="mg-text">سفارشات</span></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-2 mx-auto">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center" style="border-radius: 25px">
-                            <i class="fas fa-store" style="color: blue;font-size: 30px"></i>
-                            <a href="#">
-                                <div class="text-center text-dark mg-text mt-3"><span class="mg-text">فروشگاه</span></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-2 mx-auto">
-                        <div class="card-inner p-3 d-flex flex-column align-items-center" style="border-radius: 25px">
-                            <i class="fas fa-phone-volume" style="color: blue;font-size: 30px"></i>
-                            <a href="#">
-                                <div class="text-center text-dark mg-text mt-3"><span class="mg-text">ارتباط با ما</span></div>
-                            </a>
-                        </div>
+                        <a href="http://localhost:8000/contact/">
+                            <div class="card-inner p-3 d-flex flex-column align-items-center"
+                                 style="border-radius: 25px">
+                                <i class="fas fa-phone-volume" style="color: blue;font-size: 30px"></i>
+                                <div class="text-center text-dark mg-text mt-3"><span
+                                        class="mg-text">ارتباط با ما</span></div>
+
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+
+<div class="container mt-5 p-5 d-none d-md-block ">
+    <div class="row">
+        <div class="col-md-4">
+            {% load static %}
+            <img src="{% static  "images/nemodar.png"%}" alt="">
+        </div>
+        <div class="col-md-6 text-right mt-5 pt-4" style="margin-left: 150px;font-size: 19px;">
+            <span> <strong style="color:blueviolet "> آیا می دانستید </strong>مردم امروزه بخش قابل توجهی از وقت خود را در صف‌های پمپ بنزین می‌گذرانند و در این میان، <span style="color: #ec0d0d;font-size: 25px">خطرات</span> بهداشتی ناشی از کثیفی و میکروب‌های موجود در این مکان‌ها نیز تهدیدی جدی به شمار می‌آید </span>
+            <br>
+            <br>
+            <p>چارت روبرو نشان دهنده میانگین <strong>زمان صرف شده هر فرد در طول یک هفته</strong> در صف سوختگیری است (اعداد به دقیقه هستند)</p>
+        </div>
+        
     </div>
 </div>
 
@@ -124,7 +151,7 @@
                                 {% elif product.name == "بنزین سوپر" %}
                                     <img src="{% static 'images/super.jpg' %}"
                                          alt="mamoli" style="object-fit: cover">
-                                {% elif product.name == "بنزین یورو4" %}
+                                {% elif product.name == "بنزین یورو6" %}
                                     <img src="{% static 'images/euro4.jpg' %}"
                                          alt="mamoli" style="object-fit: cover">
                                 {% endif %}
@@ -132,13 +159,15 @@
                             </div>
                             <div class="card-body text-right" style="overflow-y: auto">
                                 <h4 class="card-title">{{ product.name }}</h4>
-                                <p class="card-text">"بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور و بهبود
+                                <p class="card-text">بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور و بهبود
                                     عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در محفظه احتراق و
-                                    طولانی‌تر شدن عمر موتور می‌گردد."
+                                    طولانی‌تر شدن عمر موتور می‌گردد.
                                 </p>
-                                <span class="card-text">قیمت   {{ product.price }}  تومان</span>
+                                <span class="card-text">قیمت هر لیتر{% if product.price == 8000 %}
+                                    ۸ {% elif product.price == 10000 %} ۱۰ {% else %}۴{% endif %} هزار تومان </span>
                             </div>
-                            <div class="card-footer" style="background: inherit; border-color: inherit;">
+                            <div class="card-footer"
+                                 style="background: inherit; border-color: inherit; border-radius: 20px;">
                                 <a href="http://localhost:8000/pay/{{ product.id }}/" class="btn btn-primary">ثبت
                                     سفارش</a>
                             </div>
@@ -150,11 +179,32 @@
         </div>
     </div>
 </section>
-{#<div class="container text-right mt-5 d-none d-md-block">#}
-{#    <h1 class="text-right">خدمات ما</h1>#}
-{#    <span class="">با بنزین‌یار، می‌توانید به راحتی نوع بنزین مورد نظر خود را انتخاب کرده و در کوتاه‌ترین زمان ممکن درب منزل یا محل کار تحویل بگیرید. خدمات ما شامل ارائه بنزین معمولی، بنزین سوپر و بنزین یورو ۶ با تضمین کیفیت و قیمت مناسب می‌باشد</span>#}
-{#    <button type="button" class="btn btn-outline-primary float-left">خدمات ما</button>#}
-{#</div>#}
+
+
+
+
+
+<div class="container mt-5 p-5 d-none d-md-block ">
+    <div class="text-center p-2"><p style="font-size: 30px">قابل توجه همشهریان گرامی</p></div>
+    <div class="row mt-5">
+        <div class="col-md-6">
+            {% load static %}
+            <img src="{% static  "images/Chart Title.png"%}" alt="">
+        </div>
+        <div class="col-md-4 text-right mt-5 pt-5" style="margin-left: 150px;font-size: 19px;">
+            <p>چارت روبرو نشان دهنده  <strong>تراکم جمعیت در مراکز سوختگیری شهر قم </strong> میباشد,با انتخاب درست در زمان خودت صرفه جویی کن</p>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
 <section>
     <div class=" mt-5 d-none d-md-block">
         <img src="{% static 'images/sahm.jpg' %}"
@@ -174,7 +224,9 @@
             <div class="carousel-caption">
                 <h3 class="text-right" style="margin-left: 130px">بگو کجایی تا بنزین بهت برسونیم</h3>
                 <p class="text-right">درخواستت رو بده تا دیگه برای بنزین سختی نکشی</p>
-                <a href="http://127.0.0.1:8000/pay/"> <div class="button mx-auto mt-3">درخواست انلاین سوخت</div></a>
+                <a href="http://127.0.0.1:8000/pay/">
+                    <div class="button mx-auto mt-3">درخواست انلاین سوخت</div>
+                </a>
 
             </div>
         </div>
@@ -188,7 +240,7 @@
 
         </div>
         <div id="productButton" class="col-4">
-            <i  class="fas fa-shopping-cart" style="color: blue;font-size: 30px"></i>
+            <i class="fas fa-shopping-cart" style="color: blue;font-size: 30px"></i>
             <p>محصولات</p>
 
         </div>
@@ -291,13 +343,190 @@
         </div>
     </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="text-center mx-auto w-100 mt-5 d-md-none">
     <img src="{% static 'images/sahm.jpg' %}"
          alt="My image" style="object-fit: cover;height: 150px;padding-right: 0;padding-left: 0" class="col-12">
 </div>
 
 
-{% include 'footer.html' %}
+{#footer#}
+<div style="margin-top: 100px">
+    <footer class="footer-20192">
+        <div class="site-section">
+            <div class="container">
+
+                <div class="cta d-block d-md-flex align-items-center px-5">
+                    <div>
+                        <h2 class="mb-0">ready for next project?</h2>
+                        <h3 class="text-dark">We are very proud to share your opinions with us and interact with each
+                            other</h3>
+                    </div>
+                    <div class="text-right ml-5">
+                        <a href="https://t.me/saeii1d" class="btn btn-dark rounded-0 py-3 px-5">contact us</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-10">
+                        <h3>باما در ارتباط باشید</h3>
+                        <ul class="list-unstyled social">
+                            <li><a href="http://localhost:8000/contact/"><i class="fas fa-envelope"></i></a></li>
+                            <li><a href="http://localhost:8000/contact/"><i class="fas fa-phone-volume"></i></a></li>
+                            <li><a href="http://localhost:8000/contact/"><i class="fas fa-map-marker-alt"></i></a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <h3>شرکت ما</h3>
+                        <ul class="list-unstyled links">
+                            <li><a href="http://localhost:8000/contact/">درباره ما</a></li>
+                            <li><a href="http://localhost:8000/contact/">تماس با ما</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h3>خدمات ما</h3>
+                        <ul class="list-unstyled links">
+                            <li><a href="http://localhost:8000/">بنزین رسانی آنلاین</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h3>محصولات ما</h3>
+                        <ul class="list-unstyled links">
+                            <li><a href="http://localhost:8000/pay/">بنزین یورو۴</a></li>
+                            <li><a href="http://localhost:8000/pay/">بنزین معمولی</a></li>
+                            <li><a href="http://localhost:8000/pay/">بنزین سوپر</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<style>
+
+    a {
+        -webkit-transition: .3s all ease;
+        -o-transition: .3s all ease;
+        transition: .3s all ease;
+    }
+
+    a, a:hover {
+        text-decoration: none !important;
+    }
+
+    .content {
+        height: 70vh;
+    }
+
+    .footer-20192 {
+        position: relative;
+        color: #fff;
+        padding: 7rem 0;
+        background-color: #141d2a;
+    }
+
+    .footer-20192 .container {
+        position: relative;
+    }
+
+    .footer-20192 h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        line-height: 1.5;
+    }
+
+    .footer-20192 .links li {
+        margin-bottom: 10px;
+        line-height: 1.5;
+        display: block;
+    }
+
+    .footer-20192 .links li a {
+        color: #666873;
+    }
+
+    .footer-20192 .links li a:hover {
+        color: #fff;
+    }
+
+    .footer-20192 .social li {
+        display: inline-block;
+        position: relative;
+    }
+
+    .footer-20192 .social li a {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        background-color: #8186d5;
+        color: #fff;
+    }
+
+    .footer-20192 .social li a > span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .footer-20192 .footer-logo {
+        color: #fff;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+    }
+
+    .footer-20192 .copyright {
+        color: #666873;
+    }
+
+    .footer-20192 .cta {
+        -webkit-box-shadow: -20px -20px 0 0 rgba(52, 58, 64, 0.2);
+        box-shadow: -20px -20px 0 0 rgba(52, 58, 64, 0.2);
+        padding: 20px;
+        background-color: #8186d5;
+        top: -150px;
+        position: relative;
+    }
+
+    .footer-20192 .cta h2, .footer-20192 .cta h3 {
+        line-height: 1.5;
+    }
+
+    .footer-20192 .cta h3 {
+        font-size: 20px;
+    }
+</style>
 <script>
     document.getElementById('productButton').addEventListener('click', function () {
         const productsSection = document.getElementById('products');

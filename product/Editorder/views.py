@@ -4,14 +4,19 @@ from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 import pytz
 import requests
+from django.views.decorators.http import require_POST
+
 from product.models import Order, Product
 from django.conf import settings
-
+from django.shortcuts import get_object_or_404
 
 @login_required
 @csrf_exempt
 def edit_order(request, pk):
-    order = get_object_or_404(Order, id=pk, user_id=request.user)
+    try:
+        order = Order.objects.get(id=pk)
+    except Order.DoesNotExist:
+        return render(request, 'home.html', {'message': 'Order does not exist.'})
 
     if request.method == 'POST':
         # تنظیم منطقه زمانی به تهران
@@ -73,11 +78,9 @@ def edit_order(request, pk):
     return render(request, 'editorder.html', {'order': order, 'products': products})
 
 
-from django.shortcuts import get_object_or_404, redirect
-from product.models import Order
-
+@require_POST
 def delete_order(request, pk):
+    print(1)
     order = get_object_or_404(Order, pk=pk)
     order.delete()
     return redirect('pay')
-

@@ -72,7 +72,7 @@ def pay(request, pk=None):
         if  product_id and quantity and lat and lon and selected_time:
             product = Product.objects.get(id=product_id)
             order = Order.objects.create(
-                user=request.user,
+                user=request.user.id,
                 product=product,
                 description=description,
                 location=formatted_address,
@@ -101,5 +101,5 @@ def pay(request, pk=None):
 
 @login_required
 def order(request):
-    orders = Order.objects.filter(user_id=request.user)
+    orders = Order.objects.filter(user_id=request.user.id)
     return render(request, 'order.html', {'orders': orders})
