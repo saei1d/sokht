@@ -189,7 +189,7 @@
     <div class="row mt-5">
         <div class="col-md-6">
             {% load static %}
-            <img src="{% static  "images/Chart Title.png" %}" alt="">
+            <img  src="{% static  "images/Chart Title.png" %}" alt="">
         </div>
         <div class="col-md-4 text-right mt-5 pt-5" style="margin-left: 150px;font-size: 19px;">
             <p>چارت روبرو نشان دهنده <strong>تراکم جمعیت در مراکز سوختگیری شهر قم </strong> میباشد,با انتخاب درست در
@@ -364,7 +364,7 @@
 <div class="container mt-2 p-5  d-md-none ">
     <div class="text-center p-2"><p style="font-size: 30px">قابل توجه همشهریان گرامی</p></div>
     <div class="row mt-5">
-        <div>
+        <div class="zoom">
             {% load static %}
             <img class="col-12" src="{% static  "images/Chart Title.png" %}" alt="">
         </div>
@@ -375,12 +375,22 @@
 
     </div>
 </div>
+<style>
+
+        .zoom {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .zoom:hover {
+            transform: scale(1.4);
+        }
+</style>
+
 
 <div class="text-center mx-auto w-100 mt-5 d-md-none">
     <img src="{% static 'images/sahm.jpg' %}"
          alt="My image" style="object-fit: cover;height: 150px;padding-right: 0;padding-left: 0" class="col-12">
 </div>
-
 
 {#footer#}
 <div style="margin-top: 100px">
