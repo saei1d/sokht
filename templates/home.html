@@ -53,8 +53,8 @@
                             </div>
                         </a>
                     </div>
-                        
-                    
+
+
                     <div class="col-md-2 mx-auto">
                         <div id="productButton" class="card-inner p-3 d-flex flex-column align-items-center"
                              style="border-radius: 25px">
@@ -75,12 +75,13 @@
                             </div>
                         </a>
                     </div>
-                                        <div class="col-md-2 mx-auto">
+                    <div class="col-md-2 mx-auto">
                         <a href="http://localhost:8000/order/">
                             <div class="card-inner p-3 d-flex flex-column align-items-center"
                                  style="border-radius: 25px">
                                 <i class="fas fa-receipt" style="color: blue;font-size: 30px"></i>
-                                <div class="text-center text-dark mg-text mt-3"><span class="mg-text">تاریخچه سفارشات</span>
+                                <div class="text-center text-dark mg-text mt-3"><span
+                                        class="mg-text">تاریخچه سفارشات</span>
                                 </div>
                             </div>
                         </a>
@@ -107,15 +108,17 @@
     <div class="row">
         <div class="col-md-4">
             {% load static %}
-            <img src="{% static  "images/nemodar.png"%}" alt="">
+            <img src="{% static  "images/nemodar.png" %}" alt="">
         </div>
         <div class="col-md-6 text-right mt-5 pt-4" style="margin-left: 150px;font-size: 19px;">
-            <span> <strong style="color:blueviolet "> آیا می دانستید </strong>مردم امروزه بخش قابل توجهی از وقت خود را در صف‌های پمپ بنزین می‌گذرانند و در این میان، <span style="color: #ec0d0d;font-size: 25px">خطرات</span> بهداشتی ناشی از کثیفی و میکروب‌های موجود در این مکان‌ها نیز تهدیدی جدی به شمار می‌آید </span>
+            <span> <strong style="color:blueviolet "> آیا می دانستید </strong>مردم امروزه بخش قابل توجهی از وقت خود را در صف‌های پمپ بنزین می‌گذرانند و در این میان، <span
+                    style="color: #ec0d0d;font-size: 25px">خطرات</span> بهداشتی ناشی از کثیفی و میکروب‌های موجود در این مکان‌ها نیز تهدیدی جدی به شمار می‌آید </span>
             <br>
             <br>
-            <p>چارت روبرو نشان دهنده میانگین <strong>زمان صرف شده هر فرد در طول یک هفته</strong> در صف سوختگیری است (اعداد به دقیقه هستند)</p>
+            <p>چارت روبرو نشان دهنده میانگین <strong>زمان صرف شده هر فرد در طول یک هفته</strong> در صف سوختگیری است
+                (اعداد به دقیقه هستند)</p>
         </div>
-        
+
     </div>
 </div>
 
@@ -151,7 +154,7 @@
                                 {% elif product.name == "بنزین سوپر" %}
                                     <img src="{% static 'images/super.jpg' %}"
                                          alt="mamoli" style="object-fit: cover">
-                                {% elif product.name == "بنزین یورو6" %}
+                                {% elif product.name == "بنزین یورو4" %}
                                     <img src="{% static 'images/euro4.jpg' %}"
                                          alt="mamoli" style="object-fit: cover">
                                 {% endif %}
@@ -181,30 +184,20 @@
 </section>
 
 
-
-
-
 <div class="container mt-5 p-5 d-none d-md-block ">
     <div class="text-center p-2"><p style="font-size: 30px">قابل توجه همشهریان گرامی</p></div>
     <div class="row mt-5">
         <div class="col-md-6">
             {% load static %}
-            <img src="{% static  "images/Chart Title.png"%}" alt="">
+            <img src="{% static  "images/Chart Title.png" %}" alt="">
         </div>
         <div class="col-md-4 text-right mt-5 pt-5" style="margin-left: 150px;font-size: 19px;">
-            <p>چارت روبرو نشان دهنده  <strong>تراکم جمعیت در مراکز سوختگیری شهر قم </strong> میباشد,با انتخاب درست در زمان خودت صرفه جویی کن</p>
+            <p>چارت روبرو نشان دهنده <strong>تراکم جمعیت در مراکز سوختگیری شهر قم </strong> میباشد,با انتخاب درست در
+                زمان خودت صرفه جویی کن</p>
         </div>
-        
+
     </div>
 </div>
-
-
-
-
-
-
-
-
 <section>
     <div class=" mt-5 d-none d-md-block">
         <img src="{% static 'images/sahm.jpg' %}"
@@ -222,8 +215,8 @@
             <img src="{% static 'images/home2.jpeg' %}" class="w-100" style="height: 500px;object-fit: cover"
                  alt="My image">
             <div class="carousel-caption">
-                <h3 class="text-right" style="margin-left: 130px">بگو کجایی تا بنزین بهت برسونیم</h3>
-                <p class="text-right">درخواستت رو بده تا دیگه برای بنزین سختی نکشی</p>
+                <h3 class="text-right" style="margin-left: 130px">بنزین‌یار، وبسایت ثبت سفارش آنلاین بنزین</h3>
+                <p class="text-right">راحتی و سرعت در تحویل را برای شما به ارمغان می‌آورد</p>
                 <a href="http://127.0.0.1:8000/pay/">
                     <div class="button mx-auto mt-3">درخواست انلاین سوخت</div>
                 </a>
@@ -232,7 +225,14 @@
         </div>
     </div>
 </div>
-<div class="container text-center mt-5  d-md-none">
+<div class=" d-md-none  p-5 container  text-center">
+    <h4>بنزین یار</h4>
+    <p>تنها مرجع سوخت رسانی انلاین شهر قم
+
+    </p>
+</div>
+
+<div class="container text-center  d-md-none">
     <div class="row">
         <div class="col-4">
             <i class="fas fa-gas-pump" style="color: blue;font-size: 30px"></i>
@@ -268,6 +268,24 @@
 
     </div>
 </div>
+<div class="container mt-3 p-5 d-md-none ">
+    <div class="row">
+        <div class="mx-auto">
+            {% load static %}
+            <img class="col-12" src="{% static  "images/nemodar.png" %}" alt="">
+        </div>
+        <div class="col-12 text-right">
+            <span> <strong style="color:blueviolet "> آیا می دانستید </strong>مردم امروزه بخش قابل توجهی از وقت خود را در صف‌های پمپ بنزین می‌گذرانند و در این میان، <span
+                    style="color: #ec0d0d;font-size: 25px">خطرات</span> بهداشتی ناشی از کثیفی و میکروب‌های موجود در این مکان‌ها نیز تهدیدی جدی به شمار می‌آید </span>
+            <br>
+            <br>
+            <p>چارت روبرو نشان دهنده میانگین <strong>زمان صرف شده هر فرد در طول یک هفته</strong> در صف سوختگیری است
+                (اعداد به دقیقه هستند)</p>
+        </div>
+
+    </div>
+</div>
+
 {#<div class="container text-right mt-5  d-md-none">#}
 {#    <h1 class="text-right">انواع سوخت ها</h1>#}
 {#    <p class="">سوخت های ما شامل بنزین معمولی,بنزین سوپر و بنرین یورو۴ میباشد</p>#}
@@ -343,27 +361,20 @@
         </div>
     </div>
 </section>
+<div class="container mt-2 p-5  d-md-none ">
+    <div class="text-center p-2"><p style="font-size: 30px">قابل توجه همشهریان گرامی</p></div>
+    <div class="row mt-5">
+        <div>
+            {% load static %}
+            <img class="col-12" src="{% static  "images/Chart Title.png" %}" alt="">
+        </div>
+        <div class="col-12 text-right  pt-5">
+            <p>چارت روبرو نشان دهنده <strong>تراکم جمعیت در مراکز سوختگیری شهر قم </strong> میباشد,با انتخاب درست در
+                زمان خودت صرفه جویی کن</p>
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+</div>
 
 <div class="text-center mx-auto w-100 mt-5 d-md-none">
     <img src="{% static 'images/sahm.jpg' %}"
@@ -388,12 +399,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3 col-10">
+                    <div class="col-md-3 col-6">
                         <h3>باما در ارتباط باشید</h3>
                         <ul class="list-unstyled social">
-                            <li><a href="http://localhost:8000/contact/"><i class="fas fa-envelope"></i></a></li>
-                            <li><a href="http://localhost:8000/contact/"><i class="fas fa-phone-volume"></i></a></li>
-                            <li><a href="http://localhost:8000/contact/"><i class="fas fa-map-marker-alt"></i></a></li>
+                            <li><a href="http://localhost:8000/contact/"><i class="fas fa-envelope"
+                                                                            style="padding:10px;font-size: 40px;width: 1em"></i></a>
+                            </li>
+                            <li><a href="http://localhost:8000/contact/"><i class="fas fa-phone-volume"
+                                                                            style="padding:6px;font-size: 40px;width: 1em"></i></a>
+                            </li>
+                            <li><a href="http://localhost:8000/contact/"><i class="fas fa-map-marker-alt"
+                                                                            style="padding:6px;font-size: 40px;width: 1em"></i></a>
+                            </li>
 
                         </ul>
                     </div>
