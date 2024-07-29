@@ -61,13 +61,14 @@ def edit_order(request, pk):
         else:
             product_id = int(product_id)  # تبدیل مقدار به عدد صحیح
 
-        print(product_id)
 
 
 
 
         quantity = request.POST.get('quantity', order.quantity)
-        fullname = request.POST.get('fullname', order.fullname)
+
+        fullname = request.POST.get('fullname') if request.POST.get('fullname') else order.fullname
+
 
         lat = request.POST.get('lat') if request.POST.get('lat') else order.lat
         lon = request.POST.get('lon') if request.POST.get('lon') else order.lon

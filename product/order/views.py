@@ -103,5 +103,7 @@ def pay(request, pk=None):
 
 @login_required
 def order(request):
-    orders = Order.objects.filter(user_id=request.user.id)
+    id = CustomUser.objects.get(id=request.user.id)
+    print(id)
+    orders = Order.objects.filter(user_id=id)
     return render(request, 'order.html', {'orders': orders})
