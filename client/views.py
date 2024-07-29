@@ -8,9 +8,10 @@ from product.models import Product
 def auth(request):
     context = {}
     if request.method == 'POST':
+
         username = request.POST.get('n_code')
         password = request.POST.get('phone')
-        print(username, password)
+        print(username,password)
         # بررسی طول کد ملی
         if not len(username) == 10:
             msg = "طول کد ملی باید 10 رقم باشد"
@@ -44,5 +45,5 @@ def auth(request):
 
 
 def home(request):
-    products = Product.objects.all()  # Fetch all products
+    products = Product.objects.all()
     return render(request, 'home.html', {'products': products})

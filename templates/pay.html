@@ -58,6 +58,7 @@
         {% csrf_token %}
         <div class="row">
 
+
             <div class="form-group col-6 col-md-6 mt-2 text-right">
                 <label for="quantity"> :حجم (لیتر)</label>
                 <input type="number" style="border: 2px solid #000000" class="form-control" id="quantity"
@@ -72,22 +73,20 @@
                         onchange="updatePrice()">
                     {% if pk != 0 %}
                         {% for product in products %}
-                            {% if product.id == pk %}
-                                <option value="{{ product.id }}" selected>{{ product.name }}</option>
+                            {% if product.product_id == pk %}
+                                <option value="{{ product.product_id }}" selected>{{ product.name }}</option>
                             {% else %}
-                                <option value="{{ product.id }}">{{ product.name }}</option>
+                                <option value="{{ product.product_id }}">{{ product.name }}</option>
                             {% endif %}
                         {% endfor %}
                     {% else %}
-                        <option value="" selected disabled>انتخاب کنید
-                        </option>
+                        <option value="" selected disabled>انتخاب کنید</option>
                         {% for product in products %}
-                            <option value="{{ product.id }}">{{ product.name }}</option>
+                            <option value="{{ product.product_id }}">{{ product.name }}</option>
                         {% endfor %}
                     {% endif %}
                 </select>
             </div>
-
             <div class="form-group col-6 col-md-6 mt-2 text-right">
                 <label for="full_name">:تحویل گیرنده</label>
                 <input type="text" style="border: 2px solid #000000" class="form-control" id="full_name"
@@ -171,7 +170,7 @@
     // محصولات و قیمت‌هایشان
     const productPrices = {
         {% for product in products %}
-            '{{ product.id }}': {{ product.price }},
+            '{{ product.product_id }}': {{ product.price }},
         {% endfor %}
     };
 
@@ -183,8 +182,13 @@
         const selectedProduct = productElement.value;
         const quantity = quantityElement.value;
 
+        console.log('Selected Product:', selectedProduct);
+        console.log('Quantity:', quantity);
+        console.log('Product Prices:', productPrices);
+
         if (selectedProduct && quantity) {
             const pricePerUnit = productPrices[selectedProduct];
+            console.log('Price per unit:', pricePerUnit);
             const totalPrice = pricePerUnit * quantity;
             priceElement.value = totalPrice + ' تومان';
         }

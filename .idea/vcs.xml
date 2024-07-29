@@ -2,10 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../Test2/pythonProject" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../meta5robot" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../propi/propi" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../shop" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>

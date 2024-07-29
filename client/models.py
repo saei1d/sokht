@@ -6,5 +6,5 @@ from django.db import models
 
 
 class CustomUser(AbstractUser):
-    n_code = models.IntegerField()
-    phone = models.CharField(max_length=50)
+    n_code = models.IntegerField(default=0000000000)
+    phone = models.CharField(max_length=50,null=True,blank=True)

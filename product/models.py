@@ -12,6 +12,7 @@ class GProduct(models.Model):
 
 
 class Product(models.Model):
+    product_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=110)
     price = models.IntegerField()
     description = models.TextField()
@@ -21,7 +22,7 @@ class Product(models.Model):
 
 
 class Order(models.Model):
-    fullname = models.TextField
+    fullname = models.TextField()
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     description = models.TextField()

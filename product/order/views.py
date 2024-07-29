@@ -3,13 +3,11 @@ import requests
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
 from client.models import CustomUser
 from product.models import Product
 from product.models import Order
 import pytz
 from datetime import datetime
-
 from sokht import settings
 
 
@@ -35,10 +33,9 @@ def pay(request, pk=None):
         fullname = request.POST.get('fullname')
 
         product_id = request.POST.get('product')
-
         quantity = request.POST.get('quantity')
 
-        product_price = Product.objects.get(id=product_id)
+        product_price = Product.objects.get(product_id=product_id)
 
         # Ensure price and quantity are numeric
         price = float(product_price.price)
@@ -57,22 +54,25 @@ def pay(request, pk=None):
         headers = {
             'Api-Key': settings.NESHAN_API_KEY
         }
+
+
         response = requests.get(api_url, headers=headers)
+
 
         if response.status_code == 200:
             location_data = response.json()
             formatted_address = location_data.get('formatted_address', 'آدرسی یافت نشد')
         else:
-            error_message = "خطا در دریافت اطلاعات از سرور نشن"
+            error_message = "خطا در دریافت اطلاعات از سرور "
             return render(request, 'pay.html', {'error_message': error_message})
 
         if Order.objects.filter(user_id=request.user).exists():
             return redirect('order')
-
-        if  product_id and quantity and lat and lon and selected_time:
-            product = Product.objects.get(id=product_id)
+        print(request.user)
+        if product_id and quantity and lat and lon and selected_time and fullname:
+            product = Product.objects.get(product_id=product_id)
             order = Order.objects.create(
-                user=request.user.id,
+                user=request.user,
                 product=product,
                 description=description,
                 location=formatted_address,
@@ -82,13 +82,15 @@ def pay(request, pk=None):
                 quantity=quantity,
                 amount=amount,
                 lat=lat,
-                lon=lon
+                lon=lon,
+                fullname=fullname,
             )
             return redirect('order')
         msg = "مقادیر را با دقت پر کنید لطفا"
         return render(request, 'pay.html', {'msg': msg})
 
     products = Product.objects.all()
+    print(request.user)
     if pk:
         if products.filter(id=pk).exists():
             pk = pk

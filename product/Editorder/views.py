@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
@@ -10,11 +10,14 @@ from product.models import Order, Product
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 
+
 @login_required
 @csrf_exempt
 def edit_order(request, pk):
     try:
         order = Order.objects.get(id=pk)
+        if order.user != request.user:
+            return redirect('pay')  # صفحه‌ای که می‌خواهید کاربر به آن هدایت شود
     except Order.DoesNotExist:
         return render(request, 'home.html', {'message': 'Order does not exist.'})
 
@@ -34,14 +37,42 @@ def edit_order(request, pk):
         elif selected_time <= hour:
             msg = "زمانیکه در نظر گرفتید برای دریافت سوخت از تایم های گذشته است لطفا تایم های پیش رو را انتخاب کنید\n سفارش های هرروز از ساعت ۰۰:۰۰ بازمیشوند  "
             return render(request, 'editorder.html', {'msg': msg, 'order': order})
-        product_id = request.POST.get('product', order.product.id)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        print(order.product_id)
+        product_id = request.POST.get('product', order.product_id)
+
+        # بررسی مقدار دریافت شده از POST
+        if not product_id or not product_id.isdigit():  # اگر مقدار 'product' در POST وجود ندارد یا عدد معتبر نیست
+            product_id = order.product_id
+        else:
+            product_id = int(product_id)  # تبدیل مقدار به عدد صحیح
+
+        print(product_id)
+
+
+
+
         quantity = request.POST.get('quantity', order.quantity)
+        fullname = request.POST.get('fullname', order.fullname)
 
         lat = request.POST.get('lat') if request.POST.get('lat') else order.lat
         lon = request.POST.get('lon') if request.POST.get('lon') else order.lon
         description = request.POST.get('description') if request.POST.get('description') else order.description
-
-        product = Product.objects.get(id=product_id)
+        product = Product.objects.get(product_id=product_id)
         price = float(product.price)
         quantity = int(quantity)
         amount = price * quantity
@@ -68,8 +99,10 @@ def edit_order(request, pk):
             order.amount = amount
             order.lat = lat
             order.lon = lon
+            order.fullname = fullname
             order.save()
             return redirect('order')
+
 
         msg = "مقادیر را با دقت پر کنید لطفا"
         return render(request, 'editorder.html', {'msg': msg, 'order': order})

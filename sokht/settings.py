@@ -84,10 +84,16 @@ WSGI_APPLICATION = 'sokht.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'sokht',  # نام دیتابیس که ایجاد کردید
+        'USER': 'postgres',  # نام کاربری PostgreSQL
+        'PASSWORD': '1010',  # رمز عبور PostgreSQL (همان رمزی که وارد کردید)
+        'HOST': 'localhost',  # میزبان
+        'PORT': '5432',  # پورت پیش‌فرض PostgreSQL
     }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

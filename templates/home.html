@@ -154,7 +154,7 @@
                                 {% elif product.name == "بنزین سوپر" %}
                                     <img src="{% static 'images/super.jpg' %}"
                                          alt="mamoli" style="object-fit: cover">
-                                {% elif product.name == "بنزین یورو4" %}
+                                {% elif product.name == "بنزین یورو 6" %}
                                     <img src="{% static 'images/euro4.jpg' %}"
                                          alt="mamoli" style="object-fit: cover">
                                 {% endif %}
@@ -162,12 +162,16 @@
                             </div>
                             <div class="card-body text-right" style="overflow-y: auto">
                                 <h4 class="card-title">{{ product.name }}</h4>
-                                <p class="card-text">بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور و بهبود
+                                {% if product.name == "بنزین سوپر"  %}<p class="card-text">بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور و بهبود
                                     عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در محفظه احتراق و
-                                    طولانی‌تر شدن عمر موتور می‌گردد.
+                                    طولانی‌تر شدن عمر موتور می‌گردد
                                 </p>
-                                <span class="card-text">قیمت هر لیتر{% if product.price == 8000 %}
-                                    ۸ {% elif product.price == 10000 %} ۱۰ {% else %}۴{% endif %} هزار تومان </span>
+                                {% elif product.name == "بنزین معمولی" %} <p> بنزین معمولی با عدد اکتان پایینتر و سوخت مناسب میتواند قدرت خوبی به موتور بدهد تا شتاب مناسب داشته باشد و بعد از گاز مایع ئر قدرت ترین نوع سوخت میباشد و با این حال پرطرفدار ترین سوخت موتوری دنیا است</p>
+                                {% elif product.name == "بنزین یورو 6" %} <p>یورو 6 یکی از سوخت های تجدید پذیر و محرک عالی برای خودرو ها است از انجا که سوخت بسار سبکی طلقی میشود ولی قدرت خوبی دارد و الودگی بسار کمی ایجاد میکند و برای محیط زیست اسیب کمتری دارد</p>
+                                {% endif %}
+
+                                <span class="card-text">قیمت هر لیتر{% if product.price == 7400 %}
+                                   7 هزار 400 تومان {% elif product.price == 10000 %} 10 هزار تومان  {% else %}3 هزار 500 تومان{% endif %}  </span>
                             </div>
                             <div class="card-footer"
                                  style="background: inherit; border-color: inherit; border-radius: 20px;">
