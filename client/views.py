@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, reverse
 
 from client.models import CustomUser
@@ -11,7 +11,7 @@ def auth(request):
 
         username = request.POST.get('n_code')
         password = request.POST.get('phone')
-        print(username,password)
+        print(username, password)
         # بررسی طول کد ملی
         if not len(username) == 10:
             msg = "طول کد ملی باید 10 رقم باشد"
@@ -35,7 +35,7 @@ def auth(request):
                 msg = "شماره همراه  یا کدملی اشتباه است"
                 return render(request, 'auth.html', {'msg': msg})
         else:
-            user = CustomUser(username=username, n_code=username , phone=password)
+            user = CustomUser(username=username, n_code=username, phone=password)
             user.set_password(password)
             user.save()
             login(request, user)
@@ -46,4 +46,9 @@ def auth(request):
 
 def home(request):
     products = Product.objects.all()
-    return render(request, 'home.html', {'products': products})
+    return render(request, 'home.html', {'products': products, 'user': request.user})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('client:home')  # به صفحه خانه برمی‌گردد

@@ -114,7 +114,8 @@ def edit_order(request, pk):
 
 @require_POST
 def delete_order(request, pk):
-    print(1)
-    order = get_object_or_404(Order, pk=pk)
+    print(pk)
+    order = Order.objects.get(id=pk)
+    print(order)
     order.delete()
     return redirect('pay')
