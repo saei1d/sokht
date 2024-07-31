@@ -123,37 +123,31 @@
                        name="description" rows="3">
             </div>
             <div class="col-md-12 text-center mt-2">
-                <button class="col-md-5 d-md-block d-none button float-right" style="background-color: #1ebe12"
+                <button class="col-md-12 d-none d-md-block button" style="background-color: #1ebe12"
                         type="submit">
                     ذخیره اطلاعات
                 </button>
             </div>
+                    <div class="text-center col-12">
+                <button class="col-12  button  d-md-none mx-auto" style="background-color: #1ebe12;"
+                        type="submit">
+                    ذخیره اطلاعات
+                </button>
+            </div>
+
         </div>
     </form>
 
-    <form action="{% url 'delete' order.id %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="col-md-5 d-md-block d-none button float-left"
-                style="background-color: #BF0A30">
-            حذف سفارش
-        </button>
-    </form>
+{#    <form action="{% url 'delete' order.id %}" method="post">#}
+{#        {% csrf_token %}#}
+{#        <button  type="submit" class="d-none d-md-block col-md-5  button float-left"#}
+{#                style="background-color: blue">#}
+{#            حذف سفارش#}
+{#        </button>#}
+{#    </form>#}
 
 
-    <div class="row">
-        <button class="col-6 button d-md-none" style="background-color: #BF0A30" type="submit">
-            ذخیره اطلاعات
-        </button>
-        <form action="{% url 'delete' order.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="col-md-5 d-md-none button float-left"
-                    style="background-color: #BF0A30">
-                حذف سفارش
-            </button>
-        </form>
 
-
-    </div>
 
 </div>
 </div>
