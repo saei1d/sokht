@@ -8,6 +8,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+
+    </style>
 </head>
 <body>
 
@@ -22,12 +25,12 @@
                  alt="My image">
             <div class="carousel-caption d-none d-md-block">
                 <div class="container">
-                    <h2 class="text-right">بنزین‌یار، وبسایت ثبت سفارش آنلاین بنزین</h2>
+                    <h2 class="text-right">بنزین‌یار، ثبت سفارش آنلاین بنزین</h2>
                     <p class="text-right">راحتی و سرعت در تحویل را برای شما به ارمغان می‌آورد</p>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-9">
                         </div>
-                        <a href="http://127.0.0.1:8000/pay/">
+                        <a href="http://localhost:8000/pay/">
                             <div class="button float-right mt-3" style="margin-bottom: 200px">درخواست انلاین سوخت</div>
                         </a>
                     </div>
@@ -36,12 +39,14 @@
         </div>
     </div>
 </div>
+
+
 <div class="container d-none d-md-block">
     <div class="row d-flex justify-content-center">
         <div class="col-md-12" style="margin-top: -130px">
             <div class="card p-2 mt-2">
                 <h3 class="heading mt-5 text-center">بنزین یار</h3>
-                <p class="text-center">تنها مرجع سوخت رسانی انلاین شهر قم</p>
+                <p class="text-center">تنها مرجع سوخت رسانی انلاین شهر قمllll</p>
                 <div class="row mt-4 g-1 px-4 mb-5">
                     <div class="col-md-2 mx-auto">
                         <a href="http://localhost:8000/">
@@ -49,7 +54,9 @@
                                  style="background-color: blue;border-radius: 25px">
                                 <i class="fas fa-gas-pump" aria-hidden="true"
                                    style="color: #ffffff;font-size: 30px;"></i>
-                                <div class="text-center mg-text mt-3"><span class="mg-text text-light">خانه</span></div>
+                                <div class="text-center mg-text mt-3">
+                                    <span class="mg-text text-light">خانه</span>
+                                </div>
                             </div>
                         </a>
                     </div>
@@ -162,20 +169,29 @@
                             </div>
                             <div class="card-body text-right" style="overflow-y: auto">
                                 <h4 class="card-title">{{ product.name }}</h4>
-                                {% if product.name == "بنزین سوپر"  %}<p class="card-text">بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور و بهبود
-                                    عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در محفظه احتراق و
-                                    طولانی‌تر شدن عمر موتور می‌گردد
-                                </p>
-                                {% elif product.name == "بنزین معمولی" %} <p> بنزین معمولی با عدد اکتان پایینتر و سوخت مناسب میتواند قدرت خوبی به موتور بدهد تا شتاب مناسب داشته باشد و بعد از گاز مایع ئر قدرت ترین نوع سوخت میباشد و با این حال پرطرفدار ترین سوخت موتوری دنیا است</p>
-                                {% elif product.name == "بنزین یورو 6" %} <p>یورو 6 یکی از سوخت های تجدید پذیر و محرک عالی برای خودرو ها است از انجا که سوخت بسار سبکی طلقی میشود ولی قدرت خوبی دارد و الودگی بسار کمی ایجاد میکند و برای محیط زیست اسیب کمتری دارد</p>
+                                {% if product.name == "بنزین سوپر" %}
+                                    <p class="card-text">بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور و بهبود
+                                        عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در محفظه احتراق
+                                        و
+                                        طولانی‌تر شدن عمر موتور می‌گردد
+                                    </p>
+                                {% elif product.name == "بنزین معمولی" %}
+                                    <p> بنزین معمولی با عدد اکتان پایینتر و سوخت مناسب میتواند قدرت خوبی به موتور بدهد
+                                        تا شتاب مناسب داشته باشد و بعد از گاز مایع ئر قدرت ترین نوع سوخت میباشد و با این
+                                        حال پرطرفدار ترین سوخت موتوری دنیا است</p>
+                                {% elif product.name == "بنزین یورو 6" %}
+                                    <p>یورو 6 یکی از سوخت های تجدید پذیر و محرک عالی برای خودرو ها است از انجا که سوخت
+                                        بسار سبکی طلقی میشود ولی قدرت خوبی دارد و الودگی بسار کمی ایجاد میکند و برای
+                                        محیط زیست اسیب کمتری دارد</p>
                                 {% endif %}
 
                                 <span class="card-text">قیمت هر لیتر{% if product.price == 7400 %}
-                                   7 هزار 400 تومان {% elif product.price == 10000 %} 10 هزار تومان  {% else %}3 هزار 500 تومان{% endif %}  </span>
+                                    7 هزار 400 تومان {% elif product.price == 10000 %} 10 هزار تومان  {% else %}3 هزار
+                                    500 تومان{% endif %}  </span>
                             </div>
                             <div class="card-footer"
                                  style="background: inherit; border-color: inherit; border-radius: 20px;">
-                                <a href="http://localhost:8000/pay/{{ product.id }}/" class="btn btn-primary">ثبت
+                                <a href="http://localhost:8000/pay/{{ product.product_id }}/" class="btn btn-primary">ثبت
                                     سفارش</a>
                             </div>
                         </div>
@@ -193,7 +209,7 @@
     <div class="row mt-5">
         <div class="col-md-6">
             {% load static %}
-            <img  src="{% static  "images/Chart Title.png" %}" alt="">
+            <img src="{% static  "images/Chart Title.png" %}" alt="">
         </div>
         <div class="col-md-4 text-right mt-5 pt-5" style="margin-left: 150px;font-size: 19px;">
             <p>چارت روبرو نشان دهنده <strong>تراکم جمعیت در مراکز سوختگیری شهر قم </strong> میباشد,با انتخاب درست در
@@ -221,7 +237,7 @@
             <div class="carousel-caption">
                 <h3 class="text-right" style="margin-left: 130px">بنزین‌یار، وبسایت ثبت سفارش آنلاین بنزین</h3>
                 <p class="text-right">راحتی و سرعت در تحویل را برای شما به ارمغان می‌آورد</p>
-                <a href="http://127.0.0.1:8000/pay/">
+                <a href="http://localhost:8000/pay/">
                     <div class="button mx-auto mt-3">درخواست انلاین سوخت</div>
                 </a>
 
@@ -231,44 +247,55 @@
 </div>
 <div class=" d-md-none  p-5 container  text-center">
     <h4>بنزین یار</h4>
-    <p>تنها مرجع سوخت رسانی انلاین شهر قم
-
-    </p>
+    <p>تنها مرجع سوخت رسانی انلاین شهر قم</p>
 </div>
 
 <div class="container text-center  d-md-none">
     <div class="row">
         <div class="col-4">
-            <i class="fas fa-gas-pump" style="color: blue;font-size: 30px"></i>
-            <p>خانه</p>
+            <a href="http://localhost:8000/">
+                <div class="" style="background-color: blue;border-radius: 25px;">
+                    <div>
+                        <i class="fas fa-gas-pump" aria-hidden="true"
+                           style="color: #ffffff;font-size: 30px;margin-top: 3px"></i>
+                    </div>
 
+                    <p style="color: white">خانه</p>
+
+                </div>
+            </a>
         </div>
-        <div id="productButton" class="col-4">
-            <i class="fas fa-shopping-cart" style="color: blue;font-size: 30px"></i>
+
+        <div id="productButton" class="col-4" onclick="scrollToCenter()">
+            <a href="#"></a>
+            <i class="fas fa-shopping-cart" style="color: blue; font-size: 30px"></i>
             <p>محصولات</p>
-
         </div>
+
+
         <div class="col-4">
-            <i class="fas fa-concierge-bell" style="color: blue;font-size: 30px"></i>
-            <p>خدمات</p>
+            <a href="http://localhost:8000/pay/">
+
+                <i class="fas fa-store" style="color: blue;font-size: 30px"></i>
+                <p style="color: black">فروشگاه</p>
+            </a>
 
         </div>
-        <div class="col-4">
-            <i class="fas fa-receipt" style="color: blue;font-size: 30px"></i>
-            <p>سفارشات</p>
-
+        <div class="row mx-auto p-3" style="justify-content: space-between">
+            <div class="col-5 d-flex align-items-center justify-content-center" style="margin-right: 15px;">
+                <a href="http://localhost:8000/order/" style="text-decoration: none;">
+                    <i class="fas fa-receipt" style="color: blue; font-size: 30px"></i>
+                    <p style="color: black; margin: 0;">سفارشات</p>
+                </a>
+            </div>
+            <div class="col-5 d-flex align-items-center justify-content-center" style="margin-left: 15px;">
+                <a href="http://localhost:8000/contact/" style="text-decoration: none;">
+                    <i class="fas fa-phone-volume" style="color: blue; font-size: 30px"></i>
+                    <p style="color: black; margin: 0; white-space: nowrap;">ارتباط با ما</p>
+                </a>
+            </div>
         </div>
-        <div class="col-4">
-            <i class="fas fa-store" style="color: blue;font-size: 30px"></i>
-            <p>فروشگاه</p>
-
-        </div>
-        <div class="col-4">
-            <i class="fas fa-phone-volume" style="color: blue;font-size: 30px"></i>
-            <p>ارتباط با ما</p>
-
-        </div>
-
+گ
 
     </div>
 </div>
@@ -290,18 +317,14 @@
     </div>
 </div>
 
-{#<div class="container text-right mt-5  d-md-none">#}
-{#    <h1 class="text-right">انواع سوخت ها</h1>#}
-{#    <p class="">سوخت های ما شامل بنزین معمولی,بنزین سوپر و بنرین یورو۴ میباشد</p>#}
-{#    <button type="button" class="btn btn-outline-primary">خدمات ما</button>#}
-{#</div>#}
-<div class=" d-md-none mt-5 p-5 container  text-center">
+
+<div class=" d-md-none   container  text-center">
     <h1>محصولات ما</h1>
 </div>
 
 {#jdsjfjfd#}
 
-<section id="products" class="mt-5 d-md-none"
+<section id="products" class="mt-4 d-md-none"
          style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%); ">
     <div class="container">
         <div class="row pt-5 m-auto">
@@ -309,7 +332,7 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         {% for product in products %}
-                            <div class="carousel-item {% if product.id == 1 %} active {% else %} {% endif %} ">
+                            <div class="carousel-item {% if product.product_id == 1 %} active {% else %} {% endif %} ">
                                 <div class="card card-custom bg-white border-white border-0">
                                     <div class="card-custom-img"
                                          style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
@@ -320,7 +343,7 @@
                                         {% elif product.name == "بنزین سوپر" %}
                                             <img src="{% static 'images/super.jpg' %}"
                                                  alt="mamoli" style="object-fit: cover">
-                                        {% elif product.name == "بنزین یورو6" %}
+                                        {% elif product.name == "بنزین یورو 6" %}
                                             <img src="{% static 'images/euro4.jpg' %}"
                                                  alt="mamoli" style="object-fit: cover">
                                         {% endif %}
@@ -333,7 +356,7 @@
                                             محفظه احتراق و طولانی‌تر شدن عمر موتور می‌گردد." <a
                                                     href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
                                                     target="_blank"></a>
-                                            
+
 
                                         </p>
                                     </div>
@@ -342,7 +365,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         {% endfor %}
                     </div>
                     <style>
@@ -383,13 +406,13 @@
 </div>
 <style>
 
-        .zoom {
-            transition: transform 0.3s ease-in-out;
-        }
+    .zoom {
+        transition: transform 0.3s ease-in-out;
+    }
 
-        .zoom:hover {
-            transform: scale(1.4);
-        }
+    .zoom:hover {
+        transform: scale(1.4);
+    }
 </style>
 
 
@@ -568,7 +591,18 @@
             block: 'center'
         });
     });
+
+
+    function scrollToCenter() {
+        window.scrollTo({
+            top: (window.innerHeight / 4) * 6, // به یک چهارم پایین تر از وسط
+            behavior: 'smooth'
+        });
+    }
+
+
 </script>
+
 
 <!-- jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

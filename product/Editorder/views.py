@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 import pytz
@@ -11,7 +10,6 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 
 
-@login_required
 @csrf_exempt
 def edit_order(request, pk):
     try:

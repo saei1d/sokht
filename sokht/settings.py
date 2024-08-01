@@ -24,8 +24,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_URL = '/auth/'
-LOGIN_REDIRECT_URL = '/'
+
 
 # Application definition
 

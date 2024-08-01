@@ -6,7 +6,9 @@ from product.models import Product
 
 
 def auth(request):
-    context = {}
+    if request.user.is_authenticated:
+        return redirect('client:home')
+
     if request.method == 'POST':
 
         username = request.POST.get('n_code')
@@ -26,9 +28,9 @@ def auth(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
-                next_url = request.GET.get('next')
-                if next_url:
-                    return redirect(next_url)
+                # next_url = request.GET.get('next')
+                # if next_url:
+                #     return redirect(next_url)
                 return redirect(reverse('client:home'))
 
             else:
