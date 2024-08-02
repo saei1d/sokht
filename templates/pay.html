@@ -52,7 +52,7 @@
 
 <div class="container col-md-6 bg-light mb-5" style="border-radius: 40px ">
     {% if request.GET.msg %}
-        <span>{{ request.GET.msg }}</span>
+        <span class="mx-auto">{{ request.GET.msg }}</span>
     {% endif %}
     <form method="POST" id="order-form" style="padding: 40px">
         {% csrf_token %}
