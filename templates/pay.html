@@ -26,6 +26,42 @@
 <body>
 {% include 'header.html' %}
 {#    #desktop#}
+{#    <style>#}
+{#        .time-picker {#}
+{#            padding: 10px;#}
+{#            font-size: 18px;#}
+{#            border: 2px solid #007BFF;#}
+{#            border-radius: 5px;#}
+{#            width: 200px;#}
+{#            direction: rtl;#}
+{#        }#}
+{#    </style>#}
+{##}
+{#<label for="timeInput">زمان را انتخاب کنید:</label>#}
+{#<input type="time" id="timeInput" class="time-picker" onchange="convertToPersian(this.value)">#}
+{##}
+{#<p id="persianTime" style="margin-top: 20px; font-size: 20px;"></p>#}
+{##}
+{#<script>#}
+{#    function convertToPersian(time) {#}
+{#        const [hour, minute] = time.split(':');#}
+{#        const persianHour = parseInt(hour) < 10 ? '۰' + hour : hour;#}
+{#        const persianMinute = parseInt(minute) < 10 ? '۰' + minute : minute;#}
+{##}
+{#        // محاسبه زمان ایران#}
+{#        const date = new Date();#}
+{#        const utcHour = date.getUTCHours();#}
+{#        const iranHour = (utcHour + 3 + 0.5) % 24; // UTC+3:30#}
+{#        const persianLocalHour = Math.floor(iranHour);#}
+{#        const persianLocalMinute = date.getUTCMinutes();#}
+{##}
+{#        const displayHour = persianLocalHour < 10 ? '۰' + persianLocalHour : persianLocalHour;#}
+{#        const displayMinute = persianLocalMinute < 10 ? '۰' + persianLocalMinute : persianLocalMinute;#}
+{##}
+{#        document.getElementById('persianTime').textContent = `زمان انتخابی: ${persianHour}:${persianMinute} | زمان ایران: ${displayHour}:${displayMinute}`;#}
+{#    }#}
+{#</script>#}
+
 <div class="container d-none d-md-block">
     <div class="row">
         <div class="col-md-6 ">
@@ -35,7 +71,7 @@
                     بگیرید </p>
                             {% load static %}
             <img src="{% static 'images/free-white-arrow-down-hand-drawn-design-png-11672138686inenhkfgci (1).png' %}" class=" w-100 h-10"
-                 style="object-fit: cover"
+                 style="object-fit: cover;height: 370px"
                  alt="My image">
 
             </div>
@@ -135,7 +171,7 @@
             <div class="col-md-12"></div>
             <div class="form-group col-md-12 mt-2">
                 <label class="col-md-12" style="padding-right: 0">
-                    <select class="col-md-6 float-right" name="time" required
+                    <select class="col-md-6 col-12 float-right" name="time" required
                             style=" border-radius: 15px;padding-right: 0; height: 40px;border: 2px solid black"
                             dir="rtl">
                         <option disabled selected> ساعت دریافت بنزین</option>
@@ -249,7 +285,7 @@
 
         setInterval(scrollText, 200);
     });
-    
+
     // تابع برای مخفی کردن پیام بعد از 5 ثانیه
     function hideMessage() {
         const msgElement = document.getElementById('stickyMsg');
