@@ -162,7 +162,7 @@
                                     <img src="{% static 'images/super.jpg' %}"
                                          alt="mamoli" style="object-fit: cover">
                                 {% elif product.name == "بنزین یورو 6" %}
-                                    <img src="{% static 'images/euro4.jpg.jpg' %}"
+                                    <img src="{% static 'images/euro4.jpg' %}"
                                          alt="mamoli" style="object-fit: cover">
                                 {% endif %}
 
@@ -252,52 +252,52 @@
 
 <div class="container text-center  d-md-none">
     <div class="row">
-        <div class="col-4">
-            <a href="http://localhost:8000/">
-                <div class="" style="background-color: blue;border-radius: 25px;">
-                    <div>
-                        <i class="fas fa-gas-pump" aria-hidden="true"
-                           style="color: #ffffff;font-size: 30px;margin-top: 3px"></i>
-                    </div>
-
-                    <p style="color: white">خانه</p>
-
+        <div class="col-4" style=" border-bottom-width: 100px; bottom: 05px;">
+        <a href="http://localhost:8000/">
+            <div class="" style="background-color: blue;border-radius: 25px;">
+                <div>
+                    <i class="fas fa-gas-pump" aria-hidden="true"
+                       style="color: #ffffff;font-size: 30px;margin-top: 3px"></i>
                 </div>
-            </a>
-        </div>
 
-        <div id="productButton" class="col-4" onclick="scrollToCenter()">
-            <a href="#"></a>
-            <i class="fas fa-shopping-cart" style="color: blue; font-size: 30px"></i>
-            <p>محصولات</p>
-        </div>
+                <p style="color: white">خانه</p>
 
-
-        <div class="col-4">
-            <a href="http://localhost:8000/pay/">
-
-                <i class="fas fa-store" style="color: blue;font-size: 30px"></i>
-                <p style="color: black">فروشگاه</p>
-            </a>
-
-        </div>
-        <div class="row mx-auto p-3" style="justify-content: space-between">
-            <div class="col-5 d-flex align-items-center justify-content-center" style="margin-right: 15px;">
-                <a href="http://localhost:8000/order/" style="text-decoration: none;">
-                    <i class="fas fa-receipt" style="color: blue; font-size: 30px"></i>
-                    <p style="color: black; margin: 0;">سفارشات</p>
-                </a>
             </div>
-            <div class="col-5 d-flex align-items-center justify-content-center" style="margin-left: 15px;">
-                <a href="http://localhost:8000/contact/" style="text-decoration: none;">
-                    <i class="fas fa-phone-volume" style="color: blue; font-size: 30px"></i>
-                    <p style="color: black; margin: 0; white-space: nowrap;">ارتباط با ما</p>
-                </a>
-            </div>
-        </div>
+        </a>
+    </div>
 
+    <div id="productButton" class="col-4" onclick="scrollToCenter()">
+        <a href="#"></a>
+        <i class="fas fa-shopping-cart" style="color: blue; font-size: 30px"></i>
+        <p>محصولات</p>
+    </div>
+
+
+    <div class="col-4">
+        <a href="http://localhost:8000/pay/">
+
+            <i class="fas fa-store" style="color: blue;font-size: 30px"></i>
+            <p style="color: black">فروشگاه</p>
+        </a>
 
     </div>
+    <div class="row mx-auto p-3" style="justify-content: space-between">
+        <div class="col-5 d-flex align-items-center justify-content-center" style="margin-right: 15px;">
+            <a href="http://localhost:8000/order/" style="text-decoration: none;">
+                <i class="fas fa-receipt" style="color: blue; font-size: 30px"></i>
+                <p style="color: black; margin: 0;">سفارشات</p>
+            </a>
+        </div>
+        <div class="col-5 d-flex align-items-center justify-content-center" style="margin-left: 15px;">
+            <a href="http://localhost:8000/contact/" style="text-decoration: none;">
+                <i class="fas fa-phone-volume" style="color: blue; font-size: 30px"></i>
+                <p style="color: black; margin: 0; white-space: nowrap;">ارتباط با ما</p>
+            </a>
+        </div>
+    </div>
+
+
+</div>
 </div>
 <div class="container mt-3 p-5 d-md-none ">
     <div class="row">
@@ -349,33 +349,41 @@
                                         {% endif %}
 
                                     </div>
-                            <div class="card-body text-right" style="overflow-y: auto">
-                                <h4 class="card-title">{{ product.name }}</h4>
-                                {% if product.name == "بنزین سوپر" %}
-                                    <p class="card-text">بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور و بهبود
-                                        عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در محفظه احتراق
-                                        و
-                                        طولانی‌تر شدن عمر موتور می‌گرددو...
-                                    </p>
-                                {% elif product.name == "بنزین معمولی" %}
-                                    <p> بنزین معمولی با عدد اکتان پایینتر و سوخت مناسب میتواند قدرت خوبی به موتور بدهد
-                                        تا شتاب مناسب داشته باشد و بعد از گاز مایع ئر قدرت ترین نوع سوخت میباشد و با این
-                                        حال پرطرفدار ترین سوخت موتوری دنیا است</p>
-                                {% elif product.name == "بنزین یورو 6" %}
-                                    <p>یورو 6 یکی از سوخت های تجدید پذیر و محرک عالی برای خودرو ها است از انجا که سوخت
-                                        بسار سبکی طلقی میشود ولی قدرت خوبی دارد و الودگی بسار کمی ایجاد میکند و برای
-                                        محیط زیست اسیب کمتری دارد</p>
-                                {% endif %}
+                                    <div class="card-body text-right" style="overflow-y: auto">
+                                        <h4 class="card-title">{{ product.name }}</h4>
+                                        {% if product.name == "بنزین سوپر" %}
+                                            <p class="card-text">بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور
+                                                و بهبود
+                                                عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در
+                                                محفظه احتراق
+                                                و
+                                                طولانی‌تر شدن عمر موتور می‌گرددو...
+                                            </p>
+                                        {% elif product.name == "بنزین معمولی" %}
+                                            <p> بنزین معمولی با عدد اکتان پایینتر و سوخت مناسب میتواند قدرت خوبی به
+                                                موتور بدهد
+                                                تا شتاب مناسب داشته باشد و بعد از گاز مایع ئر قدرت ترین نوع سوخت میباشد
+                                                و با این
+                                                حال پرطرفدار ترین سوخت موتوری دنیا است</p>
+                                        {% elif product.name == "بنزین یورو 6" %}
+                                            <p>یورو 6 یکی از سوخت های تجدید پذیر و محرک عالی برای خودرو ها است از انجا
+                                                که سوخت
+                                                بسار سبکی طلقی میشود ولی قدرت خوبی دارد و الودگی بسار کمی ایجاد میکند و
+                                                برای
+                                                محیط زیست اسیب کمتری دارد</p>
+                                        {% endif %}
 
-                                <span class="card-text">قیمت هر لیتر{% if product.price == 7400 %}
-                                    7 هزار 400 تومان {% elif product.price == 10000 %} 10 هزار تومان  {% else %}3 هزار
-                                    500 تومان{% endif %}  </span>
-                            </div>
-                            <div class="card-footer"
-                                 style="background: inherit; border-color: inherit; border-radius: 20px;">
-                                <a href="http://localhost:8000/pay/{{ product.product_id }}/" class="btn btn-primary">ثبت
-                                    سفارش</a>
-                            </div>
+                                        <span class="card-text">قیمت هر لیتر{% if product.price == 7400 %}
+                                            7 هزار 400 تومان {% elif product.price == 10000 %} 10 هزار تومان  {% else %}
+                                            3 هزار
+                                            500 تومان{% endif %}  </span>
+                                    </div>
+                                    <div class="card-footer"
+                                         style="background: inherit; border-color: inherit; border-radius: 20px;">
+                                        <a href="http://localhost:8000/pay/{{ product.product_id }}/"
+                                           class="btn btn-primary">ثبت
+                                            سفارش</a>
+                                    </div>
                                 </div>
                             </div>
 

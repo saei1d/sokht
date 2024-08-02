@@ -16,6 +16,12 @@ from sokht import settings
 def pay(request, pk=None):
     if request.user.is_authenticated:
         if request.method == 'POST':
+            if Order.objects.filter(user=request.user).exists():
+                msg = "شما یک سفارش فعال دارید!!!"
+                query_string = urlencode({'msg': msg})
+                url = f"{reverse('pay')}?{query_string}"
+                return redirect(url)
+
             lat = request.POST.get('lat')
             lon = request.POST.get('lon')
 
@@ -108,8 +114,7 @@ def pay(request, pk=None):
 
 def order(request):
     try:
-        user = CustomUser.objects.get(id=request.user.id)
-        orders = Order.objects.filter(user_id=user)
+        orders = Order.objects.filter(user=request.user)
         return render(request, 'order.html', {'orders': orders})
     except CustomUser.DoesNotExist:
         return redirect('client:auth')

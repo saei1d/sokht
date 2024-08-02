@@ -91,12 +91,12 @@
                     <td class="p-3" contenteditable="false">
                         <form action="{% url 'delete' order.id %}" method="post" style="display:inline;">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-danger">
-                                حذف کنید
+                            <button style="width: 55px" type="submit" class="btn btn-danger">
+                                حذف
                             </button>
                         </form>
-                        <span style="font-size: 25px">یا</span>
-                        <button type="button" class="btn btn-primary" ><a href="http://localhost:8000/editorder/{{ order.id }}" style="color: white">تغییر دهید </a>
+                        <span style="font-size: 18px">یا</span>
+                        <button type="button" class="btn btn-primary" style="width: 55px" ><a href="http://localhost:8000/editorder/{{ order.id }}" style="color: white">تغییر</a>
                         </button>
                     </td>
 

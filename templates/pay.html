@@ -69,10 +69,11 @@
                 <h2 class="text-right" style="color: white;"> از صفوف طولانی پمپ‌ها خسته شده‌اید؟</h2>
                 <p class="text-right" style="color: white;"> بنزین را آنلاین با بنزین یار سفارش دهید و امروز تحویل
                     بگیرید </p>
-                            {% load static %}
-            <img src="{% static 'images/free-white-arrow-down-hand-drawn-design-png-11672138686inenhkfgci (1).png' %}" class=" w-100 h-10"
-                 style="object-fit: cover;height: 370px"
-                 alt="My image">
+                {% load static %}
+                <img src="{% static 'images/free-white-arrow-down-hand-drawn-design-png-11672138686inenhkfgci (1).png' %}"
+                     class=" w-100 h-10"
+                     style="object-fit: cover;height: 370px"
+                     alt="My image">
 
             </div>
         </div>
@@ -106,22 +107,22 @@
         {% csrf_token %}
         <div class="row">
             <style>
-                        .sticky-message {
-                        position: fixed;
-                        top: 10%;
-                        left: 0;
-                        right: 0;
-                        background-color: #BF0A30;
-                        color: white;
-                        padding: 10px;
-                        margin: 0;
-                        width: 300px;
-                        height: 40px;
-                        z-index: 1000;
-                        border-radius: 30px;
-                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-                        font-size: 15px;
-                    }
+                .sticky-message {
+                    position: fixed;
+                    top: 10%;
+                    left: 0;
+                    right: 0;
+                    background-color: #BF0A30;
+                    color: white;
+                    padding: 10px;
+                    margin: 0;
+                    width: 300px;
+                    height: 40px;
+                    z-index: 1000;
+                    border-radius: 30px;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                    font-size: 15px;
+                }
 
             </style>
 
@@ -131,7 +132,6 @@
                        name="quantity" min="10" max="60" placeholder="  بین 10 تا 60 " onchange="updatePrice()">
                 <div id="error-message" class="error"></div>
             </div>
-
 
             <div class="form-group col-6 col-md-6 mt-2 text-right">
                 <label for="product text-right"> : محصولات</label>
@@ -153,20 +153,19 @@
                     {% endif %}
                 </select>
             </div>
+
             <div class="form-group col-6 col-md-6 mt-2 text-right">
                 <label for="full_name">:تحویل گیرنده</label>
                 <input type="text" style="border: 2px solid #000000" class="form-control" id="full_name"
                        name="fullname" required placeholder="مثال:شجاعی">
             </div>
 
-
             <div class="form-group col-6 col-md-6 mt-2 text-right">
                 <label for="price">:قیمت</label>
                 <input type="text" class="form-control bg-light" id="price" name="price"
-                       style="border: 2px solid #000000"
-                       value="" readonly>
-                <span class="scrollable-placeholder">            ابتدا محصول و لیتر را انتخاب کنید.             </span>
+                       style="border: 2px solid #000000" value="" readonly>
             </div>
+
 
             <div class="col-md-12"></div>
             <div class="form-group col-md-12 mt-2">
@@ -246,45 +245,41 @@
         {% endfor %}
     };
 
-    function updatePrice() {
-        const productElement = document.getElementById('product');
-        const quantityElement = document.getElementById('quantity');
-        const priceElement = document.getElementById('price');
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const inputField = document.getElementById('price');
+        const placeholderText = 'ابتدا محصول و لیتر را انتخاب کنید.';
+        let currentIndex = 0;
+        let scrolling = true;
 
-        const selectedProduct = productElement.value;
-        const quantity = quantityElement.value;
-
-        console.log('Selected Product:', selectedProduct);
-        console.log('Quantity:', quantity);
-        console.log('Product Prices:', productPrices);
-
-        if (selectedProduct && quantity) {
-            const pricePerUnit = productPrices[selectedProduct];
-            console.log('Price per unit:', pricePerUnit);
-            const totalPrice = pricePerUnit * quantity;
-            priceElement.value = totalPrice + ' تومان';
+        function scrollText() {
+            if (scrolling) {
+                inputField.value = placeholderText.slice(currentIndex) + ' ' + placeholderText.slice(0, currentIndex);
+                currentIndex = (currentIndex + 1) % placeholderText.length;
+            }
         }
-    }
+
+        setInterval(scrollText, 200);
+
+        window.updatePrice = function () {
+            const productElement = document.getElementById('product');
+            const quantityElement = document.getElementById('quantity');
+            const selectedProduct = productElement.value;
+            const quantity = quantityElement.value;
+
+            if (selectedProduct && quantity) {
+                const pricePerUnit = productPrices[selectedProduct];
+                const totalPrice = pricePerUnit * quantity;
+                inputField.value = totalPrice + ' تومان';
+                scrolling = false; // Stop the scrolling
+            }
+        }
+    });
 
     window.onload = function () {
         initMap(); // بارگذاری نقشه
         hideMessage(); // مخفی کردن پیام
     };
 
-
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const inputField = document.getElementById('price');
-        const placeholderText = document.querySelector('.scrollable-placeholder').textContent;
-
-        let currentIndex = 0;
-
-        function scrollText() {
-            inputField.value = placeholderText.slice(currentIndex) + ' ' + placeholderText.slice(0, currentIndex);
-            currentIndex = (currentIndex + 1) % placeholderText.length;
-        }
-
-        setInterval(scrollText, 200);
-    });
 
     // تابع برای مخفی کردن پیام بعد از 5 ثانیه
     function hideMessage() {
