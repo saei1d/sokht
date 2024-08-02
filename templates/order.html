@@ -88,14 +88,22 @@
                         معمولی {% elif order.product_id == 2 %} سوپر{% else %}یورو۶ {% endif %}  </td>
                     <td class="p-3" contenteditable="false">{{ order.quantity }}</td>
                     <td class="p-3" contenteditable="false">{{ order.description }}</td>
-                    <td class="p-3" contenteditable="false">یاحدف کنید<a href="http://localhost:8000/editorder/{{ order.id }}">تغییر
-                        دهید</a></td>
-                </tr>
+                    <td class="p-3" contenteditable="false">
+                        <form action="{% url 'delete' order.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">
+                                حذف کنید
+                            </button>
+                        </form>
+                        <span style="font-size: 25px">یا</span>
+                        <button type="button" class="btn btn-primary" ><a href="http://localhost:8000/editorder/{{ order.id }}" style="color: white">تغییر دهید </a>
+                        </button>
+                    </td>
+
                 </tbody>
             {% endfor %}
         </table>
     </div>
-
 
 {% else %}
     <div class="container">
