@@ -46,7 +46,7 @@
         <div class="col-md-12" style="margin-top: -130px">
             <div class="card p-2 mt-2">
                 <h3 class="heading mt-5 text-center">بنزین یار</h3>
-                <p class="text-center">تنها مرجع سوخت رسانی انلاین شهر قمllll</p>
+                <p class="text-center">تنها مرجع سوخت رسانی انلاین شهر قم</p>
                 <div class="row mt-4 g-1 px-4 mb-5">
                     <div class="col-md-2 mx-auto">
                         <a href="http://localhost:8000/">
@@ -295,16 +295,12 @@
                 </a>
             </div>
         </div>
-گ
+
 
     </div>
 </div>
 <div class="container mt-3 p-5 d-md-none ">
     <div class="row">
-        <div class="mx-auto">
-            {% load static %}
-            <img class="col-12" src="{% static  "images/nemodar.png" %}" alt="">
-        </div>
         <div class="col-12 text-right">
             <span> <strong style="color:blueviolet "> آیا می دانستید </strong>مردم امروزه بخش قابل توجهی از وقت خود را در صف‌های پمپ بنزین می‌گذرانند و در این میان، <span
                     style="color: #ec0d0d;font-size: 25px">خطرات</span> بهداشتی ناشی از کثیفی و میکروب‌های موجود در این مکان‌ها نیز تهدیدی جدی به شمار می‌آید </span>
@@ -312,6 +308,10 @@
             <br>
             <p>چارت روبرو نشان دهنده میانگین <strong>زمان صرف شده هر فرد در طول یک هفته</strong> در صف سوختگیری است
                 (اعداد به دقیقه هستند)</p>
+        </div>
+        <div class="mx-auto">
+            {% load static %}
+            <img class="col-12" src="{% static  "images/nemodar.png" %}" alt="">
         </div>
 
     </div>
@@ -349,20 +349,33 @@
                                         {% endif %}
 
                                     </div>
-                                    <div class="card-body" style="overflow-y: auto">
-                                        <h4 class="card-title text-center"> {{ product.name }}</h4>
-                                        <p class="card-text">"بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور و
-                                            بهبود عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در
-                                            محفظه احتراق و طولانی‌تر شدن عمر موتور می‌گردد." <a
-                                                    href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
-                                                    target="_blank"></a>
+                            <div class="card-body text-right" style="overflow-y: auto">
+                                <h4 class="card-title">{{ product.name }}</h4>
+                                {% if product.name == "بنزین سوپر" %}
+                                    <p class="card-text">بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور و بهبود
+                                        عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در محفظه احتراق
+                                        و
+                                        طولانی‌تر شدن عمر موتور می‌گرددو...
+                                    </p>
+                                {% elif product.name == "بنزین معمولی" %}
+                                    <p> بنزین معمولی با عدد اکتان پایینتر و سوخت مناسب میتواند قدرت خوبی به موتور بدهد
+                                        تا شتاب مناسب داشته باشد و بعد از گاز مایع ئر قدرت ترین نوع سوخت میباشد و با این
+                                        حال پرطرفدار ترین سوخت موتوری دنیا است</p>
+                                {% elif product.name == "بنزین یورو 6" %}
+                                    <p>یورو 6 یکی از سوخت های تجدید پذیر و محرک عالی برای خودرو ها است از انجا که سوخت
+                                        بسار سبکی طلقی میشود ولی قدرت خوبی دارد و الودگی بسار کمی ایجاد میکند و برای
+                                        محیط زیست اسیب کمتری دارد</p>
+                                {% endif %}
 
-
-                                        </p>
-                                    </div>
-                                    <div class="card-footer" style="background: inherit; border-color: inherit;">
-                                        <a href="#" class="btn btn-primary">درخواست آنلاین</a>
-                                    </div>
+                                <span class="card-text">قیمت هر لیتر{% if product.price == 7400 %}
+                                    7 هزار 400 تومان {% elif product.price == 10000 %} 10 هزار تومان  {% else %}3 هزار
+                                    500 تومان{% endif %}  </span>
+                            </div>
+                            <div class="card-footer"
+                                 style="background: inherit; border-color: inherit; border-radius: 20px;">
+                                <a href="http://localhost:8000/pay/{{ product.product_id }}/" class="btn btn-primary">ثبت
+                                    سفارش</a>
+                            </div>
                                 </div>
                             </div>
 
@@ -392,14 +405,14 @@
 </section>
 <div class="container mt-2 p-5  d-md-none ">
     <div class="text-center p-2"><p style="font-size: 30px">قابل توجه همشهریان گرامی</p></div>
-    <div class="row mt-5">
+    <div class="row">
+        <div class="col-12 text-right pt-5">
+            <p>چارت روبرو نشان دهنده <strong>تراکم جمعیت در مراکز سوختگیری شهر قم </strong> میباشد,با انتخاب درست در
+                زمان خودت صرفه جویی کن</p>
+        </div>
         <div class="zoom">
             {% load static %}
             <img class="col-12" src="{% static  "images/Chart Title.png" %}" alt="">
-        </div>
-        <div class="col-12 text-right  pt-5">
-            <p>چارت روبرو نشان دهنده <strong>تراکم جمعیت در مراکز سوختگیری شهر قم </strong> میباشد,با انتخاب درست در
-                زمان خودت صرفه جویی کن</p>
         </div>
 
     </div>
@@ -438,7 +451,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3 col-6">
+                    <div class="col-md-3 col-6 text-center">
                         <h3>باما در ارتباط باشید</h3>
                         <ul class="list-unstyled social">
                             <li><a href="http://localhost:8000/contact/"><i class="fas fa-envelope"
@@ -454,20 +467,20 @@
                         </ul>
                     </div>
 
-                    <div class="col-6 col-md-3">
+                    <div class="col-6 col-md-3 text-center">
                         <h3>شرکت ما</h3>
                         <ul class="list-unstyled links">
                             <li><a href="http://localhost:8000/contact/">درباره ما</a></li>
                             <li><a href="http://localhost:8000/contact/">تماس با ما</a></li>
                         </ul>
                     </div>
-                    <div class="col-6 col-md-3">
+                    <div class="col-6 col-md-3 text-center">
                         <h3>خدمات ما</h3>
                         <ul class="list-unstyled links">
                             <li><a href="http://localhost:8000/">بنزین رسانی آنلاین</a></li>
                         </ul>
                     </div>
-                    <div class="col-6 col-md-3">
+                    <div class="col-6 col-md-3 text-center">
                         <h3>محصولات ما</h3>
                         <ul class="list-unstyled links">
                             <li><a href="http://localhost:8000/pay/">بنزین یورو۴</a></li>
