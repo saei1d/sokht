@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>صفحه پرداخت</title>
+    <title>خرید محصول</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -51,8 +51,8 @@
 
 
 <div class="container col-md-6 bg-light mb-5" style="border-radius: 40px ">
-    {% if msg %}
-        <p style="background-color: crimson">{{ msg }}</p>
+    {% if request.GET.msg %}
+        <span>{{ request.GET.msg }}</span>
     {% endif %}
     <form method="POST" id="order-form" style="padding: 40px">
         {% csrf_token %}
@@ -62,15 +62,15 @@
             <div class="form-group col-6 col-md-6 mt-2 text-right">
                 <label for="quantity"> :حجم (لیتر)</label>
                 <input type="number" style="border: 2px solid #000000" class="form-control" id="quantity"
-                       name="quantity" min="10" max="60" value="0"
-                       oninput="updatePrice()">
+                       name="quantity" min="10" max="60" placeholder="10 - 60">
+                <div id="error-message" class="error"></div>
             </div>
 
 
             <div class="form-group col-6 col-md-6 mt-2 text-right">
                 <label for="product text-right"> : محصولات</label>
                 <select class="form-control" id="product" name="product" style="border: 2px solid #000000"
-                        onchange="updatePrice()">
+                        onchange="updatePrice()" required>
                     {% if pk != 0 %}
                         {% for product in products %}
                             {% if product.product_id == pk %}
@@ -103,7 +103,7 @@
             </div>
             <div class="form-group col-md-6 mt-2">
                 <label class="bg-light" style="border: 2px solid #000000">
-                    <select name="time">
+                    <select name="time" required>
                         <option disabled selected> ساعت دریافت بنزین</option>
                         <option value="7">هفت تا نه صبح</option>
                         <option value="9"><p>نه الی یازده صبح</p></option>
@@ -139,6 +139,8 @@
     </form>
 </div>
 <script>
+
+
     var map;
     var marker;
     var selectedLat, selectedLon;
@@ -195,6 +197,8 @@
     }
 
     window.onload = initMap;
+
+
 </script>
 </body>
 </html>

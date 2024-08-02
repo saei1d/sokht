@@ -1,7 +1,8 @@
+from django.shortcuts import redirect, render
+from urllib.parse import urlencode
+from django.urls import reverse
 import requests
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from django.http import JsonResponse
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from client.models import CustomUser
 from product.models import Product
@@ -15,7 +16,15 @@ from sokht import settings
 def pay(request, pk=None):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            # تنظیم منطقه زمانی به تهران
+            lat = request.POST.get('lat')
+            lon = request.POST.get('lon')
+
+            if not lat or not lon:
+                msg = 'لطفا لوکیشن را با دابل کلیک مشخص کنید'
+                query_string = urlencode({'msg': msg})
+                url = f"{reverse('pay')}?{query_string}"
+                return redirect(url)
+
             current_time = datetime.now()
 
             # تنظیم منطقه زمانی به تهران
@@ -47,8 +56,6 @@ def pay(request, pk=None):
             # Print the calculated amount
 
             description = request.POST.get('description')
-            lat = request.POST.get('lat')
-            lon = request.POST.get('lon')
 
             api_url = f"https://api.neshan.org/v5/reverse?lat={lat}&lng={lon}"
             headers = {
