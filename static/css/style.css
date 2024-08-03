@@ -317,8 +317,12 @@ a:link {
     height: auto; /* حفظ نسبت ابعاد */
 }
 
-.button {
+.button-link {
     display: inline-block;
+    margin-bottom: 200px;
+}
+
+.button {
     background: #4285f4;
     color: #fff;
     text-transform: uppercase;
@@ -328,6 +332,7 @@ a:link {
     cursor: pointer;
     -webkit-transition: all ease-in-out 300ms;
     transition: all ease-in-out 300ms;
+    outline: none; /* اضافه کردن خاصیت outline:none برای حذف خط دور کلیک */
 }
 
 .button:hover {
@@ -335,4 +340,5 @@ a:link {
     -webkit-transform: translate(0px, -10px) scale(1.2);
     transform: translate(0px, -10px) scale(1.2);
 }
+
 

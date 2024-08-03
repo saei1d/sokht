@@ -6,6 +6,8 @@
 
     <title>صفحه سفارش</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'images/fav2.png' %}">
 </head>
 
 
@@ -96,7 +98,8 @@
                             </button>
                         </form>
                         <span style="font-size: 18px">یا</span>
-                        <button type="button" class="btn btn-primary" style="width: 55px" ><a href="http://localhost:8000/editorder/{{ order.id }}" style="color: white">تغییر</a>
+                        <button type="button" class="btn btn-primary" style="width: 55px"><a
+                                href="http://localhost:8000/editorder/{{ order.id }}" style="color: white">تغییر</a>
                         </button>
                     </td>
 

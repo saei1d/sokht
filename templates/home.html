@@ -6,7 +6,13 @@
     <title>بنزین‌یار</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     {% load static %}
+
+
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'images/fav2.png' %}">
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
 
@@ -23,16 +29,17 @@
             <img src="{% static 'images/descktop&mobile.png' %}" class="w-100 h-10"
                  style="height: 700px;object-fit: cover;border-bottom-right-radius: 20%;border-bottom-left-radius: 20%"
                  alt="My image">
-            <div class="carousel-caption d-none d-md-block">
-                <div class="container">
-                    <h2 class="text-right">بنزین‌یار، ثبت سفارش آنلاین بنزین</h2>
-                    <p class="text-right">راحتی و سرعت در تحویل را برای شما به ارمغان می‌آورد</p>
+            <div class="carousel-caption d-none d-md-block"
+                 style="position: absolute; top: 55%; right: 10%; transform: translateY(-50%);">
+                <div class="container text-right">
+                    <h2>بنزین‌یار، ثبت سفارش آنلاین بنزین</h2>
+                    <p>راحتی و سرعت در تحویل را برای شما به ارمغان می‌آورد</p>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-9">
+                            <a href="http://localhost:8000/pay/" class="button-link">
+                                <button class="button" style="border: none">درخواست آنلاین سوخت</button>
+                            </a>
                         </div>
-                        <a href="http://localhost:8000/pay/">
-                            <div class="button float-right mt-3" style="margin-bottom: 200px">درخواست انلاین سوخت</div>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -253,51 +260,51 @@
 <div class="container text-center  d-md-none">
     <div class="row">
         <div class="col-4" style=" border-bottom-width: 100px; bottom: 05px;">
-        <a href="http://localhost:8000/">
-            <div class="" style="background-color: blue;border-radius: 25px;">
-                <div>
-                    <i class="fas fa-gas-pump" aria-hidden="true"
-                       style="color: #ffffff;font-size: 30px;margin-top: 3px"></i>
+            <a href="http://localhost:8000/">
+                <div class="" style="background-color: blue;border-radius: 25px;">
+                    <div>
+                        <i class="fas fa-gas-pump" aria-hidden="true"
+                           style="color: #ffffff;font-size: 30px;margin-top: 3px"></i>
+                    </div>
+
+                    <p style="color: white">خانه</p>
+
                 </div>
+            </a>
+        </div>
 
-                <p style="color: white">خانه</p>
+        <div id="productButton" class="col-4" onclick="scrollToCenter()">
+            <a href="#"></a>
+            <i class="fas fa-shopping-cart" style="color: blue; font-size: 30px"></i>
+            <p>محصولات</p>
+        </div>
 
+
+        <div class="col-4">
+            <a href="http://localhost:8000/pay/">
+
+                <i class="fas fa-store" style="color: blue;font-size: 30px"></i>
+                <p style="color: black">فروشگاه</p>
+            </a>
+
+        </div>
+        <div class="row mx-auto p-3" style="justify-content: space-between">
+            <div class="col-5 d-flex align-items-center justify-content-center" style="margin-right: 15px;">
+                <a href="http://localhost:8000/order/" style="text-decoration: none;">
+                    <i class="fas fa-receipt" style="color: blue; font-size: 30px"></i>
+                    <p style="color: black; margin: 0;">سفارشات</p>
+                </a>
             </div>
-        </a>
-    </div>
-
-    <div id="productButton" class="col-4" onclick="scrollToCenter()">
-        <a href="#"></a>
-        <i class="fas fa-shopping-cart" style="color: blue; font-size: 30px"></i>
-        <p>محصولات</p>
-    </div>
-
-
-    <div class="col-4">
-        <a href="http://localhost:8000/pay/">
-
-            <i class="fas fa-store" style="color: blue;font-size: 30px"></i>
-            <p style="color: black">فروشگاه</p>
-        </a>
-
-    </div>
-    <div class="row mx-auto p-3" style="justify-content: space-between">
-        <div class="col-5 d-flex align-items-center justify-content-center" style="margin-right: 15px;">
-            <a href="http://localhost:8000/order/" style="text-decoration: none;">
-                <i class="fas fa-receipt" style="color: blue; font-size: 30px"></i>
-                <p style="color: black; margin: 0;">سفارشات</p>
-            </a>
+            <div class="col-5 d-flex align-items-center justify-content-center" style="margin-left: 15px;">
+                <a href="http://localhost:8000/contact/" style="text-decoration: none;">
+                    <i class="fas fa-phone-volume" style="color: blue; font-size: 30px"></i>
+                    <p style="color: black; margin: 0; white-space: nowrap;">ارتباط با ما</p>
+                </a>
+            </div>
         </div>
-        <div class="col-5 d-flex align-items-center justify-content-center" style="margin-left: 15px;">
-            <a href="http://localhost:8000/contact/" style="text-decoration: none;">
-                <i class="fas fa-phone-volume" style="color: blue; font-size: 30px"></i>
-                <p style="color: black; margin: 0; white-space: nowrap;">ارتباط با ما</p>
-            </a>
-        </div>
+
+
     </div>
-
-
-</div>
 </div>
 <div class="container mt-3 p-5 d-md-none ">
     <div class="row">
