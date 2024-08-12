@@ -24,7 +24,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+import os
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Application definition
 
@@ -54,7 +56,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 NESHAN_API_KEY = 'service.635b663733764f07971a0db7fb50d668'
 
 ROOT_URLCONF = 'sokht.urls'
@@ -78,17 +79,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sokht.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sokht',  # نام دیتابیس که ایجاد کردید
-        'USER': 'postgres',  # نام کاربری PostgreSQL
-        'PASSWORD': '1010',  # رمز عبور PostgreSQL (همان رمزی که وارد کردید)
-        'HOST': 'localhost',  # میزبان
-        'PORT': '5432',  # پورت پیش‌فرض PostgreSQL
+        'NAME': 'fuelitir_sokht',
+        'USER': 'fuelitir_sokhtuser',
+        'PASSWORD': '1010',
+        'HOST': '127.0.0.200',
+        'PORT': '5432',
     }
 }
 
@@ -122,9 +121,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
