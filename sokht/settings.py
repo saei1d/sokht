@@ -20,9 +20,9 @@ AUTH_USER_MODEL = "client.CustomUser"
 SECRET_KEY = 'django-insecure-4plbvt-%+wty)6#fs(^=#_9v_7&(n#ptx4j*)e$l@p@3ul3(^o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fuelit.ir','www.fuelit.ir']
 
 import os
 
