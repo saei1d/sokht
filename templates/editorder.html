@@ -18,6 +18,27 @@
 </head>
 <body style="background-color: #BF0A30">
 {% include 'header.html' %}
+<style>
+    .sticky-message {
+        position: fixed;
+        top: 10%;
+        left: 0;
+        right: 0;
+        background-color: blue;
+        color: white;
+        padding: 10px;
+        margin: 0;
+        width: 320px;
+        height: 100px;
+        z-index: 1000;
+        border-radius: 30px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        font-size: 15px;
+    }
+
+
+</style>
+
 {#    #desktop#}
 <div class="container d-none d-md-block">
     <div class="row">
@@ -50,9 +71,9 @@
 </div>
 
 
-<div class="container col-md-6 bg-light mb-5" style="border-radius: 40px ">
+<div class="container mx-auto col-md-6 bg-light mb-5" style="border-radius: 40px ">
     {% if msg %}
-        <p style="background-color: crimson">{{ msg }}</p>
+        <p class="sticky-message  mx-auto text-center" id="stickyMsg">{{ msg }}</p>
     {% endif %}
     <form method="POST" id="order-form" style="padding: 40px">
         {% csrf_token %}
@@ -127,7 +148,7 @@
                     ذخیره اطلاعات
                 </button>
             </div>
-                    <div class="text-center col-12">
+            <div class="text-center col-12">
                 <button class="col-12  button  d-md-none mx-auto" style="background-color: #1ebe12;"
                         type="submit">
                     ذخیره اطلاعات
@@ -137,15 +158,13 @@
         </div>
     </form>
 
-{#    <form action="{% url 'delete' order.id %}" method="post">#}
-{#        {% csrf_token %}#}
-{#        <button  type="submit" class="d-none d-md-block col-md-5  button float-left"#}
-{#                style="background-color: blue">#}
-{#            حذف سفارش#}
-{#        </button>#}
-{#    </form>#}
-
-
+    {#    <form action="{% url 'delete' order.id %}" method="post">#}
+    {#        {% csrf_token %}#}
+    {#        <button  type="submit" class="d-none d-md-block col-md-5  button float-left"#}
+    {#                style="background-color: blue">#}
+    {#            حذف سفارش#}
+    {#        </button>#}
+    {#    </form>#}
 
 
 </div>
@@ -182,7 +201,6 @@
         });
     }
 
-
     // محصولات و قیمت‌هایشان
     const productPrices = {
         {% for product in products %}
@@ -190,27 +208,51 @@
         {% endfor %}
     };
 
-    function updatePrice() {
-        const productElement = document.getElementById('product');
-        const quantityElement = document.getElementById('quantity');
-        const priceElement = document.getElementById('price');
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const inputField = document.getElementById('price');
+        const placeholderText = 'ابتدا محصول و لیتر را انتخاب کنید.';
+        let currentIndex = 0;
+        let scrolling = true;
 
-        const selectedProduct = productElement.value;
-        const quantity = quantityElement.value;
+        function scrollText() {
+            if (scrolling) {
+                inputField.value = placeholderText.slice(currentIndex) + ' ' + placeholderText.slice(0, currentIndex);
+                currentIndex = (currentIndex + 1) % placeholderText.length;
+            }
+        }
 
-        console.log('Selected Product:', selectedProduct);
-        console.log('Quantity:', quantity);
-        console.log('Product Prices:', productPrices);
+        setInterval(scrollText, 200);
 
-        if (selectedProduct && quantity) {
-            const pricePerUnit = productPrices[selectedProduct];
-            console.log('Price per unit:', pricePerUnit);
-            const totalPrice = pricePerUnit * quantity;
-            priceElement.value = totalPrice + ' تومان';
+        window.updatePrice = function () {
+            const productElement = document.getElementById('product');
+            const quantityElement = document.getElementById('quantity');
+            const selectedProduct = productElement.value;
+            const quantity = quantityElement.value;
+
+            if (selectedProduct && quantity) {
+                const pricePerUnit = productPrices[selectedProduct];
+                const totalPrice = pricePerUnit * quantity;
+                inputField.value = totalPrice + ' تومان';
+                scrolling = false; // Stop the scrolling
+            }
+        }
+    });
+
+    window.onload = function () {
+        initMap(); // بارگذاری نقشه
+        hideMessage(); // مخفی کردن پیام
+    };
+
+
+    // تابع برای مخفی کردن پیام بعد از 5 ثانیه
+    function hideMessage() {
+        const msgElement = document.getElementById('stickyMsg');
+        if (msgElement) {
+            setTimeout(function () {
+                msgElement.style.display = 'none'; // مخفی کردن پیام
+            }, 5000); // 5000 میلی‌ثانیه = 5 ثانیه
         }
     }
-
-    window.onload = initMap;
 </script>
 </body>
 </html>
