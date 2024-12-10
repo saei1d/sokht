@@ -22,7 +22,7 @@ SECRET_KEY = 'django-insecure-4plbvt-%+wty)6#fs(^=#_9v_7&(n#ptx4j*)e$l@p@3ul3(^o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['fuelit.ir','www.fuelit.ir']
+ALLOWED_HOSTS = ["*"]
 
 import os
 
@@ -79,15 +79,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sokht.wsgi.application'
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # موتور PostgreSQL
-        'NAME': 'postgres',  # نام دیتابیس
-        'USER': 'root',      # نام کاربر دیتابیس
-        'PASSWORD': 'pBD9HfCDjw7hhQpNaUf7aRPz',      # رمز عبور کاربر
-        'HOST': 'sokht',     # آدرس سرور PostgreSQL
-        'PORT': '5432',      # شماره پورت PostgreSQL
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'saei1d$database_name',  # نام دیتابیس شما
+        'USER': 'saei1d',                # نام کاربری
+        'PASSWORD': '1010S1010s',  # رمزعبور دیتابیس شما
+        'HOST': 'saei1d.mysql.pythonanywhere-services.com',  # آدرس هاست
+        'PORT': '3306',                  # پورت پیش‌فرض MySQL
     }
 }
 
