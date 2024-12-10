@@ -82,12 +82,12 @@ WSGI_APPLICATION = 'sokht.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fuelitir_sokht',
-        'USER': 'fuelitir_sokhtuser',
-        'PASSWORD': '1010',
-        'HOST': '127.0.0.200',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.postgresql',  # موتور PostgreSQL
+        'NAME': 'postgres',  # نام دیتابیس
+        'USER': 'root',      # نام کاربر دیتابیس
+        'PASSWORD': 'pBD9HfCDjw7hhQpNaUf7aRPz',      # رمز عبور کاربر
+        'HOST': 'sokht',     # آدرس سرور PostgreSQL
+        'PORT': '5432',      # شماره پورت PostgreSQL
     }
 }
 
