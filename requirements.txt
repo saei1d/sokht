@@ -1,6 +1,7 @@
 django
 pytz
 requests
-psycopg2-binary
+mysqlclient
+pymysql
 
 
