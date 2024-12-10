@@ -85,10 +85,11 @@ DATABASES = {
         'NAME': 'saei1d$fuel',
         'USER': 'saei1d',
         'PASSWORD': '1010S1010s',
-        'HOST': 'saei1d.mysql.pythonanywhere-services.com',
+        'HOST': 'localhost',  # یا آدرس IP معتبر
         'PORT': '3306',
     }
 }
+
 
 
 
