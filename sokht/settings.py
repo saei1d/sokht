@@ -82,13 +82,14 @@ WSGI_APPLICATION = 'sokht.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'saei1d$fuel',  # نام دیتابیس شما
-        'USER': 'saei1d',                # نام کاربری
-        'PASSWORD': '1010S1010s',  # رمزعبور دیتابیس شما
-        'HOST': 'saei1d.mysql.pythonanywhere-services.com',  # آدرس هاست
+        'NAME': 'saei1d$fuel',
+        'USER': 'saei1d',
+        'PASSWORD': '1010S1010s',
+        'HOST': 'saei1d.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
+
 
 
 
