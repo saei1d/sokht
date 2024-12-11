@@ -123,9 +123,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     # "/var/www/static/",
 ]
-
-# مسیر ذخیره‌سازی فایل‌های استاتیک جمع‌آوری شده
-STATIC_ROOT = '/home/saeidkhan/sokht/static/'
+STATIC_ROOT = '/home/saeidkhan/sokht/staticfiles'
 
 
 # Default primary key field type
