@@ -20,7 +20,7 @@ AUTH_USER_MODEL = "client.CustomUser"
 SECRET_KEY = 'django-insecure-4plbvt-%+wty)6#fs(^=#_9v_7&(n#ptx4j*)e$l@p@3ul3(^o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -79,19 +79,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sokht.wsgi.application'
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'saei1d$fuel',
+#         'USER': 'saei1d',
+#         'PASSWORD': '1010S1010s',
+#         'HOST': 'saei1d.mysql.pythonanywhere-services.com',
+#         'PORT': '3306',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'saei1d$fuel',
-        'USER': 'saei1d',
-        'PASSWORD': '1010S1010s',
-        'HOST': 'saei1d.mysql.pythonanywhere-services.com',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

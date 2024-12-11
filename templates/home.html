@@ -8,9 +8,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     {% load static %}
-
-
-    {% load static %}
     <link rel="icon" type="image/png" href="{% static 'images/fav2.png' %}">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -122,7 +119,7 @@
     <div class="row">
         <div class="col-md-4">
             {% load static %}
-            <img src="{% static  "images/nemodar.png" %}" alt="">
+            <img src="{% static  " images/nemodar.png" %}" alt="">
         </div>
         <div class="col-md-6 text-right mt-5 pt-4" style="margin-left: 150px;font-size: 19px;">
             <span> <strong style="color:blueviolet "> آیا می دانستید </strong>مردم امروزه بخش قابل توجهی از وقت خود را در صف‌های پمپ بنزین می‌گذرانند و در این میان، <span
@@ -157,53 +154,53 @@
         <div class="container" id="productButton">
             <div class="row pt-5 m-auto">
                 {% for product in products %}
-                    <div class="col-md-12 col-lg-4 pb-3">
-                        <div class="card card-custom bg-white border-white border-0">
-                            <div class="card-custom-img"
-                                 style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
-                            <div class="card-custom-avatar">
-                                {% if product.name == "بنزین معمولی" %}
-                                    <img src="{% static 'images/mamoli.jpg' %}"
-                                         alt="mamoli" style="object-fit: cover">
-                                {% elif product.name == "بنزین سوپر" %}
-                                    <img src="{% static 'images/super.jpg' %}"
-                                         alt="mamoli" style="object-fit: cover">
-                                {% elif product.name == "بنزین یورو 6" %}
-                                    <img src="{% static 'images/euro4.jpg' %}"
-                                         alt="mamoli" style="object-fit: cover">
-                                {% endif %}
+                <div class="col-md-12 col-lg-4 pb-3">
+                    <div class="card card-custom bg-white border-white border-0">
+                        <div class="card-custom-img"
+                             style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+                        <div class="card-custom-avatar">
+                            {% if product.name == "بنزین معمولی" %}
+                            <img src="{% static 'images/mamoli.jpg' %}"
+                                 alt="mamoli" style="object-fit: cover">
+                            {% elif product.name == "بنزین سوپر" %}
+                            <img src="{% static 'images/super.jpg' %}"
+                                 alt="mamoli" style="object-fit: cover">
+                            {% elif product.name == "بنزین یورو 6" %}
+                            <img src="{% static 'images/euro4.jpg' %}"
+                                 alt="mamoli" style="object-fit: cover">
+                            {% endif %}
 
-                            </div>
-                            <div class="card-body text-right" style="overflow-y: auto">
-                                <h4 class="card-title">{{ product.name }}</h4>
-                                {% if product.name == "بنزین سوپر" %}
-                                    <p class="card-text">بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور و بهبود
-                                        عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در محفظه احتراق
-                                        و
-                                        طولانی‌تر شدن عمر موتور می‌گردد
-                                    </p>
-                                {% elif product.name == "بنزین معمولی" %}
-                                    <p> بنزین معمولی با عدد اکتان پایینتر و سوخت مناسب میتواند قدرت خوبی به موتور بدهد
-                                        تا شتاب مناسب داشته باشد و بعد از گاز مایع ئر قدرت ترین نوع سوخت میباشد و با این
-                                        حال پرطرفدار ترین سوخت موتوری دنیا است</p>
-                                {% elif product.name == "بنزین یورو 6" %}
-                                    <p>یورو 6 یکی از سوخت های تجدید پذیر و محرک عالی برای خودرو ها است از انجا که سوخت
-                                        بسار سبکی طلقی میشود ولی قدرت خوبی دارد و الودگی بسار کمی ایجاد میکند و برای
-                                        محیط زیست اسیب کمتری دارد</p>
-                                {% endif %}
+                        </div>
+                        <div class="card-body text-right" style="overflow-y: auto">
+                            <h4 class="card-title">{{ product.name }}</h4>
+                            {% if product.name == "بنزین سوپر" %}
+                            <p class="card-text">بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور و بهبود
+                                عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در محفظه احتراق
+                                و
+                                طولانی‌تر شدن عمر موتور می‌گردد
+                            </p>
+                            {% elif product.name == "بنزین معمولی" %}
+                            <p> بنزین معمولی با عدد اکتان پایینتر و سوخت مناسب میتواند قدرت خوبی به موتور بدهد
+                                تا شتاب مناسب داشته باشد و بعد از گاز مایع ئر قدرت ترین نوع سوخت میباشد و با این
+                                حال پرطرفدار ترین سوخت موتوری دنیا است</p>
+                            {% elif product.name == "بنزین یورو 6" %}
+                            <p>یورو 6 یکی از سوخت های تجدید پذیر و محرک عالی برای خودرو ها است از انجا که سوخت
+                                بسار سبکی طلقی میشود ولی قدرت خوبی دارد و الودگی بسار کمی ایجاد میکند و برای
+                                محیط زیست اسیب کمتری دارد</p>
+                            {% endif %}
 
-                                <span class="card-text">قیمت هر لیتر{% if product.price == 7400 %}
+                            <span class="card-text">قیمت هر لیتر{% if product.price == 7400 %}
                                     7 هزار 400 تومان {% elif product.price == 10000 %} 10 هزار تومان  {% else %}3 هزار
                                     500 تومان{% endif %}  </span>
-                            </div>
-                            <div class="card-footer"
-                                 style="background: inherit; border-color: inherit; border-radius: 20px;">
-                                <a href="https://fuelit.ir/pay/{{ product.product_id }}/" class="btn btn-primary">ثبت
-                                    سفارش</a>
-                            </div>
                         </div>
-                        <!-- Copy until here -->
+                        <div class="card-footer"
+                             style="background: inherit; border-color: inherit; border-radius: 20px;">
+                            <a href="https://fuelit.ir/pay/{{ product.product_id }}/" class="btn btn-primary">ثبت
+                                سفارش</a>
+                        </div>
                     </div>
+                    <!-- Copy until here -->
+                </div>
                 {% endfor %}
             </div>
         </div>
@@ -216,7 +213,7 @@
     <div class="row mt-5">
         <div class="col-md-6">
             {% load static %}
-            <img src="{% static  "images/Chart Title.png" %}" alt="">
+            <img src="{% static  " images/Chart Title.png" %}" alt="">
         </div>
         <div class="col-md-4 text-right mt-5 pt-5" style="margin-left: 150px;font-size: 19px;">
             <p>چارت روبرو نشان دهنده <strong>تراکم جمعیت در مراکز سوختگیری شهر قم </strong> میباشد,با انتخاب درست در
@@ -317,7 +314,7 @@
         </div>
         <div class="mx-auto">
             {% load static %}
-            <img class="col-12" src="{% static  "images/nemodar.png" %}" alt="">
+            <img class="col-12" src="{% static  " images/nemodar.png" %}" alt="">
         </div>
 
     </div>
@@ -338,60 +335,60 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         {% for product in products %}
-                            <div class="carousel-item {% if product.product_id == 1 %} active {% else %} {% endif %} ">
-                                <div class="card card-custom bg-white border-white border-0">
-                                    <div class="card-custom-img"
-                                         style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
-                                    <div class="card-custom-avatar">
-                                        {% if product.name == "بنزین معمولی" %}
-                                            <img src="{% static 'images/mamoli.jpg' %}"
-                                                 alt="mamoli" style="object-fit: cover">
-                                        {% elif product.name == "بنزین سوپر" %}
-                                            <img src="{% static 'images/super.jpg' %}"
-                                                 alt="mamoli" style="object-fit: cover">
-                                        {% elif product.name == "بنزین یورو 6" %}
-                                            <img src="{% static 'images/euro4.jpg' %}"
-                                                 alt="mamoli" style="object-fit: cover">
-                                        {% endif %}
+                        <div class="carousel-item {% if product.product_id == 1 %} active {% else %} {% endif %} ">
+                            <div class="card card-custom bg-white border-white border-0">
+                                <div class="card-custom-img"
+                                     style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+                                <div class="card-custom-avatar">
+                                    {% if product.name == "بنزین معمولی" %}
+                                    <img src="{% static 'images/mamoli.jpg' %}"
+                                         alt="mamoli" style="object-fit: cover">
+                                    {% elif product.name == "بنزین سوپر" %}
+                                    <img src="{% static 'images/super.jpg' %}"
+                                         alt="mamoli" style="object-fit: cover">
+                                    {% elif product.name == "بنزین یورو 6" %}
+                                    <img src="{% static 'images/euro4.jpg' %}"
+                                         alt="mamoli" style="object-fit: cover">
+                                    {% endif %}
 
-                                    </div>
-                                    <div class="card-body text-right" style="overflow-y: auto">
-                                        <h4 class="card-title">{{ product.name }}</h4>
-                                        {% if product.name == "بنزین سوپر" %}
-                                            <p class="card-text">بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور
-                                                و بهبود
-                                                عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در
-                                                محفظه احتراق
-                                                و
-                                                طولانی‌تر شدن عمر موتور می‌گرددو...
-                                            </p>
-                                        {% elif product.name == "بنزین معمولی" %}
-                                            <p> بنزین معمولی با عدد اکتان پایینتر و سوخت مناسب میتواند قدرت خوبی به
-                                                موتور بدهد
-                                                تا شتاب مناسب داشته باشد و بعد از گاز مایع ئر قدرت ترین نوع سوخت میباشد
-                                                و با این
-                                                حال پرطرفدار ترین سوخت موتوری دنیا است</p>
-                                        {% elif product.name == "بنزین یورو 6" %}
-                                            <p>یورو 6 یکی از سوخت های تجدید پذیر و محرک عالی برای خودرو ها است از انجا
-                                                که سوخت
-                                                بسار سبکی طلقی میشود ولی قدرت خوبی دارد و الودگی بسار کمی ایجاد میکند و
-                                                برای
-                                                محیط زیست اسیب کمتری دارد</p>
-                                        {% endif %}
+                                </div>
+                                <div class="card-body text-right" style="overflow-y: auto">
+                                    <h4 class="card-title">{{ product.name }}</h4>
+                                    {% if product.name == "بنزین سوپر" %}
+                                    <p class="card-text">بنزین سوپر با عدد اکتان بالاتر، باعث افزایش قدرت موتور
+                                        و بهبود
+                                        عملکرد خودرو می‌شود. همچنین، مصرف بنزین سوپر منجر به کاهش رسوبات در
+                                        محفظه احتراق
+                                        و
+                                        طولانی‌تر شدن عمر موتور می‌گرددو...
+                                    </p>
+                                    {% elif product.name == "بنزین معمولی" %}
+                                    <p> بنزین معمولی با عدد اکتان پایینتر و سوخت مناسب میتواند قدرت خوبی به
+                                        موتور بدهد
+                                        تا شتاب مناسب داشته باشد و بعد از گاز مایع ئر قدرت ترین نوع سوخت میباشد
+                                        و با این
+                                        حال پرطرفدار ترین سوخت موتوری دنیا است</p>
+                                    {% elif product.name == "بنزین یورو 6" %}
+                                    <p>یورو 6 یکی از سوخت های تجدید پذیر و محرک عالی برای خودرو ها است از انجا
+                                        که سوخت
+                                        بسار سبکی طلقی میشود ولی قدرت خوبی دارد و الودگی بسار کمی ایجاد میکند و
+                                        برای
+                                        محیط زیست اسیب کمتری دارد</p>
+                                    {% endif %}
 
-                                        <span class="card-text">قیمت هر لیتر{% if product.price == 7400 %}
+                                    <span class="card-text">قیمت هر لیتر{% if product.price == 7400 %}
                                             7 هزار 400 تومان {% elif product.price == 10000 %} 10 هزار تومان  {% else %}
                                             3 هزار
                                             500 تومان{% endif %}  </span>
-                                    </div>
-                                    <div class="card-footer"
-                                         style="background: inherit; border-color: inherit; border-radius: 20px;">
-                                        <a href="https://fuelit.ir/pay/{{ product.product_id }}/"
-                                           class="btn btn-primary">ثبت
-                                            سفارش</a>
-                                    </div>
+                                </div>
+                                <div class="card-footer"
+                                     style="background: inherit; border-color: inherit; border-radius: 20px;">
+                                    <a href="https://fuelit.ir/pay/{{ product.product_id }}/"
+                                       class="btn btn-primary">ثبت
+                                        سفارش</a>
                                 </div>
                             </div>
+                        </div>
 
                         {% endfor %}
                     </div>
@@ -426,7 +423,7 @@
         </div>
         <div>
             {% load static %}
-            <img class="col-12" src="{% static  "images/Chart Title.png" %}" alt="">
+            <img class="col-12" src="{% static  " images/Chart Title.png" %}" alt="">
         </div>
 
     </div>
