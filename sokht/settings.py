@@ -118,11 +118,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
+# مسیرهایی برای جستجوی فایل‌های استاتیک
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     # "/var/www/static/",
 ]
+
+# مسیر ذخیره‌سازی فایل‌های استاتیک جمع‌آوری شده
 STATIC_ROOT = '/home/saeidkhan/sokht/static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
