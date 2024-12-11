@@ -79,27 +79,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sokht.wsgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'saei1d$fuel',
-#         'USER': 'saei1d',
-#         'PASSWORD': '1010S1010s',
-#         'HOST': 'saei1d.mysql.pythonanywhere-services.com',
-#         'PORT': '3306',
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'saeidkhan$default',
+        'USER': 'saeidkhan',
+        'PASSWORD': 'mohammad@',
+        'HOST': 'saeidkhan.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
     }
 }
-
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
